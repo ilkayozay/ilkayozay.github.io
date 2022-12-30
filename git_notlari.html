@@ -16,6 +16,14 @@
           rel="stylesheet" type="text/css"/>
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet"/>
+
+    <link rel="stylesheet" href="./dist/highlight/styles/base16/google-dark.min.css">
+    <script src="./dist/highlight/highlight.min.js"></script>
+
+
+    <link rel="stylesheet" href="./dist/highlightjs-copy-button/highlightjs-copy.min.css"/>
+    <script src="./dist/highlightjs-copy-button/highlightjs-copy.min.js"></script>
+
 </head>
 <body>
 <!-- Navigation-->
@@ -38,7 +46,7 @@
                     <h2 class="subheading"> Bir projenim Github ile entegrasyonu </h2>
                     <span class="meta">
                                 Posted on December 29, 2022
-                            </span>
+                    </span>
                 </div>
             </div>
         </div>
@@ -49,21 +57,90 @@
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-8">
-                <p> Git ile ilgili işlemleri Git Bash konsolundan yada "cmd" ile açılan Komut İstemi (Command Prompt) ekranından yapabiliriz
+                <p> Git ile ilgili işlemleri Git Bash konsolundan yada "cmd" ile açılan Komut İstemi (Command Prompt)
+                    ekranından yapabiliriz
                 </p>
                 <ul>
                     <li>
                         <p>
-                            GIT konfigürasyon ayarlarını görnek için <b>"git config --list --show-origin"</b> komutu çalıştırılır.
+                            GIT konfigürasyon ayarlarını görnek için :
                         </p>
+                        <pre class="m-0">
+<code class="language-bash">git config --list --show-origin
+</code>
+                </pre>
+                        <p class="mt-0">Örneğin, çıktı şu şekilde olabilir:</p>
+                        <pre class="m-0">
+<code class="language-bash">file:/c/ProgramData/Git/config   core.autocrlf=true
+file:/c/ProgramData/Git/config   http.sslbackend=openssl
+file:/c/Users/username/.gitconfig   user.name=User Name
+file:/c/Users/username/.gitconfig   user.email=User.Name@gmail.com
+</code>
+                </pre>
+                    <p class="mt-2 mb-2">Bu çıktıda, user.name ayarı C:\Users\username\.gitconfig dosyasından okunmuştur,
+                        core.autocrlf ayarı ise C:\ProgramData\Git\config dosyasından okunmuştur.</p>
+
+                    <p class="mt-2 mb-2">
+                        C:\ProgramData\Git\etc\gitconfig dosyası, sistem-seviyesi git ayarlarının saklandığı bir dosyadır.
+                        Bu dosya, tüm kullanıcılar tarafından paylaşılan ve tüm projelerde kullanılacak olan ayarları içerir.
+                    </p>
+                    <p class="mt-2 mb-2">
+                        Genellikle, bu dosya, bir sistem yöneticisi tarafından oluşturulur ve değiştirilir.
+                        Örneğin, bir sistem yöneticisi, tüm kullanıcıların aynı dil ayarını kullanmasını sağlamak için
+                        C:\ProgramData\Git\etc\gitconfig dosyasında i18n.commitencoding ayarını değiştirebilir.
+                    </p>
+                    <p class="mt-2 ">
+                        Eğer sistem-seviyesi git ayarlarını değiştirmek istiyorsanız, C:\ProgramData\Git\etc\gitconfig dosyasını düzenleyebilirsiniz. Ancak, bu dosyayı değiştirirken dikkatli olmanız gerekiyor, çünkü bu dosya tüm kullanıcılar ve tüm projeler için geçerlidir ve yanlış bir değişiklik yaparsanız, tüm kullanıcılar ve projeler etkilenebilir.
+                        Eğer bu dosyayı değiştirecekseniz öncesinde bir yedek almakta fayda vardır.
+                    </p>
+
+                        <p class="mt-4 mb-2 ">
+                            <b>Tüm userların için konfigürasyon</b> ve <b>sadece ilgii user için GLOBAL seviyede konfigürasyona</b> ek olarak
+                            proje klasörü içerisinde de bir konfigürasyon söz konusudur.
+                        </p>
+
+                        </pre >
+                        <p class="mt-0">Örneğin, çıktı şu şekilde olabilir:</p>
+                        <pre style="margin-bottom: -2rem ">
+<code class="language-bash">file:.git/config        core.repositoryformatversion=0
+file:.git/config        core.filemode=false
+file:.git/config        core.bare=false
+file:.git/config        core.logallrefupdates=true
+file:.git/config        core.symlinks=false
+file:.git/config        core.ignorecase=true
+:
+
+</code>
+                </pre>
+                        <p class="mt-0"><b><i> İlgili ekrandan çıkıp command prompt'a dönmek için "q" ya basılmalıdır. </i> </b></p>
                     </li>
                     <li>
+                        <p class="mt-0"> Sadece user bazında "GLOBAL" git ayarlarını görmek için :</p>
+                        <pre class="m-0">
+<code class="language-bash">git config --list --show-origin | findstr "USERNAME/.gitconfig"
+</code>
+                </pre>
+                    </li>
+
+                    <li>
+                        <p class="mt-0"> Proje klasörü içerisinde değilde sadece İlgili user için "GLOBAL" seviyede git ayarlarını değiştirmek için :</p>
+                        <pre class="m-0">
+<code class="language-bash">git config --global user.name "example"
+git config --global user.email "email@example.com"
+</code>
+                </pre>
 
                     </li>
 
                 </ul>
 
-
+<pre>
+<code>
+function name() {
+    console.log("output")
+}
+</code>
+</pre>
 
                 <p>
                     Burada mesele şu. Aynı anda 2 worker bu kaydı okumaya başlayıp iki ayrı mail gitmesi olasıdır. Bunu
@@ -107,5 +184,12 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Core theme JS-->
 <script src="js/scripts.js"></script>
+<script>hljs.highlightAll();
+hljs.addPlugin(new CopyButtonPlugin(
+    {  }
+));
+</script>
+
+
 </body>
 </html>
