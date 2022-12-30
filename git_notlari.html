@@ -34,7 +34,7 @@
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <div class="post-heading">
-                    <h1>En Basit Seviyede Git Notları</h1>
+                    <h1>Basit Seviyede Git Notları</h1>
                     <h2 class="subheading"> Bir projenim Github ile entegrasyonu </h2>
                     <span class="meta">
                                 Posted on December 29, 2022
@@ -48,18 +48,23 @@
 <article class="mb-1">
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
-            <div class="col-md-10 col-lg-8 col-xl-7">
-                <p> Bir veritabanında bir tabloya sürekli olarak gönderilmesi gereken maillerin yazıldığını (insert row)
-                    varsayalım.
-                    Varsayılan olarak her kaydın statüsü "pending" olsun.
+            <div class="col-md-10 col-lg-8 col-xl-8">
+                <p> Git ile ilgili işlemleri Git Bash konsolundan yada "cmd" ile açılan Komut İstemi (Command Prompt) ekranından yapabiliriz
                 </p>
-                <p>
-                    Diğer taraftada birden fazla "worker" ın bu kayıtları işlemesi gerekiyor.
-                    Şöyleki "worker" bir kaydı alacak ve kaydın statüsünü "running" e çekecek. Kaydı commitleyecek ve
-                    mail gönderim sürecini başlatacak.
-                    Mail gönderme işlemi normal olarak "async" bir metodla yapılacak. Gönderim başarılı olursa kaydın
-                    durumu "sent" olarak güncellenecek.
-                </p>
+                <ul>
+                    <li>
+                        <p>
+                            GIT konfigürasyon ayarlarını görnek için <b>"git config --list --show-origin"</b> komutu çalıştırılır.
+                        </p>
+                    </li>
+                    <li>
+
+                    </li>
+
+                </ul>
+
+
+
                 <p>
                     Burada mesele şu. Aynı anda 2 worker bu kaydı okumaya başlayıp iki ayrı mail gitmesi olasıdır. Bunu
                     engellemek için kaydı okurken
