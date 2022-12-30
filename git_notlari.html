@@ -24,6 +24,16 @@
     <link rel="stylesheet" href="./dist/highlightjs-copy-button/highlightjs-copy.min.css"/>
     <script src="./dist/highlightjs-copy-button/highlightjs-copy.min.js"></script>
 
+    <style>
+        ul {
+            padding-left: 1rem;
+        }
+
+        p {
+            text-align: justify
+        }
+    </style>
+
 </head>
 <body>
 <!-- Navigation-->
@@ -57,8 +67,19 @@
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-8">
-                <p> Git ile ilgili işlemleri Git Bash konsolundan yada "cmd" ile açılan Komut İstemi (Command Prompt)
-                    ekranından yapabiliriz
+
+                <p style="text-indent: 2em"> Bu yazıda Windows'da bilgisayarımızdaki bir projenin git ile nasıl Github'a
+                    aktarılacağının anlatacağım.
+                    Ancak bilgisayar da "git" uygulamasının kurulduğunu ve GitHub'da bir hesabınızın olduğunu
+                    varsayıyorum.
+                    Eğer Github hesabınız yoksa, GitHub'ın web sitesinden ücretsiz bir hesap oluşturabilirsiniz.
+                    Ayrıca git kurulumunu <a href="https://git-scm.com/downloads"> https://git-scm.com/downloads</a>
+                    adresinden yapabilirsiniz.
+                </p>
+
+                <p style="text-indent: 2em"> Git ile ilgili işlemleri Git Bash konsolundan yada "cmd" ile açılan Komut
+                    İstemi (Command Prompt)
+                    ekranından yapabiliriz.
                 </p>
                 <ul>
                     <li>
@@ -77,30 +98,41 @@ file:/c/Users/username/.gitconfig   user.name=User Name
 file:/c/Users/username/.gitconfig   user.email=User.Name@gmail.com
 </code>
                 </pre>
-                    <p class="mt-2 mb-2">Bu çıktıda, user.name ayarı C:\Users\username\.gitconfig dosyasından okunmuştur,
-                        core.autocrlf ayarı ise C:\ProgramData\Git\config dosyasından okunmuştur.</p>
+                        <p class="mt-2 mb-2" style="text-indent: 2em">Bu çıktıda, user.name ayarı
+                            C:\Users\username\.gitconfig dosyasından okunmuştur,
+                            core.autocrlf ayarı ise C:\ProgramData\Git\config dosyasından okunmuştur.</p>
 
-                    <p class="mt-2 mb-2">
-                        C:\ProgramData\Git\etc\gitconfig dosyası, sistem-seviyesi git ayarlarının saklandığı bir dosyadır.
-                        Bu dosya, tüm kullanıcılar tarafından paylaşılan ve tüm projelerde kullanılacak olan ayarları içerir.
-                    </p>
-                    <p class="mt-2 mb-2">
-                        Genellikle, bu dosya, bir sistem yöneticisi tarafından oluşturulur ve değiştirilir.
-                        Örneğin, bir sistem yöneticisi, tüm kullanıcıların aynı dil ayarını kullanmasını sağlamak için
-                        C:\ProgramData\Git\etc\gitconfig dosyasında i18n.commitencoding ayarını değiştirebilir.
-                    </p>
-                    <p class="mt-2 ">
-                        Eğer sistem-seviyesi git ayarlarını değiştirmek istiyorsanız, C:\ProgramData\Git\etc\gitconfig dosyasını düzenleyebilirsiniz. Ancak, bu dosyayı değiştirirken dikkatli olmanız gerekiyor, çünkü bu dosya tüm kullanıcılar ve tüm projeler için geçerlidir ve yanlış bir değişiklik yaparsanız, tüm kullanıcılar ve projeler etkilenebilir.
-                        Eğer bu dosyayı değiştirecekseniz öncesinde bir yedek almakta fayda vardır.
-                    </p>
+                        <p class="mt-2 mb-2" style="text-indent: 2em">
+                            C:\ProgramData\Git\etc\gitconfig dosyası, sistem-seviyesi git ayarlarının saklandığı bir
+                            dosyadır.
+                            Bu dosya, tüm kullanıcılar tarafından paylaşılan ve tüm projelerde kullanılacak olan
+                            ayarları içerir.
+                        </p>
+                        <p class="mt-2 mb-2" style="text-indent: 2em">
+                            Genellikle, bu dosya, bir sistem yöneticisi tarafından oluşturulur ve değiştirilir.
+                            Örneğin, bir sistem yöneticisi, tüm kullanıcıların aynı dil ayarını kullanmasını sağlamak
+                            için
+                            C:\ProgramData\Git\etc\gitconfig dosyasında i18n.commitencoding ayarını değiştirebilir.
+                        </p>
+                        <p class="mt-2 " style="text-indent: 2em">
+                            Eğer sistem-seviyesi git ayarlarını değiştirmek istiyorsanız,
+                            C:\ProgramData\Git\etc\gitconfig dosyasını düzenleyebilirsiniz. Ancak, bu dosyayı
+                            değiştirirken dikkatli olmanız gerekiyor, çünkü bu dosya tüm kullanıcılar ve tüm projeler
+                            için geçerlidir ve yanlış bir değişiklik yaparsanız, tüm kullanıcılar ve projeler
+                            etkilenebilir.
+                            Eğer bu dosyayı değiştirecekseniz öncesinde bir yedek almakta fayda vardır.
+                        </p>
 
-                        <p class="mt-4 mb-2 ">
-                            <b>Tüm userların için konfigürasyon</b> ve <b>sadece ilgii user için GLOBAL seviyede konfigürasyona</b> ek olarak
-                            proje klasörü içerisinde de bir konfigürasyon söz konusudur.
+                        <p class="mt-4 mb-2" style="text-indent: 2em">
+                            Git içinde farklı yerde konfigürasyon mevcuttur. <b>"Tüm userlar için konfigürasyon"</b> ,
+                            <b>"sadece ilgii user için GLOBAL seviyede konfigürasyona"</b> ve son olarak
+                            <b>"proje klasörü içerisinde konfigürasyon"</b>.
                         </p>
 
                         </pre >
-                        <p class="mt-0">Örneğin, çıktı şu şekilde olabilir:</p>
+                        <p class="mt-0" style="text-indent: 2em">Proje klasörü içerinden <b>git config --list
+                            --show-origin</b> komutu çağrılırsa,
+                            proje için örneğin çıktı şu şekilde olabilir:</p>
                         <pre style="margin-bottom: -2rem ">
 <code class="language-bash">file:.git/config        core.repositoryformatversion=0
 file:.git/config        core.filemode=false
@@ -112,7 +144,8 @@ file:.git/config        core.ignorecase=true
 
 </code>
                 </pre>
-                        <p class="mt-0"><b><i> İlgili ekrandan çıkıp command prompt'a dönmek için "q" ya basılmalıdır. </i> </b></p>
+                        <p class="mt-0"><b><i> İlgili ekrandan çıkıp command prompt'a dönmek için "q" ya
+                            basılmalıdır. </i> </b></p>
                     </li>
                     <li>
                         <p class="mt-0"> Sadece user bazında "GLOBAL" git ayarlarını görmek için :</p>
@@ -123,7 +156,8 @@ file:.git/config        core.ignorecase=true
                     </li>
 
                     <li>
-                        <p class="mt-0"> Proje klasörü içerisinde değilde sadece İlgili user için "GLOBAL" seviyede git ayarlarını değiştirmek için :</p>
+                        <p class="mt-0"> Proje klasörü içerisinde değilde sadece İlgili user için "GLOBAL" seviyede git
+                            ayarlarını değiştirmek için :</p>
                         <pre class="m-0">
 <code class="language-bash">git config --global user.name "example"
 git config --global user.email "email@example.com"
@@ -132,28 +166,210 @@ git config --global user.email "email@example.com"
 
                     </li>
 
+                    <p>
+                        <b>
+                        Yeni bir proje klasörü yaratıp bunu github'a yüklemek için sırasıyla şu komutlar uygulanmalıdır.
+                    </b>
+                    </p>
+                    <li>
+                        <p class="mt-0"> Komut İstemi ekranındayken Example_Project klasörü yaratılır</p>
+                        <pre class="m-0">
+<code class="language-bash">md Example_Project
+</code>
+                </pre>
+
+                        <p class="mt-0"> "cd Example_Project" denilip klasör içine girdikten sonra bir python dosyası
+                            yaratılır</p>
+                        <pre class="m-0">
+<code class="language-bash">echo print ("hello wordl") > hello.py
+</code>
+                </pre>
+
+                    </li>
+
+                    </li>
+
+
+                    <li>
+                        <p class="mt-0"> Daha sonra, klasör içinde bulunan dosyaları Git ile izleyebilmek için,
+                            klasörün içinden git init komutu çalıştırılır.
+                            Bu komut, klasörü bir Git depo (repository) haline getirir.</p>
+                        <pre class="m-0">
+<code class="language-bash">git init
+</code>
+<code class="language-bash">
+Initialized empty Git repository in D:/Workspace/GitHub/Example_Project/.git/
+</code>
+                </pre>
+
+                    </li>
+
+                    <li>
+                        <p class="mt-0"> Daha sonra, git add . komutu çalıştırılarak tüm dosyalar Git'e eklenir.
+                            Bu komut, klasördeki tüm dosyaların Git tarafından izlemeye alınmasını sağlar.</p>
+                        <pre class="m-0">
+<code class="language-bash">git add .
+</code>
+                </pre>
+
+                    </li>
+
+                    <li>
+                        <p class="mt-0"> Devamında ise, git commit -m "initial commit" komutu çalıştırılarak yapılan işlemlerin onayı sağlanır.
+                            "-m" den sonra gelen açıklamada yapılan değişiklikler anlatılır. "initial commit yada ilk commit" gibi bir açıklama ile esasında
+                            projenin ilk halindeki tüm dosyaların bir ilk sürümünü oluşturduğumuzu beyan ediyoruz. </p>
+                        <pre class="m-0">
+<code class="language-bash">git commit -m "initial commit"
+</code>
+<code class="language-bash">
+[master (root-commit) 228967a] initial commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 hello.py
+</code>
+                </pre>
+
+                    </li>
+
+                    <li>
+                        <p> Github a login olduktan sonra orada bir repository yaratmamız gerekiyor
+                        </p>
+                        <div>
+                            <img src="./assets/github_new.JPG" alt="Resim"  style="width: 100%">
+                        </div>
+
+
+                    </li>
+
+                    <li>
+                        <p> New tuşuna bastıktan sonra repository'e bir ad vermemiz gerekli.
+                            Buradaki isim bilgisayardaki klasördeki isimle aynı olmak zorunda değil.
+                        </p>
+                        <div>
+                            <img src="./assets/github_repo_name.JPG" alt="Resim"  style="width: 100%">
+                        </div>
+
+                    </li>
+
+                    <li>
+                        <p> Diğer tüm ayarlar olduğu gibi bırakılıp en altta yer alan "Create Repository" tuşuna basılınca repository yaratılmış olacaktır.
+                        </p>
+                        <div>
+                            <img src="./assets/github_repo_created.JPG" alt="Resim"  style="width: 100%">
+                            <img src="./assets/github_repo_created_2.JPG" alt="Resim"  style="width: 100%">
+                        </div>
+                    </li>
+
+
+                    <li>
+                        <p class="mt-6"> Github'da repository yaratarak aslında bilgisayardaki projenin gönderileceği adresi belirlemiş olduk. Bu aşamada gönderimi yapabiliriz ancak isteğe göre bir adım daha olabilir.
+                        Şöyleki github bize aşağıdaki gibi bir komut öneriyor. Bu komut mevcut çalışılan "master" branch'in adını "main" olarak değiştirir.
+                            Bu değişiklik, Git'de repository'lerin ana branch'inin "master" olmak yerine "main" olmasını sağlar.
+                            Bu, Git'in kökenlerine dayanan bir karar olarak kabul edilir ve "main" branch'inin daha anlaşılır bir ad olmasını amaçlar.</p>
+                        <pre class="m-0">
+<code class="language-bash">git branch -M main
+</code>
+                </pre>
+
+                    </li>
+
+                    <li>
+                        <p class="mt-0">
+                            Aşağıdaki komut ile projemizi Github'daki repository'e adreslemiş olacağız.
+                        </p>
+                        <pre class="m-0">
+<code class="language-bash">git remote add origin https://github.com/ilkayozay/ornek-proje.git
+</code>
+                </pre>
+
+                    </li>
+
+                    <li>
+                        <p class="mt-0 ">
+                            Son komut ile projemizi artık Github'a yükleme talimatı vermiş oluyoruz ( Github'a "push" etmiş oluyoruz).
+                        </p>
+                        <pre class="m-0">
+<code class="language-bash">git push -u origin main
+</code>
+<code class="language-bash">Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 232 bytes | 77.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/ilkayozay/ornek-proje.git
+ * [new branch]      main -> main
+Branch 'main' set up to track remote branch 'main' from 'origin'.
+</code>
+                </pre>
+
+                        <p class="mt-3 bg-black"  style="color: red" >
+                            Eğer "git branch -M main" komutu kullanılmaz ise varsayılan branch adı "master" kalacaktır.
+                            Bu nedenle branch adı değiştirilmemişse komut aşağıdaki gibi olmalıdır. Sondaki "master" a dikkat!
+                        </p>
+                        <pre class="m-0">
+<code class="language-bash">git push -u origin master
+</code>
+<code class="language-bash">Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 232 bytes | 77.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/ilkayozay/ornek_proje.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+</code>
+                </pre>
+
+                    </li>
+
+
+                    <li>
+                        <p class=""> <b> Yaratmış olduğumuz repository silmek istersek bunun için setting menüsüne gidilir. </b>
+                        </p>
+                        <div>
+                            <img src="./assets/github_settings.JPG" alt="Resim"  style="width: 100%">
+                        </div>
+
+                    </li>
+
+                    <li>
+                        <p class="mt-3"> <b> Açılan ekranda en alt kısımda yer alan
+                            "Danger Zone" sekmesinde "Delete this repository" tuşuna basarak repository silinebilir. </b>
+                            Repository'nin silinmesi önemli bir işlem olduğu için onay için Github şifresi sorulacaktır.
+                        </p>
+                        <div>
+                            <img src="./assets/github_danger_zone.JPG" alt="Resim"  style="width: 100%">
+                        </div>
+
+                    </li>
+
                 </ul>
 
-<pre>
-<code>
-function name() {
-    console.log("output")
-}
-</code>
-</pre>
-
-                <p>
-                    Burada mesele şu. Aynı anda 2 worker bu kaydı okumaya başlayıp iki ayrı mail gitmesi olasıdır. Bunu
-                    engellemek için kaydı okurken
-                    "with_for_update()" komutu ile kaydı okursak SQL Alchemy okunan kayda "bu işlem commitlenene kadar"
-                    geçici lock koymuş olacak.
-                    Lock koyulduğunda bu kaydı okumak isteyen bir "transaction" lock ortadan kalkana kadar beklemek
-                    zorunda kalacak.
-                    Bu bekleme süresi "belirli bir limiti" geçerse zaten bu "diğer transaction" hata almış olacaktır.
+                <h3 > Son Bir Not</h3>
+                <p > GitHub üzerinde yayınladığınız projeler için "README.md" dosyası eklemek bir zorunluluk olmamakla
+                    birlikte eklenmesinin bir çok faydası vardır:
                 </p>
+                <ul>
+                    <li>
+                        <p>
+                            README dosyası, proje hakkında bilgi verir ve projenin amacını, kullanımını ve yükleme
+                            kurallarını açıklar. Bu sayede projeyi kullanan kişiler, projeyi anlamaya
+                            ve kullanmaya daha kolay başlayabilir.
+                        </p>
+                    </li>
+                    <li>
+                        <p> Projenin daha profesyonel bir görünüm kazanmasına yardımcı olur. </p>
+                    </li>
+                    <li>
+                        <p> README dosyası, projenin daha fazla kişi tarafından keşfedilmesine yardımcı olur. </p>
+                    </li>
+                </ul>
 
-                <p> Şimdi bu yazılanları test edebileceğim kodları paylaşıyorum.</p>
+                <p> README.md dosyası üretmek için doğrudan Github üzerinde de çalışmaya başlayabilirsiniz.
+                    Ancak bir tool kullanmak işi kolaylaştıracaktır. <a href="https://readme.so/editor"> https://readme.so/editor </a>
+                    bu konuda başarılı gözüküyor. Denemekte fayda var </p>
 
+
+                <div>
+                    <img src="./assets/readme_so_editor.JPG" alt="Resim"  style="width: 100%">
+                </div>
 
             </div>
         </div>
@@ -186,7 +402,7 @@ function name() {
 <script src="js/scripts.js"></script>
 <script>hljs.highlightAll();
 hljs.addPlugin(new CopyButtonPlugin(
-    {  }
+    {}
 ));
 </script>
 
