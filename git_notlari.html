@@ -53,7 +53,7 @@
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <div class="post-heading">
                     <h1>Basit Seviyede Git Notları</h1>
-                    <h2 class="subheading"> Bir projenim Github ile entegrasyonu </h2>
+                    <h2 class="subheading"> Bir projenin Github ile entegrasyonu </h2>
                     <span class="meta">
                                 Posted on December 29, 2022
                     </span>
@@ -193,7 +193,12 @@ git config --global user.email "email@example.com"
                     <li>
                         <p class="mt-0"> Daha sonra, klasör içinde bulunan dosyaları Git ile izleyebilmek için,
                             klasörün içinden git init komutu çalıştırılır.
-                            Bu komut, klasörü bir Git depo (repository) haline getirir.</p>
+                            Bu komut, klasörü bir Git depo (repository) haline getirir. </p>
+                        <p>Bu komutu çalıştırıldığında, o klasör içinde bir ".git" adlı gizli bir klasör oluşturulur.
+                            Bu klasör, o klasör içindeki değişikliklerin takip edilebilmesi için gerekli olan dosyaları içerir.
+                            Bu dosyalar, git log dosyası, git config dosyası gibi dosyalardır.
+                            Bu dosyalar sayesinde, o klasör içinde yapılan değişikliklerin tarihçesi tutulur
+                            ve değişikliklerin yönetimi yapılabilir.</p>
                         <pre class="m-0">
 <code class="language-bash">git init
 </code>
@@ -341,6 +346,34 @@ Branch 'master' set up to track remote branch 'master' from 'origin'.
                     </li>
 
                 </ul>
+
+                <h4 > Toplu Halde Komutlar </h4>
+
+                <pre style="margin-bottom: -2rem">
+<code class="language-bash">git init
+</code>
+                </pre>
+
+                <pre style="margin-bottom: -2rem">
+<code class="language-bash">git add .
+</code>
+                </pre>
+                <pre style="margin-bottom: -2rem">
+<code class="language-bash">git commit -m "Yapılan değişikliklerin özeti"
+</code>
+                </pre>
+                <pre style="margin-bottom: -2rem">
+<code class="language-bash">git remote add origin https://github.com/githesap_adi/proje_repository.git
+</code>
+                </pre>
+                <pre style="margin-bottom: -2rem">
+<code class="language-bash">git push -u origin master
+</code>
+                </pre>
+                <p class="mt-2"> Klasör bir kere yüklendikten sonra, sonradan yapılan güncellemelerin &lt;update&gt;
+                    Github repo'ya atılması için sırasıyla "add" ,"commit" ve "push" yeterlidir.
+                </p>
+
 
                 <h3 > Son Bir Not</h3>
                 <p > GitHub üzerinde yayınladığınız projeler için "README.md" dosyası eklemek bir zorunluluk olmamakla
