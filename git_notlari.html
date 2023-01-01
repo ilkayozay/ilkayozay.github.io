@@ -17,12 +17,11 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet"/>
 
-    <link rel="stylesheet" href="./dist/highlight/styles/base16/google-dark.min.css">
-    <script src="./dist/highlight/highlight.min.js"></script>
+    <link rel="stylesheet" href="./dist/prismjs/prism.css">
+    <script src="./dist/prismjs/prism.js"></script>
 
 
-    <link rel="stylesheet" href="./dist/highlightjs-copy-button/highlightjs-copy.min.css"/>
-    <script src="./dist/highlightjs-copy-button/highlightjs-copy.min.js"></script>
+
 
     <style>
         ul {
@@ -32,6 +31,73 @@
         p {
             text-align: justify
         }
+    </style>
+
+
+    <style>
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: border-box;
+        }
+
+        pre[class*="language-bash"] {
+            position: relative;
+            overflow: auto;
+
+            /* make space  */
+            margin: 5px 0;
+            padding: 1.05rem 0 1.05rem 1rem;
+            border-radius: 10px;
+        }
+
+        pre[class*="kodcikti"] {
+            position: relative;
+            overflow: auto;
+            /* make space  */
+            /* make space  */
+            margin: 5px 0;
+            padding: 1.05rem 0 1.05rem 1rem;
+            border-radius: 10px;
+            font-size: 1rem;
+        }
+
+        pre[class*="language-"] button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+
+            font-size: 0.9rem;
+            padding: 0.15rem;
+            background-color: #828282;
+
+            border: ridge 1px #7b7b7c;
+            border-radius: 5px;
+            text-shadow: #c4c4c4 0 0 2px;
+        }
+
+
+
+        pre[class*="language-"] button:hover {
+            cursor: pointer;
+            background-color: #bcbabb;
+        }
+
+        .onemli_uyari {
+            background-color: #ffc107;
+            background-image: linear-gradient(to right, #ffc107, #ff8b5f);
+            font-weight: bold;
+            /* make space  */
+            /* make space  */
+            margin: 5px 0;
+            margin-bottom: 20px;
+            padding: 1.05rem 1.05rem 1rem 1rem;
+            border-radius: 10px;
+            font-size: 1rem;
+        }
+
+
     </style>
 
 </head>
@@ -86,18 +152,15 @@
                         <p>
                             GIT konfigürasyon ayarlarını görnek için :
                         </p>
-                        <pre class="m-0">
-<code class="language-bash">git config --list --show-origin
-</code>
-                </pre>
+                        <pre >
+<code class="language-bash">git config --list --show-origin</code></pre>
                         <p class="mt-0">Örneğin, çıktı şu şekilde olabilir:</p>
-                        <pre class="m-0">
+                        <pre class="kodcikti" >
 <code class="language-bash">file:/c/ProgramData/Git/config   core.autocrlf=true
 file:/c/ProgramData/Git/config   http.sslbackend=openssl
 file:/c/Users/username/.gitconfig   user.name=User Name
 file:/c/Users/username/.gitconfig   user.email=User.Name@gmail.com
-</code>
-                </pre>
+</code></pre>
                         <p class="mt-2 mb-2" style="text-indent: 2em">Bu çıktıda, user.name ayarı
                             C:\Users\username\.gitconfig dosyasından okunmuştur,
                             core.autocrlf ayarı ise C:\ProgramData\Git\config dosyasından okunmuştur.</p>
@@ -125,7 +188,7 @@ file:/c/Users/username/.gitconfig   user.email=User.Name@gmail.com
 
                         <p class="mt-4 mb-2" style="text-indent: 2em">
                             Git içinde farklı yerde konfigürasyon mevcuttur. <b>"Tüm userlar için konfigürasyon"</b> ,
-                            <b>"sadece ilgii user için GLOBAL seviyede konfigürasyona"</b> ve son olarak
+                            <b>"sadece ilgii user için GLOBAL seviyede konfigürasyon"</b> ve son olarak
                             <b>"proje klasörü içerisinde konfigürasyon"</b>.
                         </p>
 
@@ -133,36 +196,31 @@ file:/c/Users/username/.gitconfig   user.email=User.Name@gmail.com
                         <p class="mt-0" style="text-indent: 2em">Proje klasörü içerinden <b>git config --list
                             --show-origin</b> komutu çağrılırsa,
                             proje için örneğin çıktı şu şekilde olabilir:</p>
-                        <pre style="margin-bottom: -2rem ">
+                        <pre class="kodcikti">
 <code class="language-bash">file:.git/config        core.repositoryformatversion=0
 file:.git/config        core.filemode=false
 file:.git/config        core.bare=false
 file:.git/config        core.logallrefupdates=true
 file:.git/config        core.symlinks=false
 file:.git/config        core.ignorecase=true
-:
-
-</code>
-                </pre>
+:</code></pre>
                         <p class="mt-0"><b><i> İlgili ekrandan çıkıp command prompt'a dönmek için "q" ya
                             basılmalıdır. </i> </b></p>
                     </li>
                     <li>
                         <p class="mt-0"> Sadece user bazında "GLOBAL" git ayarlarını görmek için :</p>
-                        <pre class="m-0">
-<code class="language-bash">git config --list --show-origin | findstr "USERNAME/.gitconfig"
-</code>
-                </pre>
+                        <pre >
+<code class="language-bash">
+git config --list --show-origin | findstr "USERNAME/.gitconfig"
+</code></pre>
                     </li>
 
                     <li>
                         <p class="mt-0"> Proje klasörü içerisinde değilde sadece İlgili user için "GLOBAL" seviyede git
                             ayarlarını değiştirmek için :</p>
-                        <pre class="m-0">
+                        <pre >
 <code class="language-bash">git config --global user.name "example"
-git config --global user.email "email@example.com"
-</code>
-                </pre>
+git config --global user.email "email@example.com"</code></pre>
 
                     </li>
 
@@ -173,17 +231,13 @@ git config --global user.email "email@example.com"
                     </p>
                     <li>
                         <p class="mt-0"> Komut İstemi ekranındayken Example_Project klasörü yaratılır</p>
-                        <pre class="m-0">
-<code class="language-bash">md Example_Project
-</code>
-                </pre>
+                        <pre >
+<code class="language-bash">md Example_Project</code></pre>
 
                         <p class="mt-0"> "cd Example_Project" denilip klasör içine girdikten sonra bir python dosyası
                             yaratılır</p>
-                        <pre class="m-0">
-<code class="language-bash">echo print ("hello wordl") > hello.py
-</code>
-                </pre>
+                        <pre >
+<code class="language-bash">echo print ("hello wordl") > hello.py</code></pre>
 
                     </li>
 
@@ -199,23 +253,17 @@ git config --global user.email "email@example.com"
                             Bu dosyalar, git log dosyası, git config dosyası gibi dosyalardır.
                             Bu dosyalar sayesinde, o klasör içinde yapılan değişikliklerin tarihçesi tutulur
                             ve değişikliklerin yönetimi yapılabilir.</p>
-                        <pre class="m-0">
-<code class="language-bash">git init
-</code>
-<code class="language-bash">
-Initialized empty Git repository in D:/Workspace/GitHub/Example_Project/.git/
-</code>
-                </pre>
+                        <pre >
+<code class="language-bash">git init</code></pre>
+    <pre class="kodcikti"><code class="language-bash">Initialized empty Git repository in D:/Workspace/GitHub/Example_Project/.git/</code></pre>
 
                     </li>
 
                     <li>
                         <p class="mt-0"> Daha sonra, git add . komutu çalıştırılarak tüm dosyalar Git'e eklenir.
                             Bu komut, klasördeki tüm dosyaların Git tarafından izlemeye alınmasını sağlar.</p>
-                        <pre class="m-0">
-<code class="language-bash">git add .
-</code>
-                </pre>
+                        <pre >
+<code class="language-bash">git add .</code></pre>
 
                     </li>
 
@@ -223,15 +271,12 @@ Initialized empty Git repository in D:/Workspace/GitHub/Example_Project/.git/
                         <p class="mt-0"> Devamında ise, git commit -m "initial commit" komutu çalıştırılarak yapılan işlemlerin onayı sağlanır.
                             "-m" den sonra gelen açıklamada yapılan değişiklikler anlatılır. "initial commit yada ilk commit" gibi bir açıklama ile esasında
                             projenin ilk halindeki tüm dosyaların bir ilk sürümünü oluşturduğumuzu beyan ediyoruz. </p>
-                        <pre class="m-0">
-<code class="language-bash">git commit -m "initial commit"
-</code>
-<code class="language-bash">
-[master (root-commit) 228967a] initial commit
+                        <pre >
+<code class="language-bash">git commit -m "initial commit"</code></pre>
+
+<pre class="kodcikti"><code class="language-bash">[master (root-commit) 228967a] initial commit
  1 file changed, 1 insertion(+)
- create mode 100644 hello.py
-</code>
-                </pre>
+ create mode 100644 hello.py</code></pre>
 
                     </li>
 
@@ -270,10 +315,8 @@ Initialized empty Git repository in D:/Workspace/GitHub/Example_Project/.git/
                         Şöyleki github bize aşağıdaki gibi bir komut öneriyor. Bu komut mevcut çalışılan "master" branch'in adını "main" olarak değiştirir.
                             Bu değişiklik, Git'de repository'lerin ana branch'inin "master" olmak yerine "main" olmasını sağlar.
                             Bu, Git'in kökenlerine dayanan bir karar olarak kabul edilir ve "main" branch'inin daha anlaşılır bir ad olmasını amaçlar.</p>
-                        <pre class="m-0">
-<code class="language-bash">git branch -M main
-</code>
-                </pre>
+                        <pre >
+<code class="language-bash">git branch -M main</code></pre>
 
                     </li>
 
@@ -281,10 +324,8 @@ Initialized empty Git repository in D:/Workspace/GitHub/Example_Project/.git/
                         <p class="mt-0">
                             Aşağıdaki komut ile projemizi Github'daki repository'e adreslemiş olacağız.
                         </p>
-                        <pre class="m-0">
-<code class="language-bash">git remote add origin https://github.com/ilkayozay/ornek-proje.git
-</code>
-                </pre>
+                        <pre >
+<code class="language-bash">git remote add origin https://github.com/ilkayozay/ornek-proje.git</code></pre>
 
                     </li>
 
@@ -292,35 +333,29 @@ Initialized empty Git repository in D:/Workspace/GitHub/Example_Project/.git/
                         <p class="mt-0 ">
                             Son komut ile projemizi artık Github'a yükleme talimatı vermiş oluyoruz ( Github'a "push" etmiş oluyoruz).
                         </p>
-                        <pre class="m-0">
-<code class="language-bash">git push -u origin main
-</code>
-<code class="language-bash">Enumerating objects: 3, done.
+                        <pre ><code class="language-bash">git push -u origin main</code></pre>
+<pre class="kodcikti"><code class="language-bash">Enumerating objects: 3, done.
 Counting objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 232 bytes | 77.00 KiB/s, done.
 Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
 To https://github.com/ilkayozay/ornek-proje.git
  * [new branch]      main -> main
-Branch 'main' set up to track remote branch 'main' from 'origin'.
-</code>
-                </pre>
+Branch 'main' set up to track remote branch 'main' from 'origin'.</code></pre>
 
-                        <p class="mt-3 bg-black"  style="color: red" >
+                        <p class="mt-3 onemli_uyari "   >
                             Eğer "git branch -M main" komutu kullanılmaz ise varsayılan branch adı "master" kalacaktır.
                             Bu nedenle branch adı değiştirilmemişse komut aşağıdaki gibi olmalıdır. Sondaki "master" a dikkat!
                         </p>
-                        <pre class="m-0">
-<code class="language-bash">git push -u origin master
-</code>
+                        <pre >
+<code class="language-bash">git push -u origin master</code></pre>
+<pre class="kodcikti">
 <code class="language-bash">Enumerating objects: 3, done.
 Counting objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 232 bytes | 77.00 KiB/s, done.
 Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
 To https://github.com/ilkayozay/ornek_proje.git
  * [new branch]      master -> master
-Branch 'master' set up to track remote branch 'master' from 'origin'.
-</code>
-                </pre>
+Branch 'master' set up to track remote branch 'master' from 'origin'.</code></pre>
 
                     </li>
 
@@ -349,27 +384,18 @@ Branch 'master' set up to track remote branch 'master' from 'origin'.
 
                 <h4 > Toplu Halde Komutlar </h4>
 
-                <pre style="margin-bottom: -2rem">
-<code class="language-bash">git init
-</code>
-                </pre>
+                <pre >
+<code class="language-bash">git init</code></pre>
 
-                <pre style="margin-bottom: -2rem">
-<code class="language-bash">git add .
-</code>
-                </pre>
-                <pre style="margin-bottom: -2rem">
-<code class="language-bash">git commit -m "Yapılan değişikliklerin özeti"
-</code>
-                </pre>
-                <pre style="margin-bottom: -2rem">
-<code class="language-bash">git remote add origin https://github.com/githesap_adi/proje_repository.git
-</code>
-                </pre>
-                <pre style="margin-bottom: -2rem">
-<code class="language-bash">git push -u origin master
-</code>
-                </pre>
+                <pre >
+<code class="language-bash">git add .</code></pre>
+                <pre >
+<code class="language-bash">git commit -m "Yapılan değişikliklerin özeti"</code></pre>
+                <pre >
+<code class="language-bash" style="font-size: 1.1rem">
+git remote add origin https://github.com/githesap_adi/proje_repository.git</code></pre>
+                <pre >
+<code class="language-bash">git push -u origin master</code></pre>
                 <p class="mt-2"> Klasör bir kere yüklendikten sonra, sonradan yapılan güncellemelerin &lt;update&gt;
                     Github repo'ya atılması için sırasıyla "add" ,"commit" ve "push" yeterlidir.
                 </p>
@@ -433,10 +459,50 @@ Branch 'master' set up to track remote branch 'master' from 'origin'.
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Core theme JS-->
 <script src="js/scripts.js"></script>
-<script>hljs.highlightAll();
-hljs.addPlugin(new CopyButtonPlugin(
-    {}
-));
+
+
+
+<script>
+
+    const copyButtonLabel = "Copy Code";
+
+    // use a class selector if available
+    let blocks = document.querySelectorAll("pre:not(.kodcikti)");
+
+    blocks.forEach((block) => {
+        // only add button if browser supports Clipboard API
+        if (navigator.clipboard) {
+            let button = document.createElement("button");
+
+            button.innerText = copyButtonLabel;
+            block.appendChild(button);
+
+            button.addEventListener("click", async () => {
+                await copyCode(block, button);
+            });
+        }
+    });
+
+    async function copyCode(block, button) {
+        let code = block.querySelector("code");
+        let text = code.innerText;
+
+        await navigator.clipboard.writeText(text);
+
+        // visual feedback that task is completed
+        button.innerText = "Code Copied";
+
+        setTimeout(() => {
+            button.innerText = copyButtonLabel;
+        }, 700);
+    }
+
+
+</script>
+
+
+<script>
+
 </script>
 
 

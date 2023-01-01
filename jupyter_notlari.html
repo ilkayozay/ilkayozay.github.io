@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title>Jupyter Notes </title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico"/>
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet"
+          type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+          rel="stylesheet" type="text/css"/>
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet"/>
+
+    <link rel="stylesheet" href="./dist/prismjs/prism.css">
+
+    <script src="./dist/prismjs/prism.js"></script>
+
+
+
+
+    <style>
+        ul {
+            padding-left: 1rem;
+        }
+
+        p {
+            text-align: justify
+        }
+
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: border-box;
+        }
+
+        pre[class*="language-bash"] {
+            position: relative;
+            overflow: auto;
+
+            /* make space  */
+            margin: 5px 0;
+            padding: 1.05rem 0 1.05rem 1rem;
+            border-radius: 10px;
+        }
+
+        pre[class*="kodcikti"] {
+            position: relative;
+            overflow: auto;
+            /* make space  */
+            /* make space  */
+            margin: 5px 0;
+            padding: 1.05rem 0 1.05rem 1rem;
+            border-radius: 10px;
+            font-size: 1rem;
+        }
+
+        pre[class*="language-"] button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+
+            font-size: 0.9rem;
+            padding: 0.15rem;
+            background-color: #828282;
+
+            border: ridge 1px #7b7b7c;
+            border-radius: 5px;
+            text-shadow: #c4c4c4 0 0 2px;
+        }
+
+        pre[class*="language-"] button:hover {
+            cursor: pointer;
+            background-color: #bcbabb;
+        }
+
+
+
+
+    </style>
+
+
+
+
+</head>
+<body>
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+    <div class="container px-4 px-lg-5">
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html">Home</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Page Header-->
+<header class="masthead" style="background-image: url('assets/img/post-bg.jpg')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="post-heading">
+                    <h1>Jupyter İçin Temel Bilgiler</h1>
+                    <h2 class="subheading"> Temel bazı komutlar </h2>
+                    <span class="meta">
+                                Posted on January 01, 2023
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Post Content-->
+<article class="mb-1">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-8">
+
+
+                <ul>
+                    <li>
+                        <p class="mb-3"> Öncelikle bir sanal ortamın (virtual environment) yaratılması gerekir. </p>
+
+                        <pre><code class="language-bash">python -m venv envforML
+</code></pre>
+
+
+                        <p class="mb-3"> <b> Kurulan sanal ortamın "mutlaka" <i>aktiflenmesi</i> gerekir.</b>
+                        Örneğin <b>D:\Workspace</b> klasöründe <b>envforML</b> ortamının yaratıldığını varsayalım.
+                            Aşağıdaki kodu çalıştırırsak çıktı bir alttaki gibi olacaktır. Yani sanal ortam içine girilmiştir. </p>
+
+                        <pre>
+<code class="language-bash">envforML\Scripts\activate</code></pre>
+                        <pre class="kodcikti">
+<code class="language-bash">(envforML) D:\Workspace></code></pre>
+
+                        <p > <b> Ortam aktifleştirildikten sonra (sanal ortam içine girildikten sonra) </b> "Jupyter lab" yada "Jupyter notebook" için sanal ortam
+                            (virtual environment -  kernel) tanımlaması için
+                             ipykernel'in kurulu olması gerekir. "ipykernel'in" kurulumu için:</p>
+
+                        <pre>
+<code class="language-bash">pip install --user ipykernel</code></pre>
+
+
+                        <p class="mb-3">Artık Sanal ortamı Jupyter'e ekleyebiliriz :</p>
+
+                        <pre >
+<code class="language-bash">ipython kernel install --user --name=envforML</code></pre>
+<pre class="kodcikti">
+<code class="language-bash" style="font-size: 0.8rem">Installed kernelspec envforML in C:\Users\userxyz\AppData\Roaming\jupyter\kernels\envforML</code></pre>
+
+                    </li>
+
+                    <li>
+                        <p > Jupyter'de önyüzden seçilebilen kernellerin listesi:  </p>
+
+                        <pre >
+<code class="language-bash">jupyter kernelspec list</code></pre>
+<pre class="kodcikti"><code class="language-bash" style="font-size: 0.8rem">Available kernels:
+python3      C:\Users\userxyz\AppData\Roaming\Python\Python39\site-packages\ipykernel\resources
+env_torch    C:\Users\userxyz\AppData\Roaming\jupyter\kernels\env_torch
+envforml     C:\Users\userxyz\AppData\Roaming\jupyter\kernels\envforml</code></pre>
+
+                        <p><b>C:\Users\userxyz\AppData\Roaming\jupyter\kernels\envforml</b> klasörüne gidildiğinde
+                            orada bulunan kernel.json dosyası istenirse edit edilebilir. Dosyanın içeriği şu şekildedir: </p>
+                        <pre class="kodcikti"><code class="language-python" style="font-size: 0.8rem">{
+ "argv": [
+  "c:\\python39\\python.exe",
+  "-m",
+  "ipykernel_launcher",
+  "-f",
+  "{connection_file}"
+ ],
+ "display_name": "envforML",
+ "language": "python",
+ "metadata": {
+  "debugger": true
+ }
+}</code></pre>
+                        <p> Burada  "display_name": "envforML" özelliği değiştirilirse Jupyter'e yansıyacaktır </p>
+                    </li>
+
+
+                    <li>
+                        <p > Bir kernelin Jupyter'den kaldırılması (uninstall) için aşağıdaki komut kulllanılır. </p>
+
+                        <pre >
+<code class="language-bash">jupyter kernelspec uninstall env_torch</code></pre>
+                        <pre class="kodcikti"><code class="language-">Kernel specs to remove:
+  env_torch             C:\Users\userxyz\AppData\Roaming\jupyter\kernels\env_torch
+Remove 1 kernel specs [y/N]: y
+[RemoveKernelSpec] Removed C:\Users\userxyz\AppData\Roaming\jupyter\kernels\env_torch</code></pre>
+
+                        <p>
+                            Kernel'in jupyterden kaldırılması "sanal ortamın" silindiği anlamına gelmez. Sanal ortam diskte kurulduğu yerde kalacaktır.
+                            Sadece jupyter ile olan bağı koparılmış oluyor.
+                        </p>
+                    </li>
+
+
+                    <li>
+                        <p > Seçilen bir "Kernel"in içindeki python paketlerini görmek için şu komut kullanılır:  </p>
+
+                        <pre >
+<code class="language-bash">pip list</code></pre>
+                        <div style="background: linear-gradient(to right, orange, red);height: 10px;"> </div>
+                        <div class="shadow ">
+                            <img src="./assets/jupyter_pip_list.JPG" alt="Resim"  style="width: 100%">
+                        </div>
+                    </li>
+
+
+                </ul>
+
+
+            </div>
+        </div>
+    </div>
+</article>
+<!-- Footer-->
+<footer class="border-top">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <ul class="list-inline text-center">
+
+                    <li class="list-inline-item">
+                        <a href="#!">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                    </span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="small text-center text-muted fst-italic">İlkay Özay - 29 Aralık 2022</div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script src="js/scripts.js"></script>
+
+
+<script>
+
+const copyButtonLabel = "Copy Code";
+
+// use a class selector if available
+let blocks = document.querySelectorAll("pre:not(.kodcikti)");
+
+blocks.forEach((block) => {
+    // only add button if browser supports Clipboard API
+    if (navigator.clipboard) {
+        let button = document.createElement("button");
+
+        button.innerText = copyButtonLabel;
+        block.appendChild(button);
+
+        button.addEventListener("click", async () => {
+            await copyCode(block, button);
+        });
+    }
+});
+
+async function copyCode(block, button) {
+    let code = block.querySelector("code");
+    let text = code.innerText;
+
+    await navigator.clipboard.writeText(text);
+
+    // visual feedback that task is completed
+    button.innerText = "Code Copied";
+
+    setTimeout(() => {
+        button.innerText = copyButtonLabel;
+    }, 700);
+}
+
+
+</script>
+
+
+</body>
+</html>
