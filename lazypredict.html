@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title>Lazy Predict </title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico"/>
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet"
+          type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+          rel="stylesheet" type="text/css"/>
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet"/>
+
+    <link rel="stylesheet" href="./dist/prismjs/prism.css">
+    <script src="./dist/prismjs/prism.js"></script>
+
+
+    <style>
+        ul {
+            padding-left: 1rem;
+        }
+
+        p {
+            text-align: justify
+        }
+    </style>
+
+
+
+    <style>
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: border-box;
+        }
+
+        pre[class*="language-bash"] {
+            position: relative;
+            overflow: auto;
+
+            /* make space  */
+            margin: 5px 0;
+            padding: 1.05rem 0 1.05rem 1rem;
+            border-radius: 10px;
+        }
+
+        pre[class*="language-python"] {
+            position: relative;
+            overflow: auto;
+
+            /* make space  */
+            margin: 5px 0;
+            padding: 1.05rem 0 1.05rem 1rem;
+            border-radius: 10px;
+        }
+
+        pre[class*="kodcikti"] {
+            position: relative;
+            overflow: auto;
+            /* make space  */
+            /* make space  */
+            margin: 5px 0;
+            padding: 1.05rem 0 1.05rem 1rem;
+            border-radius: 10px;
+            font-size: 1rem;
+        }
+
+        pre[class*="language-"] button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+
+            font-size: 0.9rem;
+            padding: 0.15rem;
+            background-color: #828282;
+
+            border: ridge 1px #7b7b7c;
+            border-radius: 5px;
+            text-shadow: #c4c4c4 0 0 2px;
+        }
+
+
+
+        pre[class*="language-"] button:hover {
+            cursor: pointer;
+            background-color: #bcbabb;
+        }
+
+        .onemli_uyari {
+            background-color: #ffc107;
+            background-image: linear-gradient(to right, #ffc107, #ff8b5f);
+            font-weight: bold;
+            /* make space  */
+            /* make space  */
+            margin: 5px 0;
+            margin-bottom: 20px;
+            padding: 1.05rem 1.05rem 1rem 1rem;
+            border-radius: 10px;
+            font-size: 1rem;
+        }
+
+
+    </style>
+
+</head>
+<body>
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+    <div class="container px-4 px-lg-5">
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html">Home</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Page Header-->
+<header class="masthead" style="background-image: url('assets/img/deepmind-unsplash.jpg')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="post-heading">
+                    <h1>Lazy Predict</h1>
+                    <h2 class="subheading"> Sınıflandırma ve regresyon algoritması için en iyi sonucu veren algoritmayı hızlıca seçmek  </h2>
+                    <span class="meta">
+                                Posted on February 21, 2023
+                            </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Post Content-->
+<article class="mb-1">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-8">
+                <p> <b>Lazy Predict</b> kütüphanesi, Python'da kullanıcı tarafından verilen veri kümesine göre birçok makine öğrenimi algoritmasını
+                    otomatik olarak test eder ve sonuçları bir tablo şeklinde görüntüler.
+                <p><li>Makine öğrenimi modelleri, karmaşık bir yapıya sahip olabilir ve uygun bir hiperparametre ayarlaması gerektirir.</li></p>
+                <p><li>Model seçimi ve uygun hiperparametre ayarlaması için, birçok deneme ve yanılma süreci gereklidir.</li></p>
+                <p><li>Bu süreci kolaylaştırmak için Lazy Predict kütüphanesi geliştirilmiştir.</li></p>
+
+
+
+                </p>
+                <p>
+                    Bu kütüphane, bir dizi sınıflandırma ve regresyon algoritması için varsayılan hiperparametreler kullanarak,
+                    model performansını hızlı bir şekilde test etmek ve hangi algoritmanın veri kümesi için en iyi
+                    performansı gösterdiğini belirlemek için kullanılabilir.
+                    Bu, daha gelişmiş bir hiperparametre ayarlaması yapmak için iyi bir başlangıç noktası olabilir.
+                </p>
+                <p>
+                    Lazy Predict kütüphanesini  pip aracılığıyla yükleyebiliriz.
+                </p>
+
+                <pre >
+<code class="language-bash">pip install lazypredict</code></pre>
+
+                <p> Aşağıdaki kod Lazy Predict kütüphanesinin kullanımına bir örnektir</p>
+
+                <pre >
+<code class="language-python" style="font-size: 0.8rem">from lazypredict.Supervised import LazyClassifier
+from sklearn.datasets import load_digits
+from sklearn.model_selection import train_test_split
+
+data = load_digits()
+X = data.data
+y= data.target
+
+X_train, X_test, y_train, y_test = train_test_split(X, y,test_size=.3,random_state =12)
+
+clf = LazyClassifier(verbose=0,ignore_warnings=True, custom_metric=None)
+models,predictions = clf.fit(X_train, X_test, y_train, y_test)
+
+print(models)</code></pre>
+
+                <p> Kodun çıktısı aşağıdaki gibidir</p>
+
+                <pre class="kodcikti"><code class="language-python" style="font-size: 0.8rem">100%|█████████████████████████████████████████████████████████████████| 29/29 [00:03<00:00,  7.60it/s]
+                               Accuracy  Balanced Accuracy ROC AUC  F1 Score  \
+Model
+ExtraTreesClassifier               0.98               0.98    None      0.98
+SVC                                0.98               0.98    None      0.98
+RandomForestClassifier             0.97               0.97    None      0.97
+LGBMClassifier                     0.97               0.97    None      0.97
+LogisticRegression                 0.97               0.97    None      0.97
+XGBClassifier                      0.96               0.96    None      0.96
+KNeighborsClassifier               0.96               0.96    None      0.96
+CalibratedClassifierCV             0.96               0.96    None      0.96
+LinearSVC                          0.95               0.95    None      0.95
+PassiveAggressiveClassifier        0.95               0.95    None      0.95
+SGDClassifier                      0.94               0.94    None      0.95
+LinearDiscriminantAnalysis         0.94               0.94    None      0.94
+NuSVC                              0.94               0.94    None      0.94
+LabelSpreading                     0.94               0.94    None      0.94
+LabelPropagation                   0.94               0.94    None      0.94
+Perceptron                         0.94               0.94    None      0.94
+RidgeClassifierCV                  0.93               0.93    None      0.93
+RidgeClassifier                    0.93               0.93    None      0.93
+BaggingClassifier                  0.91               0.91    None      0.91
+NearestCentroid                    0.88               0.88    None      0.88
+BernoulliNB                        0.88               0.88    None      0.88
+QuadraticDiscriminantAnalysis      0.83               0.84    None      0.82
+DecisionTreeClassifier             0.84               0.84    None      0.84
+GaussianNB                         0.79               0.79    None      0.79
+ExtraTreeClassifier                0.77               0.77    None      0.77
+AdaBoostClassifier                 0.30               0.33    None      0.22
+DummyClassifier                    0.09               0.10    None      0.01
+
+                               Time Taken
+Model
+ExtraTreesClassifier                 0.21
+SVC                                  0.09
+RandomForestClassifier               0.30
+LGBMClassifier                       0.66
+LogisticRegression                   0.13
+XGBClassifier                        0.43
+KNeighborsClassifier                 0.05
+CalibratedClassifierCV               0.63
+LinearSVC                            0.14
+PassiveAggressiveClassifier          0.05
+SGDClassifier                        0.05
+LinearDiscriminantAnalysis           0.04
+NuSVC                                0.18
+LabelSpreading                       0.14
+LabelPropagation                     0.16
+Perceptron                           0.03
+RidgeClassifierCV                    0.04
+RidgeClassifier                      0.01
+BaggingClassifier                    0.13
+NearestCentroid                      0.02
+BernoulliNB                          0.01
+QuadraticDiscriminantAnalysis        0.05
+DecisionTreeClassifier               0.02
+GaussianNB                           0.02
+ExtraTreeClassifier                  0.01
+AdaBoostClassifier                   0.22
+DummyClassifier                      0.01  </code></pre>
+
+
+                <br>
+                <div style="background: linear-gradient(to right, yellow, yellowgreen);height: 10px;"> </div>
+
+
+                <p> <b>"KNeighborsClassifier" </b> için sonucu test edebiliriz </p>
+
+                <pre >
+<code class="language-python" style="font-size: 0.8rem">from sklearn.neighbors import KNeighborsClassifier
+from sklearn.datasets import load_digits
+from sklearn.model_selection import train_test_split
+
+# Veri kümesini yükle
+digits = load_digits()
+
+# Verileri ve hedef değişkeni (etiketleri) ayır
+X = digits.data
+y = digits.target
+
+# Eğitim ve test setlerini ayır
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=12)
+
+# KNeighborsClassifier sınıfını kullanarak bir sınıflandırıcı oluştur
+knn = KNeighborsClassifier(n_neighbors=3)
+
+# Sınıflandırıcıyı eğit
+knn.fit(X_train, y_train)
+
+# Test seti üzerinde tahmin yap
+y_pred = knn.predict(X_test)
+
+# Doğruluk oranını hesapla
+accuracy = knn.score(X_test, y_test)
+
+# Sonuçları yazdır
+# print("Tahminler:", y_pred)
+# print("Gerçek Değerler:", y_test)
+print("Doğruluk Oranı:", accuracy)
+</code></pre>
+
+                <p> Kodun çıktısı aşağıdaki gibidir. Bu sonuç yuvarlandığında "lazypredict" ile aynı değere sahiptir.
+                    Karşılaştırma yaparken test_size ve random_state değerlerinin aynı olmasına dikkat edilmelidir.</p>
+
+                <pre class="kodcikti"><code class="language-bash" style="font-size: 0.8rem">Doğruluk Oranı: 0.9851851851851852</code></pre>
+
+
+
+                <br>
+                <div style="background: linear-gradient(to right, lightskyblue, mediumblue);height: 10px;"> </div>
+
+
+
+                <p> Veri kümesi büyük ve yüksek boyutlu olduğunda veya özel bir makine öğrenimi algoritması kullanmanız
+                    gerektiğinde Lazy Predict kullanımı sınırlı olabilir. Aşağıdaki kodda "fashion mnist" dataset i kullanılmıştır. GPU
+                kullanılmadığı için sınırlı sayıda örneklem ile kod çalıştırılmaktadır. Aksi takdirde kodun çalışması çok çok uzun sürebilir .</p>
+                <p> Bu tür durumlarda tüm modellerin değilde belirli modellerin ölçümü yapılabilir. Bunun için  LazyClassifier'in
+                    "classifiers" özelliği kullanılacaktır.  </p>
+                <pre >
+<code class="language-python" style="font-size: 0.8rem">import tensorflow as tf
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from lazypredict.Supervised import LazyClassifier
+
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.neighbors import KNeighborsClassifier
+
+from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import AdaBoostClassifier
+
+# Load Fashion-MNIST dataset
+(x_train, y_train), (x_test, y_test) = tf.keras.datasets.fashion_mnist.load_data()
+
+# Select first 1000 images
+x_train = x_train[:1000]
+y_train = y_train[:1000]
+
+x_test = x_test[:1000]
+y_test = y_test[:1000]
+
+# Flatten images to 1D array
+x_train = x_train.reshape((x_train.shape[0], -1))
+x_test = x_test.reshape((x_test.shape[0], -1))
+
+# Split dataset into train and test sets
+x_train, x_val, y_train, y_val = train_test_split(x_train, y_train, test_size=0.2, random_state=42)
+
+# Normalize data
+scaler = StandardScaler()
+x_train = scaler.fit_transform(x_train)
+x_val = scaler.transform(x_val)
+x_test = scaler.transform(x_test)
+
+# Define the models you want to test
+classifiers = [LogisticRegression,AdaBoostClassifier, KNeighborsClassifier, RandomForestClassifier]
+
+# Initialize LazyClassifier with classifiers parameter
+#clf = LazyClassifier(verbose=0, ignore_warnings=True, custom_metric=None)
+clf = LazyClassifier(verbose=0, ignore_warnings=True, custom_metric=None,  classifiers =classifiers)
+
+# Fit and train the model
+models, predictions = clf.fit(x_train, x_val, y_train, y_val)
+
+# Print the performance summary of the models
+print(models)
+</code></pre>
+
+                <p> Kodun çıktısı aşağıdaki gibidir</p>
+
+                <pre class="kodcikti"><code class="language-python" style="font-size: 0.8rem">100%|█████████████████████████████████████████████████████████████████| 4/4 [00:03<00:00,  1.31it/s]
+                        Accuracy  Balanced Accuracy ROC AUC  F1 Score  \
+Model
+RandomForestClassifier      0.83               0.83    None      0.82
+LogisticRegression          0.78               0.77    None      0.77
+KNeighborsClassifier        0.73               0.73    None      0.73
+AdaBoostClassifier          0.22               0.20    None      0.10
+
+                        Time Taken
+Model
+RandomForestClassifier        0.92
+LogisticRegression            0.25
+KNeighborsClassifier          0.08
+AdaBoostClassifier            1.82  </code></pre>
+
+
+            </div>
+        </div>
+    </div>
+</article>
+<!-- Footer-->
+<footer class="border-top">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <ul class="list-inline text-center">
+
+                    <li class="list-inline-item">
+                        <a href="#!">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                    </span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="small text-center text-muted fst-italic">İlkay Özay - 21 February 2023</div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script src="js/scripts.js"></script>
+
+
+<script>
+
+    const copyButtonLabel = "Copy Code";
+
+    // use a class selector if available
+    let blocks = document.querySelectorAll("pre:not(.kodcikti)");
+
+    blocks.forEach((block) => {
+        // only add button if browser supports Clipboard API
+        if (navigator.clipboard) {
+            let button = document.createElement("button");
+
+            button.innerText = copyButtonLabel;
+            block.appendChild(button);
+
+            button.addEventListener("click", async () => {
+                await copyCode(block, button);
+            });
+        }
+    });
+
+    async function copyCode(block, button) {
+        let code = block.querySelector("code");
+        let text = code.innerText;
+
+        await navigator.clipboard.writeText(text);
+
+        // visual feedback that task is completed
+        button.innerText = "Code Copied";
+
+        setTimeout(() => {
+            button.innerText = copyButtonLabel;
+        }, 700);
+    }
+
+
+</script>
+
+</body>
+</html>

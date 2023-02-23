@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta name="description" content=""/>
     <meta name="author" content=""/>
-    <title>SQLAlchemy -  Lock For Updates </title>
+    <title>Short But Important Pyton Notes</title>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico"/>
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
@@ -115,22 +115,21 @@
     <div class="container px-4 px-lg-5">
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto py-4 py-lg-0">
-                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html" >Home</a></li>
             </ul>
         </div>
     </div>
 </nav>
 <!-- Page Header-->
-<header class="masthead" style="background-image: url('assets/img/post-bg.jpg')">
+<header class="masthead" style="background-image: url('assets/img/kazuend-unsplash.jpg')">
     <div class="container position-relative px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <div class="post-heading">
-                    <h1>Python SQL Alchemy LOCK meselesi</h1>
-                    <h2 class="subheading"> Bir kayıt üzerinde işlem yaparken başka bir kaydın onu
-                        değiştirememesi! </h2>
+                    <h1 style="color: black">Kısa Python Notları </h1>
+                    <h2 class="subheading" style="color: black"> Bilmekte fayda olan notlar </h2>
                     <span class="meta">
-                                Posted on December 29, 2022
+                                Posted on February 23, 2023
                             </span>
                 </div>
             </div>
@@ -142,60 +141,49 @@
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-8">
-                <p> Bir veritabanında bir tabloda "gönderilmesi gereken maillerin" tutulduğunu varsayalım. Bu tabloya
-                    "gönderilecek olan mailler"  sürekli olarak insert edilecek.
-                    Varsayılan olarak her kaydın statüsü "Active" olsun.
-                </p>
-                <p>
-                    Diğer taraftada birden fazla "worker" ın bu kayıtları işlemesi gerekiyor.
-                    Şöyleki "worker" bir kaydı alacak ve kaydın statüsünü "Running" e çekecek. Kaydı commitleyecek ve
-                    mail gönderim sürecini başlatacak.
-                    Mail gönderme işlemi normal olarak "async" bir metodla yapılacak. Gönderim başarılı olursa kaydın
-                    durumu "Sent" olarak güncellenecek.
-                </p>
-                <p>
-                    Burada mesele şu. İki farklı "worker"ın aynı anda bu kaydı okuması ve  iki ayrı mail gönderilmesi olasıdır. Bunu
-                    engellemek için kaydı okurken
-                    "with_for_update()" komutu ile kaydı okursak, SQL Alchemy okunan kayda "bu işlem commitlenene kadar"
-                    geçici lock koymuş olacak.
-                    Lock koyulduğunda bu kaydı "with_for_update" ile okumak isteyen başka bir "transaction" lock ortadan kalkana kadar beklemek
-                    zorunda kalacak.
-                    Bu bekleme süresi "belirli bir süre limiti" geçerse zaten bu işlem (yani ikincil işlemden bahsediyorum) hata almış olacaktır.
+                <br>
+                <h3>Fonksiyonlarda Varsayılan Parametrelerin Kullanımına Dikkat! </h3>
+                <p> Bir sözlük (dictionary) veri yapısına yeni bir anahtar-değer çifti ekleyen bir işlevi (fonksiyon) tanımlamak isteyebiliriz.
+                    Bu fonksiyon içerisinde "d" parametresi ile, <b> eğer fonksiyon herhangi bir sözlük veri yapısı belirtilmeden çağrılırsa </b>
+                    kullanılacak olan varsayılan sözlük değeri tutuluyor.
                 </p>
 
-                <p> Şimdi bu yazılanları test edebileceğimiz kodları paylaşıyorum.</p>
+                <p> İşlevin gövdesi (body) ise, belirtilen anahtar-değer çiftini sözlük yapısına ekleyen
+                    ve son olarak sözlüğü ekrana yazdıran bir kod bloğudur. </p>
+
 
                 <pre >
-<code class="language-python"># models.py
+<code class="language-python">def func (key, value, d={}):
+    d[key]=value
+    print(d)</code></pre>
 
-from sqlalchemy import Column, Integer, String, DateTime
-from sqlalchemy.ext.declarative import declarative_base
+                <p> Bu fonksiyonu "func('a',10)" şeklinde çağırdığımızda (sonucu bir değişkene atama yapmadığımıza dikkat edin) aşağıdaki sonucu görürüz.
+                <b>Burada fonksiyonu çağırırken bir varsayılan sözlük göndermiyoruz(Bu kısım önemli).</b> Çıktı şu şekildedir:  </p>
+                <p> {'a': 10}</p>
+                <p> Aynı fonksiyonu "func('b',10)" şeklinde çağırdığımızda aşağıdaki sonucu görürüz:</p>
+                <p> {'a': 10, 'b': 10}</p>
 
-Base = declarative_base()
+                <p> Fonksiyon her çağrıldığında, eğer d parametresi belirtilmemişse, varsayılan olarak aynı sözlük kullanılır.
+                    Çünkü  Python varsayılan parametreleri yalnızca fonksiyon ilk kez tanımlandığında yaratır ve  her çağrıda yeniden oluşturmaz.
+                    Bu nedenle, fonksiyonun birinci çağrısı sonrasında eklenen anahtar-değer çifti,
+                    ikinci çağrıda da aynı sözlük yapısında yer alacaktır.
+                    <b>Bu özellik, birkaç farklı çağrı arasında veri paylaşımını sağlayabilir.</b>
+                    Ancak bu örnek ,  bu varsayılan parametrenin kullanımında dikkatli olunması gerektiğinin önemli bir örneğidir
+                </p>
 
-class Test(Base):
-    __tablename__ = 'test'
-    id = Column(Integer, primary_key=True)
-    name = Column(String)
-    status = Column(String)
-    created_at = Column(DateTime)</code></pre>
 
-                <p> Şimdi bu yazılanları test edebileceğimiz kodları paylaşıyorum.</p>
+                <p> Şayet fonksiyonun her defasında yeni bir sözlük yaratmasını istiyorsak kod aşağıdaki gibi olmalıdır.
+                    Burada fonksiyonun içinde varsayılan değeri None olarak belirleyebilir ve fonksiyonun başında if koşulu ile kontrol edebiliriz.
+                    Eğer d değişkeni None ise, fonksiyonun içinde yeni bir sözlük oluşturulur.
+                </p>
 
                 <pre >
-<code class="language-python"># models.py
-
-from sqlalchemy import Column, Integer, String, DateTime
-from sqlalchemy.ext.declarative import declarative_base
-
-Base = declarative_base()
-
-class Test(Base):
-    __tablename__ = 'test'
-    id = Column(Integer, primary_key=True)
-    name = Column(String)
-    status = Column(String)
-    created_at = Column(DateTime)</code></pre>
+<code class="language-python">def func(key, value, d=None):
+    if d is None:
+        d = {}
+    d[key] = value
+    print(d)
+</code></pre>
 
             </div>
         </div>
@@ -217,7 +205,7 @@ class Test(Base):
                         </a>
                     </li>
                 </ul>
-                <div class="small text-center text-muted fst-italic">İlkay Özay - 29 Aralık 2022</div>
+                <div class="small text-center text-muted fst-italic">İlkay Özay</div>
             </div>
         </div>
     </div>
