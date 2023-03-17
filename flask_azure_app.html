@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title>Short But Important Pyton Notes</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico"/>
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet"
+          type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+          rel="stylesheet" type="text/css"/>
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet"/>
+
+    <link rel="stylesheet" href="./dist/prismjs/prism.css">
+    <script src="./dist/prismjs/prism.js"></script>
+
+
+    <style>
+        ul {
+            padding-left: 1rem;
+        }
+
+        p {
+            text-align: justify
+        }
+    </style>
+
+
+    <style>
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: border-box;
+        }
+
+        pre[class*="language-bash"] {
+            position: relative;
+            overflow: auto;
+
+            /* make space  */
+            margin: 5px 0;
+            padding: 1.05rem 0 1.05rem 1rem;
+            border-radius: 10px;
+        }
+
+        pre[class*="language-html"] {
+            position: relative;
+            overflow: auto;
+
+            /* make space  */
+            margin: 5px 0;
+            padding: 1.05rem 0 1.05rem 1rem;
+            border-radius: 10px;
+        }
+
+        pre[class*="language-python"] {
+            position: relative;
+            overflow: auto;
+
+            /* make space  */
+            margin: 5px 0;
+            padding: 1.05rem 0 1.05rem 1rem;
+            border-radius: 10px;
+        }
+
+        pre[class*="kodcikti"] {
+            position: relative;
+            overflow: auto;
+            /* make space  */
+            /* make space  */
+            margin: 5px 0;
+            padding: 1.05rem 0 1.05rem 1rem;
+            border-radius: 10px;
+            font-size: 1rem;
+        }
+
+        pre[class*="language-"] button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+
+            font-size: 0.9rem;
+            padding: 0.15rem;
+            background-color: #828282;
+
+            border: ridge 1px #7b7b7c;
+            border-radius: 5px;
+            text-shadow: #c4c4c4 0 0 2px;
+        }
+
+
+
+        pre[class*="language-"] button:hover {
+            cursor: pointer;
+            background-color: #bcbabb;
+        }
+
+        .onemli_uyari {
+            background-color: #ffc107;
+            background-image: linear-gradient(to right, #ffc107, #ff8b5f);
+            font-weight: bold;
+            /* make space  */
+            /* make space  */
+            margin: 5px 0;
+            margin-bottom: 20px;
+            padding: 1.05rem 1.05rem 1rem 1rem;
+            border-radius: 10px;
+            font-size: 1rem;
+        }
+
+
+    </style>
+
+
+    <style>
+        .derinlik {
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+        }
+
+    </style>
+
+
+</head>
+<body>
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+    <div class="container px-4 px-lg-5">
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html" >Home</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Page Header-->
+<header class="masthead" style="background-image: url('assets/img/delbert-pagayona-46v8clmNjY8-unsplash.jpg')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="post-heading">
+                    <h1 style="color: white">Azure App Servis ile Flask Uygulaması </h1>
+                    <h2 class="subheading" style="color: white"> Flask Uygulamasının VS Code Üzerinden Github ve Azure'a Yüklenmesi </h2>
+                    <span class="meta">
+                                Posted on March 16, 2023
+                            </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Post Content-->
+<article class="mb-1">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-8">
+                <br>
+
+                <p style="text-indent: 2em"> Bu yazı, bir Flask uygulamasının VS Code üzerinden Github ve Azure üzerinde nasıl yayınlanacağına dair bir rehber olması amacyla tasarlanmıştır.
+                    Burada amaç Flask uygulanmasına odaklanmak değil, hazır bir uygulamanın github ve cloud a servis edilmesi ile ilgilidir.
+                </p>
+
+                <h3>Hazırlıklar</h3>
+                <br>
+                <ul>
+                    <li>
+                        <h4>
+                            Github Hesabının Oluşturulması
+                        </h4>
+                        <p style="text-indent: 2em"> Flask uygulamasını Github üzerinden paylaşmak için bir Github hesabına ihtiyacımız var.
+                            Hesabınız yoksa Github'a kaydolmak için https://github.com/ adresine gidip kayıt işlemini tamamlayabilirsiniz. </p>
+
+                    </li>
+                    <br>
+                    <li>
+                        <h4>
+                            VS Code Kurulumu
+                        </h4>
+                        <p style="text-indent: 2em">
+                            Flask uygulamasının kodlanması, Github'a yüklenmesi ve Azure Ortamı ile etkileşim VS Code
+                            üzerinde yapılacağı için <a href="https://code.visualstudio.com/download">VS Code</a>'u bilgisayarınıza indirin ve yükleyin.
+                        </p>
+                    </li>
+
+                    <br>
+                    <li>
+                        <h4>
+                            Sanal ortamın yaratılması
+                        </h4>
+                        <p style="text-indent: 2em"> Öncelikle flask projesi için bir klasör yaratılmalıdır.
+                            Sonrasında bu klasör içine girip terminale geçiş yapılmalıdır. </p>
+                        <p style="text-indent: 2em"> Aşağıdaki komutlar ile  uygulama bağımlılıklarının depolanacağı bir sanal ortamın oluşturulmasına sağlanacaktır </p>
+                        <pre ><code class="language-bash ">python -m venv .env</code></pre>
+
+                        <p>Sanal ortamı aktif hale getirin:</p>
+                        <div style="text-indent: 2em">Windows için</div>
+                        <pre ><code class="language-bash">env\Scripts\activate</code></pre>
+                        <div style="text-indent: 2em">Linux için</div>
+                        <pre ><code class="language-bash">source env/bin/activate</code></pre>
+                        <p>
+                            Sanal ortamda Flask paketini yüklemek için aşağıdaki komutu kullanacağız:
+                        </p>
+                        <pre ><code class="language-bash">pip install flask</code></pre>
+                            Ayrıca, uygulamanızda kullanacağınız diğer paketleri de benzer şekilde yükleyebilirsiniz.
+
+                        <p>
+                            Paketleri yükledikten sonra, pip freeze komutunu kullanarak tüm bağımlılıkları requirements.txt dosyasına kaydedeceğiz:
+                        </p>
+                        <pre ><code class="language-bash">pip freeze > requirements.txt</code></pre>
+
+
+                    </li>
+
+                    <br>
+
+                    <li>
+                        <h4>
+                            Flask Uygulamasının Kodlanması
+                        </h4>
+                        <p style="text-indent: 2em"> Proje klasörü içinde "app" adı altında bir klasör yaratcağız. Sonrasında onun içinde "static" ve
+                        "templates" adı altında 2 klasör daha yaratacağız. Ayrıca 3 tane de dosya yaratacağız. Görünüm şu şekildedir.
+                        </p>
+                        <img src="./assets/flask_tree.JPG" alt="Resim"  style="width: 100%">
+
+
+                        <br/>
+                        <br/>
+                        <div style="background: linear-gradient(to right, yellow, yellowgreen);height: 10px;"> </div>
+
+                        <p style="font-weight: bold"> Kod içeren dosyalar ve kodlar aşağıdaki gibidir. </p>
+
+                        <div style="text-indent: 2em;font-weight: bold">__init__.py</div>
+                        <pre ><code class="language-python">from flask import Flask, render_template
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+if __name__ == "__main__":
+    app.run(port=5000, debug=True)
+</code></pre>
+                        <br>
+                        <div style="text-indent: 2em;font-weight: bold">index.html</div>
+                        <pre  style="line-height:1!important;"><code class="language-html" style="font-size: 0.8rem">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Merhaba Giriş Sayfası&lt;/title&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+    &lt;link rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="container-fluid bg-light py-3"&gt;
+        &lt;div class="container"&gt;
+            &lt;div class="row"&gt;
+                &lt;div class="col-md-12 text-center"&gt;
+                    &lt;h1 class="display-3 mb-2"&gt;Merhaba Flask ve Bootstrap!&lt;/h1&gt;
+                    &lt;p class="lead mb-5"&gt;Bu, Flask ve Bootstrap ile oluşturulan bir örnek sayfadır.&lt;/p&gt;
+                    &lt;a href="#" class="btn btn-primary btn-lg"&gt;Daha Fazla&lt;/a&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="container-fluid bg-dark text-white py-3"&gt;
+        &lt;div class="container"&gt;
+            &lt;div class="row"&gt;
+             &lt;div class="col-md-12 text-center"&gt;
+                    &lt;br&gt;
+                    &lt;p class="mb-0"&gt;Daha fazla Flask ve Bootstrap örneği için
+                            &lt;a href="#"&gt;buraya&lt;/a&gt; tıklayın.&lt;/p&gt;
+                    &lt;br&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+                        <br>
+                        <div style="text-indent: 2em;font-weight: bold">startup.py</div>
+                        <pre ><code class="language-python">from app import app</code></pre>
+
+
+                        <p style="text-indent: 2em"> Kodlamayı bitirdiğimizde projeyi çalıştırabiliriz.</p>
+                        <pre >
+<code class="language-bash">python __init__.py</code></pre>
+
+                        <pre class="kodcikti">
+<code class="language-bash">(env) D:\Workspace\Python\Flask\Flask_Projesi\app>python __init__.py
+ * Serving Flask app '__init__'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment.
+    Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 278-563-770
+127.0.0.1 - - [17/Mar/2023 00:04:28] "GET / HTTP/1.1" 200 -</code></pre>
+                    </li>
+                    <br>
+                    <div style="background: linear-gradient(to right, orange, red);height: 10px;"> </div>
+
+                    <p style="text-indent: 2em;font-weight: bold"> Uygulamanın görüntüsü şu şekildedir.
+                    </p>
+                    <img class="derinlik" src="./assets/hello_flask.JPG" alt="Resim"  style="width: 100%">
+                    <br>
+                    <br>
+                    <div style="background: linear-gradient(to right, orange, red);height: 10px;"> </div>
+                    <br/>
+                    <br/>
+
+
+                    <li>
+
+                        <h4>
+                            Git yapılandırması
+                        </h4>
+                        <p style="text-indent: 2em">
+                            Projemizin Github yapılandırması bu aşamada olacak.
+                            Sonrasında yapacağımız her commit ile kodlarımız Github Repository'e atılmış olacak.
+                        </p>
+                        <p style="text-indent: 2em">Öncelikle <b>Github a yüklenmesini istemediğimiz </b> dosya ve klasörlerin adını <b>".gitignore"</b>
+                            dosyasına eklemeliyiz. Örneğin sanal ortam yada bir takım cache amaçlı klasörlerin Repository'e atılmasına gerek yoktur.
+                        </p>
+
+                        <img src="./assets/flask_gitignore.JPG" alt="Resim"  style="width: 100%">
+
+
+                        <p style="text-indent: 2em"> VS Code'un "Source Control" sekmesine gidip oradan "Initialize Repository" diyerek dosya ve klasölerimizi Git kapsamına almış olacağız.
+                            Esasında git yapılandırmasını terminalden de yapabiliriz ama burada VS Code'un bize sağladığı kolaylıktan faydalanmış olacağız.
+                        </p>
+                        <img src="./assets/flask_git_initialize.JPG" alt="Resim"  style="width: 100%">
+
+                        <p style="text-indent: 2em"> Initialize Repository dediğimizde VS Code bizim için git yapılandırmasını hazır hale getirir.
+                            Esasında klasör içinde ".git" adında gizli bir klasör yaratılır.
+                            Commit tuşuna basmadan önce tuşun üstündeki alana "Açıklama girilir.Her commit aslında kodumuzun bir aşamasıdır
+                            ve ilerde bu aşamalar arasında geçiş yapma şansımız olacaktır. Bu nedenle aşamaların ne olduğunun anlaşılır bir şekilde yazılması önemlidir.
+                        </p>
+                        <img src="./assets/flask_git_first_commit.JPG" alt="Resim"  style="width: 100%">
+
+                        <p style="text-indent: 2em"> Commit tuşuna bastığımızda aşağıdaki gibi bir soru karşımıza gelir.</p>
+                        <img src="./assets/flask_git_commit_ask_stages.JPG" alt="Resim"  style="width: 100%">
+
+                        <p style="text-indent: 2em"> Bu mesaj, henüz değişikliklerin kaydedilmediğini veya sahneye konulmadığını (staged) belirtiyor. "There are no staged changes to commit" mesajı, değişikliklerin henüz sahneye konulmadığını gösterirken, "Would you like to stage all your changes and commit them directly?" mesajı, değişikliklerin sahneye konulup commit edilmesi için sizden onay istiyor.</p>
+                        <p style="text-indent: 2em"> Git'te, dosyaların değişikliklerini kaydetmek için iki aşama vardır. İlk olarak, değişikliklerinizi "sahneye koymalısınız" (stage), yani dosyaları değişiklikler için hazır hale getirmelisiniz. Bu işlem, git add komutuyla yapılır. Daha sonra, değişiklikleri "commit" ederek (yani kaydederek) Git deposuna göndermelisiniz. Bu işlem, git commit komutuyla yapılır.</p>
+                        <p style="text-indent: 2em"> Eğer henüz değişiklikleri sahneye koymadıysanız ve git commit komutunu çalıştırırsanız, Git size "There are no staged changes to commit" mesajını verir çünkü değişiklikler henüz sahneye konulmadı. Bu nedenle, Git değişiklikleri sahneye koymak isteyip istemediğinizi sorar.</p>
+                        <p style="text-indent: 2em"> Eğer "yes" derseniz, Git tüm değişiklikleri sahneye koyar ve hemen ardından commit işlemini gerçekleştirir. Böylece, hem dosyaların değişiklikleri kaydedilir hem de Git deposuna gönderilir.</p>
+
+                        <p style="text-indent: 2em"> <b>Peki ne yapsaydık bu soru karşımıza gelmezdi</b> </p>
+                        <p style="text-indent: 2em"> "Source Control" yan tarafındaki üç nokta (...) işaretine basınca açılan menüde Changes sekmesi altında "Stage All Changes" dersek bu işlem değişikliklerin sahneye (staging area) konmasını sağlar. </p>
+                        <img src="./assets/git_stage_meselesi.JPG" alt="Resim"  style="width: 100%">
+
+                        <p style="text-indent: 2em"> İlk commit işleminde dosyalar olduğu gibi içeri alınır ancak sonrasında her bir değişiklik loglanır bir nevi. Dosyalardaki bu değişikliğin detayı istenirse incelenebilir</p>
+                        <a href="flask_azure_app_ek1.html" target="_blank"><img src="./assets/flask_git_stages_detail.JPG" alt="Resim"  style="width: 100%"></a>
+
+                        <p style="text-indent: 2em"> Şu ana kadar yapılanların hepsi lokalde gizli ".git" klasörü içinde yapıldı.
+                            Şimdi projemizi artık remote bir repository'e atabiliriz. Bunun için Publish Branch diyeceğiz.
+                            Eğer VS Code'da Github'a login değilsek login olmamız istenecek
+                        </p>
+                        <img src="./assets/flask_ask_login_github.JPG" alt="Resim"  style="width: 100%">
+
+
+                        <p style="text-indent: 2em"> Sonrasında Github bize Repository adını soracak (Default değer olarak mevcut klasörümüzün adı gelir ama bunu değiştirebiliriz)  </p>
+                        <img src="./assets/flask_publish_branch_first.JPG" alt="Resim"  style="width: 100%">
+
+                        <p style="text-indent: 2em"> Github'da projemizin yaratıldığını görebiliriz</p>
+                        <img src="./assets/flask_github.JPG" alt="Resim"  style="width: 100%">
+
+                        <p style="text-indent: 2em"> Dikkatli bakarsak "static" klasörünün Github'da olmadığını görürüz. Çünkü aslında git commit esnasında da bu klasör eklenmemişti.</p>
+                        <p style="text-indent: 2em"> Bunun nedeni, Git, boş bir klasörü doğrudan bir commit'e eklemeyi desteklemez. Böyle bir klasörü repository'nin içinde bulundurmak isterseniz, klasör içinde boş da olsa bir dosya oluşturmanız gerekir. Bu şekilde klasörü de stage'e alabilirsiniz. </p>
+
+                    </li>
+
+                </ul>
+
+                <div style="background: linear-gradient(to right, blue, lightskyblue);height: 10px;"> </div>
+                <br>
+
+                <li>
+                    <h4>
+                        Azure Hesabının Oluşturulması
+                    </h4>
+                    <p style="text-indent: 2em"> Flask uygulamasının Azure ortamına deploy edilebilmesi için bir Azure hesabına ihtiyacımız var.
+                        Azure'a <a href="https://azure.microsoft.com/tr-tr/free/" target="_blank">https://azure.microsoft.com/tr-tr/free/</a>  adresinden kayıt olabilirsiniz. </p>
+
+                </li>
+                <br>
+
+
+            </div>
+        </div>
+    </div>
+</article>
+<!-- Footer-->
+<footer class="border-top">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <ul class="list-inline text-center">
+
+                    <li class="list-inline-item">
+                        <a href="#!">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                    </span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="small text-center text-muted fst-italic">İlkay Özay</div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script src="js/scripts.js"></script>
+
+
+<script>
+
+    const copyButtonLabel = "Copy Code";
+
+    // use a class selector if available
+    let blocks = document.querySelectorAll("pre:not(.kodcikti)");
+
+    blocks.forEach((block) => {
+        // only add button if browser supports Clipboard API
+        if (navigator.clipboard) {
+            let button = document.createElement("button");
+
+            button.innerText = copyButtonLabel;
+            block.appendChild(button);
+
+            button.addEventListener("click", async () => {
+                await copyCode(block, button);
+            });
+        }
+    });
+
+    async function copyCode(block, button) {
+        let code = block.querySelector("code");
+        let text = code.innerText;
+
+        await navigator.clipboard.writeText(text);
+
+        // visual feedback that task is completed
+        button.innerText = "Code Copied";
+
+        setTimeout(() => {
+            button.innerText = copyButtonLabel;
+        }, 700);
+    }
+
+
+</script>
+
+</body>
+</html>
