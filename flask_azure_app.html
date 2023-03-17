@@ -96,7 +96,6 @@
         }
 
 
-
         pre[class*="language-"] button:hover {
             cursor: pointer;
             background-color: #bcbabb;
@@ -134,7 +133,7 @@
     <div class="container px-4 px-lg-5">
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto py-4 py-lg-0">
-                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html" >Home</a></li>
+                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html">Home</a></li>
             </ul>
         </div>
     </div>
@@ -146,7 +145,8 @@
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <div class="post-heading">
                     <h1 style="color: white">Azure App Servis ile Flask Uygulaması </h1>
-                    <h2 class="subheading" style="color: white"> Flask Uygulamasının VS Code Üzerinden Github ve Azure'a Yüklenmesi </h2>
+                    <h2 class="subheading" style="color: white"> Flask Uygulamasının VS Code Üzerinden Github ve Azure'a
+                        Yüklenmesi </h2>
                     <span class="meta">
                                 Posted on March 16, 2023
                             </span>
@@ -162,8 +162,10 @@
             <div class="col-md-10 col-lg-8 col-xl-8">
                 <br>
 
-                <p style="text-indent: 2em"> Bu yazı, bir Flask uygulamasının VS Code üzerinden Github ve Azure üzerinde nasıl yayınlanacağına dair bir rehber olması amacyla tasarlanmıştır.
-                    Burada amaç Flask uygulanmasına odaklanmak değil, hazır bir uygulamanın github ve cloud a servis edilmesi ile ilgilidir.
+                <p style="text-indent: 2em"> Bu yazı, bir Flask uygulamasının VS Code üzerinden Github ve Azure üzerinde
+                    nasıl yayınlanacağına dair bir rehber olması amacyla tasarlanmıştır.
+                    Burada amaç Flask uygulanmasına odaklanmak değil, hazır bir uygulamanın github ve cloud a servis
+                    edilmesi ile ilgilidir.
                 </p>
 
                 <h3>Hazırlıklar</h3>
@@ -173,8 +175,10 @@
                         <h4>
                             Github Hesabının Oluşturulması
                         </h4>
-                        <p style="text-indent: 2em"> Flask uygulamasını Github üzerinden paylaşmak için bir Github hesabına ihtiyacımız var.
-                            Hesabınız yoksa Github'a kaydolmak için https://github.com/ adresine gidip kayıt işlemini tamamlayabilirsiniz. </p>
+                        <p style="text-indent: 2em"> Flask uygulamasını Github üzerinden paylaşmak için bir Github
+                            hesabına ihtiyacımız var.
+                            Hesabınız yoksa Github'a kaydolmak için https://github.com/ adresine gidip kayıt işlemini
+                            tamamlayabilirsiniz. </p>
 
                     </li>
                     <br>
@@ -184,7 +188,8 @@
                         </h4>
                         <p style="text-indent: 2em">
                             Flask uygulamasının kodlanması, Github'a yüklenmesi ve Azure Ortamı ile etkileşim VS Code
-                            üzerinde yapılacağı için <a href="https://code.visualstudio.com/download">VS Code</a>'u bilgisayarınıza indirin ve yükleyin.
+                            üzerinde yapılacağı için <a href="https://code.visualstudio.com/download">VS Code</a>'u
+                            bilgisayarınıza indirin ve yükleyin.
                         </p>
                     </li>
 
@@ -195,24 +200,26 @@
                         </h4>
                         <p style="text-indent: 2em"> Öncelikle flask projesi için bir klasör yaratılmalıdır.
                             Sonrasında bu klasör içine girip terminale geçiş yapılmalıdır. </p>
-                        <p style="text-indent: 2em"> Aşağıdaki komutlar ile  uygulama bağımlılıklarının depolanacağı bir sanal ortamın oluşturulmasına sağlanacaktır </p>
-                        <pre ><code class="language-bash ">python -m venv .env</code></pre>
+                        <p style="text-indent: 2em"> Aşağıdaki komutlar ile uygulama bağımlılıklarının depolanacağı bir
+                            sanal ortamın oluşturulmasına sağlanacaktır </p>
+                        <pre><code class="language-bash ">python -m venv .env</code></pre>
 
                         <p>Sanal ortamı aktif hale getirin:</p>
                         <div style="text-indent: 2em">Windows için</div>
-                        <pre ><code class="language-bash">env\Scripts\activate</code></pre>
+                        <pre><code class="language-bash">env\Scripts\activate</code></pre>
                         <div style="text-indent: 2em">Linux için</div>
-                        <pre ><code class="language-bash">source env/bin/activate</code></pre>
+                        <pre><code class="language-bash">source env/bin/activate</code></pre>
                         <p>
                             Sanal ortamda Flask paketini yüklemek için aşağıdaki komutu kullanacağız:
                         </p>
-                        <pre ><code class="language-bash">pip install flask</code></pre>
-                            Ayrıca, uygulamanızda kullanacağınız diğer paketleri de benzer şekilde yükleyebilirsiniz.
+                        <pre><code class="language-bash">pip install flask</code></pre>
+                        Ayrıca, uygulamanızda kullanacağınız diğer paketleri de benzer şekilde yükleyebilirsiniz.
 
                         <p>
-                            Paketleri yükledikten sonra, pip freeze komutunu kullanarak tüm bağımlılıkları requirements.txt dosyasına kaydedeceğiz:
+                            Paketleri yükledikten sonra, pip freeze komutunu kullanarak tüm bağımlılıkları
+                            requirements.txt dosyasına kaydedeceğiz:
                         </p>
-                        <pre ><code class="language-bash">pip freeze > requirements.txt</code></pre>
+                        <pre><code class="language-bash">pip freeze > requirements.txt</code></pre>
 
 
                     </li>
@@ -223,20 +230,22 @@
                         <h4>
                             Flask Uygulamasının Kodlanması
                         </h4>
-                        <p style="text-indent: 2em"> Proje klasörü içinde "app" adı altında bir klasör yaratcağız. Sonrasında onun içinde "static" ve
-                        "templates" adı altında 2 klasör daha yaratacağız. Ayrıca 3 tane de dosya yaratacağız. Görünüm şu şekildedir.
+                        <p style="text-indent: 2em"> Proje klasörü içinde "app" adı altında bir klasör yaratcağız.
+                            Sonrasında onun içinde "static" ve
+                            "templates" adı altında 2 klasör daha yaratacağız. Ayrıca 3 tane de dosya yaratacağız.
+                            Görünüm şu şekildedir.
                         </p>
-                        <img src="./assets/flask_tree.JPG" alt="Resim"  style="width: 100%">
+                        <img src="./assets/flask_tree.JPG" alt="Resim" style="width: 100%">
 
 
                         <br/>
                         <br/>
-                        <div style="background: linear-gradient(to right, yellow, yellowgreen);height: 10px;"> </div>
+                        <div style="background: linear-gradient(to right, yellow, yellowgreen);height: 10px;"></div>
 
                         <p style="font-weight: bold"> Kod içeren dosyalar ve kodlar aşağıdaki gibidir. </p>
 
                         <div style="text-indent: 2em;font-weight: bold">__init__.py</div>
-                        <pre ><code class="language-python">from flask import Flask, render_template
+                        <pre><code class="language-python">from flask import Flask, render_template
 
 app = Flask(__name__)
 
@@ -249,7 +258,7 @@ if __name__ == "__main__":
 </code></pre>
                         <br>
                         <div style="text-indent: 2em;font-weight: bold">index.html</div>
-                        <pre  style="line-height:1!important;"><code class="language-html" style="font-size: 0.8rem">&lt;!DOCTYPE html&gt;
+                        <pre style="line-height:1!important;"><code class="language-html" style="font-size: 0.8rem">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
     &lt;title&gt;Merhaba Giriş Sayfası&lt;/title&gt;
@@ -286,11 +295,11 @@ if __name__ == "__main__":
 </code></pre>
                         <br>
                         <div style="text-indent: 2em;font-weight: bold">startup.py</div>
-                        <pre ><code class="language-python">from app import app</code></pre>
+                        <pre><code class="language-python">from app import app</code></pre>
 
 
                         <p style="text-indent: 2em"> Kodlamayı bitirdiğimizde projeyi çalıştırabiliriz.</p>
-                        <pre >
+                        <pre>
 <code class="language-bash">python __init__.py</code></pre>
 
                         <pre class="kodcikti">
@@ -306,19 +315,21 @@ Press CTRL+C to quit
  * Debugger PIN: 278-563-770
 127.0.0.1 - - [17/Mar/2023 00:04:28] "GET / HTTP/1.1" 200 -</code></pre>
                     </li>
-                    <br>
-                    <div style="background: linear-gradient(to right, orange, red);height: 10px;"> </div>
+                </ul>
 
-                    <p style="text-indent: 2em;font-weight: bold"> Uygulamanın görüntüsü şu şekildedir.
-                    </p>
-                    <img class="derinlik" src="./assets/hello_flask.JPG" alt="Resim"  style="width: 100%">
-                    <br>
-                    <br>
-                    <div style="background: linear-gradient(to right, orange, red);height: 10px;"> </div>
-                    <br/>
-                    <br/>
+                <br>
+                <div style="background: linear-gradient(to right, white, orange);height: 10px;"></div>
 
+                <p style="text-indent: 2em;font-weight: bold"> Uygulamanın görüntüsü şu şekildedir.
+                </p>
+                <img class="derinlik" src="./assets/hello_flask.JPG" alt="Resim" style="width: 100%">
+                <br>
+                <br>
+                <div style="background: linear-gradient(to left, white, orange);height: 10px;"></div>
+                <br/>
+                <br/>
 
+                <ul>
                     <li>
 
                         <h4>
@@ -328,74 +339,364 @@ Press CTRL+C to quit
                             Projemizin Github yapılandırması bu aşamada olacak.
                             Sonrasında yapacağımız her commit ile kodlarımız Github Repository'e atılmış olacak.
                         </p>
-                        <p style="text-indent: 2em">Öncelikle <b>Github a yüklenmesini istemediğimiz </b> dosya ve klasörlerin adını <b>".gitignore"</b>
-                            dosyasına eklemeliyiz. Örneğin sanal ortam yada bir takım cache amaçlı klasörlerin Repository'e atılmasına gerek yoktur.
+                        <p style="text-indent: 2em">Öncelikle <b>Github a yüklenmesini istemediğimiz </b> dosya ve
+                            klasörlerin adını <b>".gitignore"</b>
+                            dosyasına eklemeliyiz. Örneğin sanal ortam yada bir takım cache amaçlı klasörlerin
+                            Repository'e atılmasına gerek yoktur.
                         </p>
 
-                        <img src="./assets/flask_gitignore.JPG" alt="Resim"  style="width: 100%">
+                        <img src="./assets/flask_gitignore.JPG" alt="Resim" style="width: 100%">
 
 
-                        <p style="text-indent: 2em"> VS Code'un "Source Control" sekmesine gidip oradan "Initialize Repository" diyerek dosya ve klasölerimizi Git kapsamına almış olacağız.
-                            Esasında git yapılandırmasını terminalden de yapabiliriz ama burada VS Code'un bize sağladığı kolaylıktan faydalanmış olacağız.
+                        <p style="text-indent: 2em"> VS Code'un "Source Control" sekmesine gidip oradan "Initialize
+                            Repository" diyerek dosya ve klasölerimizi Git kapsamına almış olacağız.
+                            Esasında git yapılandırmasını terminalden de yapabiliriz ama burada VS Code'un bize
+                            sağladığı kolaylıktan faydalanmış olacağız.
                         </p>
-                        <img src="./assets/flask_git_initialize.JPG" alt="Resim"  style="width: 100%">
+                        <img src="./assets/flask_git_initialize.JPG" alt="Resim" style="width: 100%">
 
-                        <p style="text-indent: 2em"> Initialize Repository dediğimizde VS Code bizim için git yapılandırmasını hazır hale getirir.
+                        <p style="text-indent: 2em"> Initialize Repository dediğimizde VS Code bizim için git
+                            yapılandırmasını hazır hale getirir.
                             Esasında klasör içinde ".git" adında gizli bir klasör yaratılır.
-                            Commit tuşuna basmadan önce tuşun üstündeki alana "Açıklama girilir.Her commit aslında kodumuzun bir aşamasıdır
-                            ve ilerde bu aşamalar arasında geçiş yapma şansımız olacaktır. Bu nedenle aşamaların ne olduğunun anlaşılır bir şekilde yazılması önemlidir.
+                            Commit tuşuna basmadan önce tuşun üstündeki alana "Açıklama girilir.Her commit aslında
+                            kodumuzun bir aşamasıdır
+                            ve ilerde bu aşamalar arasında geçiş yapma şansımız olacaktır. Bu nedenle aşamaların ne
+                            olduğunun anlaşılır bir şekilde yazılması önemlidir.
                         </p>
-                        <img src="./assets/flask_git_first_commit.JPG" alt="Resim"  style="width: 100%">
+                        <img src="./assets/flask_git_first_commit.JPG" alt="Resim" style="width: 100%">
 
-                        <p style="text-indent: 2em"> Commit tuşuna bastığımızda aşağıdaki gibi bir soru karşımıza gelir.</p>
-                        <img src="./assets/flask_git_commit_ask_stages.JPG" alt="Resim"  style="width: 100%">
+                        <p style="text-indent: 2em"> Commit tuşuna bastığımızda aşağıdaki gibi bir soru karşımıza
+                            gelir.</p>
+                        <img src="./assets/flask_git_commit_ask_stages.JPG" alt="Resim" style="width: 100%">
 
-                        <p style="text-indent: 2em"> Bu mesaj, henüz değişikliklerin kaydedilmediğini veya sahneye konulmadığını (staged) belirtiyor. "There are no staged changes to commit" mesajı, değişikliklerin henüz sahneye konulmadığını gösterirken, "Would you like to stage all your changes and commit them directly?" mesajı, değişikliklerin sahneye konulup commit edilmesi için sizden onay istiyor.</p>
-                        <p style="text-indent: 2em"> Git'te, dosyaların değişikliklerini kaydetmek için iki aşama vardır. İlk olarak, değişikliklerinizi "sahneye koymalısınız" (stage), yani dosyaları değişiklikler için hazır hale getirmelisiniz. Bu işlem, git add komutuyla yapılır. Daha sonra, değişiklikleri "commit" ederek (yani kaydederek) Git deposuna göndermelisiniz. Bu işlem, git commit komutuyla yapılır.</p>
-                        <p style="text-indent: 2em"> Eğer henüz değişiklikleri sahneye koymadıysanız ve git commit komutunu çalıştırırsanız, Git size "There are no staged changes to commit" mesajını verir çünkü değişiklikler henüz sahneye konulmadı. Bu nedenle, Git değişiklikleri sahneye koymak isteyip istemediğinizi sorar.</p>
-                        <p style="text-indent: 2em"> Eğer "yes" derseniz, Git tüm değişiklikleri sahneye koyar ve hemen ardından commit işlemini gerçekleştirir. Böylece, hem dosyaların değişiklikleri kaydedilir hem de Git deposuna gönderilir.</p>
+                        <p style="text-indent: 2em"> Bu mesaj, henüz değişikliklerin kaydedilmediğini veya sahneye
+                            konulmadığını (staged) belirtiyor. "There are no staged changes to commit" mesajı,
+                            değişikliklerin henüz sahneye konulmadığını gösterirken, "Would you like to stage all your
+                            changes and commit them directly?" mesajı, değişikliklerin sahneye konulup commit edilmesi
+                            için sizden onay istiyor.</p>
+                        <p style="text-indent: 2em"> Git'te, dosyaların değişikliklerini kaydetmek için iki aşama
+                            vardır. İlk olarak, değişikliklerinizi "sahneye koymalısınız" (stage), yani dosyaları
+                            değişiklikler için hazır hale getirmelisiniz. Bu işlem, git add komutuyla yapılır. Daha
+                            sonra, değişiklikleri "commit" ederek (yani kaydederek) Git deposuna göndermelisiniz. Bu
+                            işlem, git commit komutuyla yapılır.</p>
+                        <p style="text-indent: 2em"> Eğer henüz değişiklikleri sahneye koymadıysanız ve git commit
+                            komutunu çalıştırırsanız, Git size "There are no staged changes to commit" mesajını verir
+                            çünkü değişiklikler henüz sahneye konulmadı. Bu nedenle, Git değişiklikleri sahneye koymak
+                            isteyip istemediğinizi sorar.</p>
+                        <p style="text-indent: 2em"> Eğer "yes" derseniz, Git tüm değişiklikleri sahneye koyar ve hemen
+                            ardından commit işlemini gerçekleştirir. Böylece, hem dosyaların değişiklikleri kaydedilir
+                            hem de Git deposuna gönderilir.</p>
 
-                        <p style="text-indent: 2em"> <b>Peki ne yapsaydık bu soru karşımıza gelmezdi</b> </p>
-                        <p style="text-indent: 2em"> "Source Control" yan tarafındaki üç nokta (...) işaretine basınca açılan menüde Changes sekmesi altında "Stage All Changes" dersek bu işlem değişikliklerin sahneye (staging area) konmasını sağlar. </p>
-                        <img src="./assets/git_stage_meselesi.JPG" alt="Resim"  style="width: 100%">
+                        <p style="text-indent: 2em"><b>Peki ne yapsaydık bu soru karşımıza gelmezdi</b></p>
+                        <p style="text-indent: 2em"> "Source Control" yan tarafındaki üç nokta (...) işaretine basınca
+                            açılan menüde Changes sekmesi altında "Stage All Changes" dersek bu işlem değişikliklerin
+                            sahneye (staging area) konmasını sağlar. </p>
+                        <img src="./assets/git_stage_meselesi.JPG" alt="Resim" style="width: 100%">
 
-                        <p style="text-indent: 2em"> İlk commit işleminde dosyalar olduğu gibi içeri alınır ancak sonrasında her bir değişiklik loglanır bir nevi. Dosyalardaki bu değişikliğin detayı istenirse incelenebilir</p>
-                        <a href="flask_azure_app_ek1.html" target="_blank"><img src="./assets/flask_git_stages_detail.JPG" alt="Resim"  style="width: 100%"></a>
+                        <p style="text-indent: 2em"> İlk commit işleminde dosyalar olduğu gibi içeri alınır ancak
+                            sonrasında her bir değişiklik loglanır bir nevi. Dosyalardaki bu değişikliğin detayı
+                            istenirse incelenebilir</p>
+                        <a href="flask_azure_app_ek1.html" target="_blank"><img
+                                src="./assets/flask_git_stages_detail.JPG" alt="Resim" style="width: 100%"></a>
 
-                        <p style="text-indent: 2em"> Şu ana kadar yapılanların hepsi lokalde gizli ".git" klasörü içinde yapıldı.
-                            Şimdi projemizi artık remote bir repository'e atabiliriz. Bunun için Publish Branch diyeceğiz.
+                        <p style="text-indent: 2em"> Şu ana kadar yapılanların hepsi lokalde gizli ".git" klasörü içinde
+                            yapıldı.
+                            Şimdi projemizi artık remote bir repository'e atabiliriz. Bunun için Publish Branch
+                            diyeceğiz.
                             Eğer VS Code'da Github'a login değilsek login olmamız istenecek
                         </p>
-                        <img src="./assets/flask_ask_login_github.JPG" alt="Resim"  style="width: 100%">
+                        <img src="./assets/flask_ask_login_github.JPG" alt="Resim" style="width: 100%">
 
 
-                        <p style="text-indent: 2em"> Sonrasında Github bize Repository adını soracak (Default değer olarak mevcut klasörümüzün adı gelir ama bunu değiştirebiliriz)  </p>
-                        <img src="./assets/flask_publish_branch_first.JPG" alt="Resim"  style="width: 100%">
+                        <p style="text-indent: 2em"> Sonrasında Github bize Repository adını soracak (Default değer
+                            olarak mevcut klasörümüzün adı gelir ama bunu değiştirebiliriz) </p>
+                        <img src="./assets/flask_publish_branch_first.JPG" alt="Resim" style="width: 100%">
 
                         <p style="text-indent: 2em"> Github'da projemizin yaratıldığını görebiliriz</p>
-                        <img src="./assets/flask_github.JPG" alt="Resim"  style="width: 100%">
+                        <img src="./assets/flask_github.JPG" alt="Resim" style="width: 100%">
 
-                        <p style="text-indent: 2em"> Dikkatli bakarsak "static" klasörünün Github'da olmadığını görürüz. Çünkü aslında git commit esnasında da bu klasör eklenmemişti.</p>
-                        <p style="text-indent: 2em"> Bunun nedeni, Git, boş bir klasörü doğrudan bir commit'e eklemeyi desteklemez. Böyle bir klasörü repository'nin içinde bulundurmak isterseniz, klasör içinde boş da olsa bir dosya oluşturmanız gerekir. Bu şekilde klasörü de stage'e alabilirsiniz. </p>
+                        <p style="text-indent: 2em"> Dikkatli bakarsak "static" klasörünün Github'da olmadığını görürüz.
+                            Çünkü aslında git commit esnasında da bu klasör eklenmemişti.</p>
+                        <p style="text-indent: 2em"> Bunun nedeni, Git, boş bir klasörü doğrudan bir commit'e eklemeyi
+                            desteklemez. Böyle bir klasörü repository'nin içinde bulundurmak isterseniz, klasör içinde
+                            boş da olsa bir dosya oluşturmanız gerekir. Bu şekilde klasörü de stage'e
+                            alabilirsiniz. </p>
 
                     </li>
 
                 </ul>
 
-                <div style="background: linear-gradient(to right, blue, lightskyblue);height: 10px;"> </div>
+                <div style="background: linear-gradient(to right, blue, lightskyblue);height: 10px;"></div>
                 <br>
+                <ul>
+                    <li>
+                        <h4>
+                            Azure Hesabının Oluşturulması
+                        </h4>
+                        <p style="text-indent: 2em"> Flask uygulamasının Azure ortamına deploy edilebilmesi için bir
+                            Azure hesabına ihtiyacımız var.
+                            Azure'a <a href="https://azure.microsoft.com/tr-tr/free/" target="_blank">https://azure.microsoft.com/tr-tr/free/</a>
+                            adresinden kayıt olabilirsiniz. </p>
 
-                <li>
-                    <h4>
-                        Azure Hesabının Oluşturulması
-                    </h4>
-                    <p style="text-indent: 2em"> Flask uygulamasının Azure ortamına deploy edilebilmesi için bir Azure hesabına ihtiyacımız var.
-                        Azure'a <a href="https://azure.microsoft.com/tr-tr/free/" target="_blank">https://azure.microsoft.com/tr-tr/free/</a>  adresinden kayıt olabilirsiniz. </p>
+                    </li>
+                    <li>
+                        <h4>
+                            VS Code Üzerinde Azure Tools Extension'larının yüklenmesi
+                        </h4>
+                        <p style="text-indent: 2em"> Azure ortamında servisimizin yaratılması ve Github'la entegre bir
+                            şekilde Build ve Deployment süreçlerinin yapılabilmesi için gerekli olan extensionlar bu
+                            aşamada yüklenecek
+                        </p>
+                        <img class="derinlik" src="./assets/flask_azure_tools.JPG" alt="Resim" style="width: 100%">
+                        <p style="text-indent: 2em"> Kurulumlar bittiğinde ekranda sol tarafta "A" harfinde yeni bir
+                            menü eklentisi görünecektir.
+                            Onu seçtiğimizde Azure ile ilgili yapabileceğimiz işlemler ekranda gözükecektir. Buradan
+                            Azur'a login olunmalıdır.
+                        </p>
+                        <img class="derinlik" src="./assets/flask_azure_login.JPG" alt="Resim" style="width: 100%">
 
-                </li>
+                    </li>
+                    <br>
+                    <li>
+                        <h4>
+                            Azure üzerinde WEB App Service'in Yaratılması
+                        </h4>
+
+                        <p style="text-indent: 2em"> Azure'da bir hesap açtığımızda bir subscription da yapılmış
+                            olacaktır.
+                            Bunun altında çeşitli seçenekler ekranda gözükür. Biz "App Services" seçeneği üstüne sağ
+                            tıkladığımıda gelen menüden
+                            "Create New App...(Advanced)" seçeneği ile ilerleyeceğiz. Buna tıkladığımızda sağ tarafta 6
+                            adımdan oluşan bir seçim süreci başlayacaktır.
+                        </p>
+                        <img class="derinlik" src="./assets/azure_create_new_web_app_advance.JPG" alt="Resim"
+                             style="width: 100%">
+                        <p style="text-indent: 2em"> Sırasıyla adımlar şu şekildedir:</p>
+                        <p><img class="derinlik" src="./assets/flask_azure_step1.JPG" alt="Resim" style="width: 100%">
+                        </p>
+                        <p><img class="derinlik" src="./assets/flask_azure_step2.JPG" alt="Resim" style="width: 100%">
+                        </p>
+                        <p><img class="derinlik" src="./assets/flask_azure_step3.JPG" alt="Resim" style="width: 100%">
+                        </p>
+                        <p><img class="derinlik" src="./assets/flask_azure_step4.JPG" alt="Resim" style="width: 100%">
+                        </p>
+                        <p><img class="derinlik" src="./assets/flask_azure_service_plan.JPG" alt="Resim"
+                                style="width: 100%"></p>
+                        <p><img class="derinlik" src="./assets/flask_azure_step_plan.JPG" alt="Resim"
+                                style="width: 100%"></p>
+
+                        <p style="text-indent: 2em"> Ben burada B2 planını seçtim.Diğer türlü kapasite sorunu yaşama
+                            ihtimali var. Zaten hemen bu yazının sonrasında sistemi kapattım.
+                        </p>
+
+                        <p><img class="derinlik" src="./assets/flask_azure_step_plan_price.JPG" alt="Resim"
+                                style="width: 100%"></p>
+
+                        <p style="text-indent: 2em"> Bu adımı (7.Nolu) "Skip" deyip geçiyoruz.
+                        </p>
+
+                        <p><img class="derinlik" src="./assets/flask_azure_step7.JPG" alt="Resim" style="width: 100%">
+                        </p>
+                        <p><img class="derinlik" src="./assets/flask_azure_activity_log.JPG" alt="Resim"
+                                style="width: 100%"></p>
+                        <p><img class="derinlik" src="./assets/flask_azure_activity_success.JPG" alt="Resim"
+                                style="width: 100%"></p>
+                        <p style="text-indent: 2em"> Eğer tüm adımlar başarı ile biterse uygulamamız "App Services"
+                            altında gözükecek. Bu aşamada konfigürasyonu tamamlamak için uygulamaya sağ tıklıyoruz.
+                        </p>
+
+                        <p><img class="derinlik" src="./assets/flask_azure_activity_openPortal.JPG" alt="Resim"
+                                style="width: 100%"></p>
+                        <p style="text-indent: 2em"> Açılan Azure sayfasında Configuration sekmesinde Startup Command
+                            alanını doldurmamız
+                            gerekiyor. Biz Azur'un Linux tabanlı bir sunucudan uygulamayı servis etmesini istediğimiz
+                            için ( bknz: 4.adım ) <b>"gunicorn" ile</b>
+                            Flask uygulaması ayağa kaldırılacak. Aşağıdaki komutta "0.0.0.0" kullanıldığında, uygulamaya
+                            sunucu dışından erişim olacak
+                            demektir. Böylece herhangi bir istemci, uygulamaya erişmek için sunucunun IP
+                            adresini
+                            kullanabilir. </p>
+                        <p style="text-indent: 2em"> Son olarak "startup:app" ile startup.py dosyasındaki app in çağrılması
+                            gerektiğini belirtiyoruz.</p>
+                        <pre>
+<code class="language-bash">gunicorn --bind=0.0.0.0 --timeout=700 startup:app</code></pre>
+                        <p><img class="derinlik" src="./assets/flask_azure_gunicorn.JPG" alt="Resim"
+                                style="width: 100%"></p>
+                        <div style="background: linear-gradient(to right, blanchedalmond, lightblue);color: #0c0c0c">
+                            <p style="text-indent: 2em;">
+                                Configuration sekmesinde başka bir şeyi değiştirmiyoruz ve artık
+                                son olarak Deployment Center sekmesine geçiyoruz.</p>
+                            <p style="text-indent: 2em;">
+                                Burada "*" ile işaretli olan zorunlu alanları aşağıdaki gibi seçiyoruz..</p>
+                        </div>
+                        <p><img class="derinlik" src="./assets/flask_azure_deployment_center.JPG" alt="Resim"
+                                style="width: 100%"></p>
+                        <p style="text-indent: 2em"> "Save" tuşuna bastığımız anda Azure, GitHub'la etkileşime
+                            geçecektir. Peki ne yapacaktır. Bu sorunun cevabı "Preview File" tuşuna basınca açılan YAML
+                            dosyasındadır. Save tuşuna basmadan önce bunu inceleyelim. </p>
+                        <pre style="line-height:0.8!important;" class="kodcikti">
+<code class="language-bash" style="font-size: 0.8rem;line-height:1!important;"># Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+# More info on Python, GitHub Actions, and Azure App Service: https://aka.ms/python-webapps-actions
+
+name: Build and deploy Python app to Azure Web App - mybasicflask
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python version
+        uses: actions/setup-python@v1
+        with:
+          python-version: '3.9'
+      - name: Create and start virtual environment
+        run: |
+          python -m venv venv
+          source venv/bin/activate
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
+      - name: Upload artifact for deployment jobs
+        uses: actions/upload-artifact@v2
+        with:
+          name: python-app
+          path: |
+            .
+            !venv/
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: 'production'
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+
+    steps:
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v2
+        with:
+          name: python-app
+          path: .
+
+      - name: 'Deploy to Azure Web App'
+        uses: azure/webapps-deploy@v2
+        id: deploy-to-webapp
+        with:
+          app-name: 'mybasicflask'
+          slot-name: 'production'
+          publish-profile: ${{ secrets.AzureAppService_PublishProfile_e2fa9a39020845b4b1a4f47a966ff939 }}</code></pre>
+
+                        <p style="text-indent: 2em;">
+                            Bu dosya Github'a iletilecek olan ve Github workflow'unu tanımlayan dosyadır.
+                            Bu GitHub aksiyonu, bir Python uygulamasını Azure Web App'e nasıl dağıtacağınızı
+                            otomatikleştirmek için tasarlanmıştır. İş akışı(Workflow), "on:" sekmesinden anlaşılacağı
+                            üzere, "push" yapılarak (burada biz save tuşuna basmakla push etmiş olacağız) veya manuel
+                            olarak tetiklenebilen workflow_dispatch olayı ile
+                            çalıştırılır. İş akışının iki aşaması vardır:
+                            build (derleme) ve deploy (dağıtım).</p>
+                        <p style="text-indent: 2em;">Build aşaması, uygulamayı derleyerek ve gerekli bağımlılıkları
+                            kurarak bir sanal paket
+                            oluşturur. Sanal paket daha sonra bir "artifact" olarak yüklenir, böylece dağıtım aşamasında
+                            kullanılabilir hale getirilir. "Artifact" deiğimiz şey Github'dan indirebileeğimiz, bu
+                            projede en azından ZIP formatında ve içinde build edilmiş halde kodların bulunduğu bir
+                            dosyadır.Bizim projemiz python olduğu için aslında kodlarımız birebir halde bu dosya
+                            içindedir.</p>
+                        <p style="text-indent: 2em;">Deploy aşamasında ise, build aşamasında oluşturulan sanal paketi
+                            indirilir ve Azure Web App'e dağıtılır. Bu aşama, ubuntu-latest çalışma ortamında çalışır
+                            ("runs-on: ubuntu-latest" kısmından anlıyoruz) ve
+                            build aşamasına ihtiyaç duyar ("needs: build" kısmından anlıyoruz).</p>
+                        <p style="text-indent: 2em;"> Biz workflow içerisine bir test tanımı yapmadık ama Depoloyment
+                            öncesi bir takım otomatik testler yapılabilirdi ("# Optional: Add step to run tests here
+                            (PyTest, Django test suites, etc.)" kısmında değinilen konu budur) .</p>
+                        <p style="text-indent: 2em"> "Save" tuşuna basıp hemen Github'a gelip projemizin "Actions"
+                            sekmesine baktığımızda çalışan bir workflow göreceğiz. Belirli bir süre çalıştıktan sonra
+                            eğer bir hata ile karşılaşmaz isek web uygulamamıza erişebilir hale gelmiş olacağız.
+                        </p>
+                        <p style="text-indent: 2em;background: linear-gradient(to right, lightgoldenrodyellow, orange);color: #0c0c0c">
+                            Ben başka bir projede hata almıştım. "Plan" kısmında "Free" bir
+                            makine seçmiştim ve onun disk kapasitesi yeterli olmamıştı. Sonra planı değiştirip tekrar
+                            worklow'u tetiklediğimde sorun düzeldi.
+                        </p>
+                        <a href="flask_azure_app_ek2.html" target="_blank"><img class="derinlik"
+                                                                                src="./assets/flask_azure_github_build_workflow.JPG"
+                                                                                alt="Resim"
+                                                                                style="width: 100%"></a>
+                        <p style="text-indent: 2em"> Workflow instance'ın içine girdiğimizde (Zamanla çok sayıda
+                            workflow instance'ı oluşabilir. Örneğin kodda bir değişiklik yapıp süreçleri işlettiğimizde
+                            yeni bir build ve deployment süreci işletilmiş olacaktır) <b>"Build"</b> ve <b>"Deploy"</b>
+                            aşamalarını görmüş oluruz.
+                        </p>
+
+                        <p><img class="derinlik" src="./assets/flask_github_build_deploy.JPG" alt="Resim"
+                                style="width: 100%"></p>
+
+                        <p style="text-indent: 2em"> Build sürecinde gerçekleştirilen eylemlerin ekran görüntüsüne
+                            erişmek için yukarıdaki ekranda "Build" yazan kısma tıklamak yeterlidir. Bu durumda
+                            aşağıdaki görüntüyü görmüş oluruz.
+                        </p>
+
+                        <p style="text-indent: 2em"> Burada genel olarak öncelikle python sanal ortamı yaratılıyor ve
+                            "requirement.txt" dosyasında yer alan paketler sisteme yükleniyor. Sonrasında kodlar
+                            Zip'lenip "Artifact" haline getiriliyor. Bu işler normal olarak Github tarafından Azure
+                            Makinesine yaptırılıyor. Sonrasında ise "Artifact" dosyası Github'a Upload ediliyor.
+                        </p>
+
+                        <p><a href="flask_azure_app_ek3.html" target="_blank"><img class="derinlik"
+                                                                                   src="./assets/flask_azure_github_build_gorunum.JPG"
+                                                                                   alt="Resim"
+                                                                                   style="width: 100%"></a></p>
+
+                        <p style="text-indent: 2em"> Artifact dosyasına "workflow" içinde en alt kısımdan
+                            erişebilirsiniz.
+                        </p>
+
+                        <p><img class="derinlik" src="./assets/flask_azure_github_build_artifact.JPG" alt="Resim"
+                                style="width: 100%"></p>
+
+                        <p style="text-indent: 2em"> Artifact dosyalar Github'da belirli bir süre saklanır. Ne kadar
+                            saklanacağı ayarlar kısmından değiştirilebilir.
+                        </p>
+                        <p><img class="derinlik" src="./assets/flask_github_artifact_retention.JPG" alt="Resim"
+                                style="width: 100%"></p>
+
+
+                        <p style="text-indent: 2em"> Benzer şekilde "Deploy" aşamasınında alt adımlar da detaylı bir
+                            şekilde incelenebilir. </p>
+
+
+                        <p><a href="flask_azure_app_ek4.html" target="_blank"><img class="derinlik"
+                                                                                   src="./assets/flask_azure_github_deploy_gorunum.JPG"
+                                                                                   alt="Resim"
+                                                                                   style="width: 100%"></a></p>
+
+                        <p style="text-indent: 2em"> Build ve deploy sürelerine Github üzerinden erişilebilir.
+                        </p>
+                        <p><img class="derinlik" src="./assets/flask_azure_github_build_usage.JPG" alt="Resim"
+                                style="width: 100%"></p>
+
+                        <p style="text-indent: 2em"> Yazının başında development aşamasında eriştiğimiz ekrana artık
+                            Azure üzerinden "http://mybasicflask.azurewebsites.net/" linkinden erişebilir olduk. Bu link
+                            şu an çalışmaz çünkü yaz bittiğinde ben mevcut sunucuyu kapatmış olacağım.</p>
+
+                    </li>
+                </ul>
                 <br>
+                <div style="background: linear-gradient(to right, white, greenyellow);height: 10px;"></div>
 
-
+                <p style="text-indent: 2em;font-weight: bold"> Uygulamanın productiondaki son görüntüsü şu şekildedir.
+                </p>
+                <img class="derinlik" src="./assets/flask_github_son_durum.JPG" alt="Resim" style="width: 100%">
+                <br>
+                <br>
+                <div style="background: linear-gradient(to left, white, greenyellow);height: 10px;"></div>
+                <br/>
+                <br/>
+                <br>
             </div>
         </div>
     </div>
