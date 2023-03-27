@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta name="description" content=""/>
     <meta name="author" content=""/>
-    <title>Veri Dönüşümü: Standardizasyon ve Normalizasyon</title>
+    <title>Short But Important Pyton Notes</title>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico"/>
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
@@ -18,10 +18,7 @@
     <link href="css/styles.css" rel="stylesheet"/>
 
     <link rel="stylesheet" href="./dist/prismjs/prism.css">
-
     <script src="./dist/prismjs/prism.js"></script>
-
-
 
 
     <style>
@@ -32,7 +29,10 @@
         p {
             text-align: justify
         }
+    </style>
 
+
+    <style>
 
         *,
         *:before,
@@ -41,6 +41,16 @@
         }
 
         pre[class*="language-bash"] {
+            position: relative;
+            overflow: auto;
+
+            /* make space  */
+            margin: 5px 0;
+            padding: 1.05rem 0 1.05rem 1rem;
+            border-radius: 10px;
+        }
+
+        pre[class*="language-python"] {
             position: relative;
             overflow: auto;
 
@@ -75,18 +85,27 @@
             text-shadow: #c4c4c4 0 0 2px;
         }
 
+
         pre[class*="language-"] button:hover {
             cursor: pointer;
             background-color: #bcbabb;
         }
 
-
+        .onemli_uyari {
+            background-color: #ffc107;
+            background-image: linear-gradient(to right, #ffc107, #ff8b5f);
+            font-weight: bold;
+            /* make space  */
+            /* make space  */
+            margin: 5px 0;
+            margin-bottom: 20px;
+            padding: 1.05rem 1.05rem 1rem 1rem;
+            border-radius: 10px;
+            font-size: 1rem;
+        }
 
 
     </style>
-
-
-
 
 </head>
 <body>
@@ -101,15 +120,17 @@
     </div>
 </nav>
 <!-- Page Header-->
-<header class="masthead" style="background-image: url('assets/img/post-bg.jpg')">
+<header class="masthead" style="background-image: url('assets/img/dharmendra-sahu-Ia2Kjtrx8y4-unsplash.jpg')">
     <div class="container position-relative px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <div class="post-heading">
-                    <h1>Veri Dönüşümü: Standardizasyon ve Normalizasyon</h1>
-                    <h2 class="subheading"> Standartlaştırma ve normalleştirme arasındaki fark nedir?
-                        Hangi yaklaşımı ne zaman ve nasıl uygularız? </h2>
-                    <span class="meta">Posted on August 24, 2022</span>
+                    <h1 style="color: black">Veri Analizinde Kullanılan Mesafe Ölçüleri </h1>
+                    <h2 class="subheading" style="color: black"> Türleri, Özellikleri ve Hangi Durumda Hangi Mesafe
+                        Ölçüsünün Kullanılması Gerektiği </h2>
+                    <span class="meta">
+                                Posted on August 23, 2022
+                            </span>
                 </div>
             </div>
         </div>
@@ -124,6 +145,48 @@
                 <h3 style="color: red" >Bu yazı daha yazım aşamasındadır! </h3>
                 <p>
                 </p>
+
+                <ul>
+                    <li>
+                        <p>
+                            <b>Öklid Mesafesi:</b> En yaygın kullanılan mesafe ölçüsüdür. İki nokta arasındaki doğrudan
+                            mesafeyi ölçer. Öklid mesafesi, veri noktaları arasındaki farkların birbirine göre büyük
+                            ölçüde
+                            değiştiği durumlarda iyi çalışabilir.
+                        </p>
+                    </li>
+                    <li><p>Manhattan Mesafesi</p></li>
+                    <li>Minkowski Mesafesi</li>
+                    <li>Chebyshev Mesafesi</li>
+                    <li>
+                        <p>
+                            <b>Cosine Mesafesi:</b> İki vektör arasındaki açının kosinüsünü hesaplar. Cosine mesafesi,
+                            kelime gömme modelleri gibi yüksek boyutlu veri kümelerinde sıklıkla kullanılır.
+                        </p>
+                    </li>
+
+                    <li>
+                        <p>
+                            <b>Jaccard Mesafesi:</b> İki kümenin benzerlik derecesini ölçer. Jaccard mesafesi, özellikle
+                            kümeleme analizinde kullanılır.
+                        </p>
+                    </li>
+                    <li>Hamming Mesafesi</li>
+                    <li>Mahalanobis Mesafesi</li>
+                    <li>Bray Curtis Mesafesi</li>
+                    <li>Canberra Mesafesi</li>
+                    <li>Euclidean-Laplacian Mesafesi</li>
+                    <li>Chord Mesafesi</li>
+                    <li>Chi-Square Mesafesi</li>
+                    <li>Correlation Mesafesi</li>
+                    <li>Hellinger Mesafesi</li>
+                    <li>Jensen-Shannon Mesafesi</li>
+                    <li>Kullback-Leibler Mesafesi</li>
+                    <li>Mahalanobis-Minowski Mesafesi</li>
+                    <li>Mahalanobis-Cosine Mesafesi</li>
+                    <li>Mahalanobis-Jaccard Mesafesi</li>
+                </ul>
+
 
             </div>
         </div>
@@ -145,7 +208,7 @@
                         </a>
                     </li>
                 </ul>
-                <div class="small text-center text-muted fst-italic">İlkay Özay - 29 Aralık 2022</div>
+                <div class="small text-center text-muted fst-italic">İlkay Özay</div>
             </div>
         </div>
     </div>
@@ -193,7 +256,6 @@
 
 
 </script>
-
 
 </body>
 </html>

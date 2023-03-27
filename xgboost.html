@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title>XGBoost, GridSearchCV, RandomizedSearchCV </title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico"/>
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet"
+          type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+          rel="stylesheet" type="text/css"/>
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet"/>
+
+    <link rel="stylesheet" href="./dist/prismjs/prism.css">
+    <script src="./dist/prismjs/prism.js"></script>
+
+
+    <style>
+        ul {
+            padding-left: 1rem;
+        }
+
+        p {
+            text-align: justify
+        }
+
+        li {
+            margin-bottom: 7px;
+        }
+    </style>
+
+
+    <style>
+
+
+        h1 {
+            font-size: 2rem;
+            color: #4a148c;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: #6a1b9a;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            color: #9c27b0;
+            margin-bottom: 10px;
+        }
+    </style>
+
+    <style>
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: border-box;
+        }
+
+        pre[class*="language-bash"] {
+            position: relative;
+            overflow: auto;
+
+            /* make space  */
+            margin: 5px 0;
+            padding: 1.05rem 0 1.05rem 1rem;
+            border-radius: 10px;
+        }
+
+        pre[class*="language-python"] {
+            position: relative;
+            overflow: auto;
+
+            /* make space  */
+            margin: 5px 0;
+            padding: 1.05rem 0 1.05rem 1rem;
+            border-radius: 10px;
+        }
+
+        pre[class*="kodcikti"] {
+            position: relative;
+            overflow: auto;
+            /* make space  */
+            /* make space  */
+            margin: 5px 0;
+            padding: 1.05rem 0 1.05rem 1rem;
+            border-radius: 10px;
+            font-size: 1rem;
+        }
+
+        pre[class*="language-"] button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+
+            font-size: 0.9rem;
+            padding: 0.15rem;
+            background-color: #828282;
+
+            border: ridge 1px #7b7b7c;
+            border-radius: 5px;
+            text-shadow: #c4c4c4 0 0 2px;
+        }
+
+
+        pre[class*="language-"] button:hover {
+            cursor: pointer;
+            background-color: #bcbabb;
+        }
+
+        .onemli_uyari {
+            background-color: #ffc107;
+            background-image: linear-gradient(to right, #ffc107, #ff8b5f);
+            font-weight: bold;
+            /* make space  */
+            /* make space  */
+            margin: 5px 0;
+            margin-bottom: 20px;
+            padding: 1.05rem 1.05rem 1rem 1rem;
+            border-radius: 10px;
+            font-size: 1rem;
+        }
+
+
+    </style>
+
+
+    <style>
+        .derinlik {
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+        }
+
+    </style>
+
+</head>
+<body>
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+    <div class="container px-4 px-lg-5">
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html">Home</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Page Header-->
+<header class="masthead" style="background-image: url('assets/img/pawel-czerwinski-ki9IMshQZ4Q-unsplash.jpg ')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="post-heading">
+                    <h1>XGBoost ile Sınıflandırma</h1>
+                    <h2 class="subheading"> Wine Veri Kümesi ile XGBoost'un XGBClassifier sınıfının kullanımı </h2>
+                    <span class="meta">
+                                Posted on Marc 26, 2023
+                            </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Post Content-->
+<article class="mb-1">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-8">
+                <br>
+                <h1>Giriş</h1>
+                <p style="text-indent: 2em"> XGBoost (eXtreme Gradient Boosting), günümüzde en popüler ve başarılı
+                    makine öğrenimi algoritmalarından biridir. <b>XGBoost</b>, <b><u>Gradient Boosting</u></b>
+                    algoritmasının özel bir implementasyonudur.
+                    <b>Gradient Boosting</b>, zayıf öğreniciler olarak adlandırılan çok sayıda basit
+                    öğreniciyi bir araya getirerek güçlü bir öğrenici oluşturur. <b>XGBoost </b>, bu fikri geliştirir ve
+                    ağaç
+                    yapıları olarak bilinen öğrenicilerin bir araya getirilmesiyle birlikte, verimlilik açısından
+                    çeşitli iyileştirmeler sağlar.</p>
+                <p style="text-indent: 2em">
+                    <b>XGBoost</b>, hem <b>sınıflandırma</b> hem de <b>regresyon problemleri</b>
+                    için yüksek tahmin doğruluğu sunar ve <b>daha az eğitim süresi</b> gerektirir. Temel olarak,
+                    XGBoost, bir dizi
+                    zayıf öğreniciyi <b>(learner)</b> - genellikle karar ağaçları <b>(decision trees)</b> -
+                    birleştirerek güçlü bir öğrenici (learner) oluşturan gradient boosting
+                    algoritmasının optimize edilmiş bir uygulamasıdır. XGBoost'un başarısının arkasındaki anahtar
+                    faktörler, düzenlileştirme <b>(regularization) </b>, paralel hesaplama <b>(parallel
+                    computation) </b>
+                    ve özel olarak tasarlanmış ağaç öğrenme algoritmalarıdır.
+                </p>
+                <p>XGBoost'un bazı alt sınıfları şunlardır:</p>
+                <ul>
+
+                    <li>
+                        <p><strong> XGBClassifier: </strong> XGBoost algoritmasının sınıflandırma problemleri için
+                            optimize edilmiş bir implementasyonudur. Bu sınıf, özellikle büyük ve karmaşık veri setleri
+                            için yüksek performanslı sınıflandırma modelleri oluşturmak için tasarlanmıştır. XGBoost'un
+                            özel implementasyonu sayesinde, hızlı öğrenme ve yüksek doğruluk sağlanır..
+                        </p>
+                    </li>
+
+                    <li>
+                        <p><strong> XGBRFClassifier: </strong> Rastgele Orman (Random Forest) tabanlı sınıflandırma
+                            problemleri için kullanılır. Bu sınıf, birden fazla karar ağacını birleştirerek
+                            sınıflandırma modeli oluşturur ve bu sayede overfitting (aşırı öğrenme) riskini azaltır.
+                        </p>
+                    </li>
+
+                    <li>
+                        <p><strong> XGBRegressor: </strong> Sürekli hedef değişkenlerle çalışan regresyon problemleri
+                            için kullanılır. Bu
+                            sınıf, XGBoost'un regresyon yeteneklerini kullanarak model oluşturur ve eğitir.
+                            XGBRegressor, gradient boosting algoritmasının gücünü kullanarak sürekli hedef değişkenlerle
+                            regresyon yapar ve yüksek doğruluk elde eder.
+                        </p>
+                    </li>
+
+                    <li>
+                        <p><strong> XGBRFRegressor: </strong> Rastgele Orman (Random Forest) tabanlı regresyon
+                            problemleri için kullanılır. XGBoost'un Rastgele Orman modelini kullanarak sürekli hedef
+                            değişkenlerle regresyon yapar. Bu sınıf, gradient boosting ve rastgele orman
+                            algoritmalarının avantajlarını birleştirerek daha iyi regresyon performansı sağlar.
+                        </p>
+                    </li>
+
+                    <li>
+                        <p><strong> XGBRanker: </strong> Sıralama problemleri için kullanılan XGBoost alt sınıfıdır. Bu
+                            sınıf, XGBoost ağaçları kullanarak sıralama problemlerini çözmek için tasarlanmıştır
+                        </p>
+                    </li>
+
+                </ul>
+                <p style="text-indent: 2em">Bu alt sınıfların her biri, farklı türde makine öğrenimi problemlerini
+                    çözmek için kullanılır.</p>
+                <p style="text-indent: 2em"> Bu yazıda <b>XGBRFClassifier</b> sınıfını kullanacağım. Örneklerde <b>"Wine
+                    Dataset"</b>
+                    ini kullanacağım.
+                    Öncelikle veri kümesini tanıyalım. </p>
+                <h2>Wine Veri Kümesinin Tanıtımı</h2>
+                <h3>2.1. Veri Kümesinin İçeriği ve Özellikleri</h3>
+                <div class="">
+                    <p style="text-indent: 2em">Wine veri kümesi,
+                        <a href="https://archive.ics.uci.edu/ml/datasets/wine" target="_blank">UCI Machine
+                            Learning Repository'de </a> bulunan ünlü bir veri kümesidir. İtalya'daki aynı bölgeden gelen
+                        üç
+                        farklı
+                        üzüm çeşidine (cultivar) dayalı olarak üretilen kimyasal analiz sonuçlarına dayanan <b>178
+                            örnekten</b>
+                        oluşur. Veri kümesi, <b>üç sınıfa ayrılmıştır</b> ve her sınıf, <b>üç farklı üzüm çeşidini </b>
+                        temsil eder.
+                    </p>
+                    <p style="text-indent: 2em">Wine veri kümesi, 13 farklı özelliği içerir:</p>
+
+                    <ol>
+                        <li>Alcohol (Alkol)</li>
+                        <li>Malic acid (Malik asit)</li>
+                        <li>Ash (Kül)</li>
+                        <li>Alcalinity of ash (Külün alkaliliği)</li>
+                        <li>Magnesium (Magnezyum)</li>
+                        <li>Total phenols (Toplam fenoller)</li>
+                        <li>Flavanoids (Flavonoidler)</li>
+                        <li>Nonflavanoid phenols (Flavonoid olmayan fenoller)</li>
+                        <li>Proanthocyanins (Proantosiyanidinler)</li>
+                        <li>Color intensity (Renk yoğunluğu)</li>
+                        <li>Hue (Renk tonu)</li>
+                        <li>OD280/OD315 of diluted wines (Seçilmiş şarapların OD280/OD315 değeri)</li>
+                        <li>Proline (Prolin)</li>
+                    </ol>
+                    <p style="text-indent: 2em">Wine veri kümesi, sınıflandırma algoritmalarının performansını
+                        değerlendirmek ve hiperparametre
+                        optimizasyonu yapmak için sıklıkla kullanılır. Bu veri kümesi, makine öğrenimi modellerini
+                        eğitmek ve test etmek için kullanışlı ve popüler bir seçenektir.
+                    </p>
+                    <p style="text-indent: 2em"> Wine veri kümesindeki hedef değişken, şarapların üretildiği üzüm
+                        çeşidini temsil eder. Yani
+                        hedef, <b>üzüm çeşididir</b>. Bu veri kümesinde <b>3 farklı üzüm çeşidi (sınıf)</b>
+                        bulunmaktadır. Kuracağımız
+                        modellerin amacı,
+                        şarapların içerdikleri kimyasal bileşenleri (özellikler) kullanarak şarapların hangi üzüm
+                        çeşidinden yapıldığını
+                        tahmin etmeye çalışmak olacaktır.</p>
+                </div>
+                <h3>2.2. Veri Kümesinin Görselleştirilmesi</h3>
+                <p style="text-indent: 2em"> Wine veri kümesi, <b>13 özellik ve 1 hedef değişken olmak üzere toplamda 14
+                    sütun (kolon)</b> içerir. 13 özellik, şarapların kimyasal bileşenlerini temsil ederken, hedef
+                    değişken
+                    ise şarapların üzüm çeşidini (sınıfını) temsil eder.
+                </p>
+
+                <p> Wine veri kümesini Pandas Data Frame haline getirip içeriğine bakabiliriz.</p>
+
+                <pre>
+<code class="language-python" style="font-size: 0.8rem">import pandas as pd
+from sklearn.datasets import load_wine
+from sklearn.utils import shuffle
+
+# Wine veri kümesini yükle
+wine = load_wine()
+
+# Wine veri kümesini pandas DataFrame'e dönüştür
+wine_df = pd.DataFrame(wine.data, columns=wine.feature_names)
+wine_df['target'] = wine.target
+
+# Data sıralamasını karıştır
+wine_df = shuffle(wine_df, random_state=42)
+wine_df.reset_index(drop=True, inplace=True)
+
+# İlk 5 satırı göster
+wine_df.head()
+</code></pre>
+                <br>
+                <a href="xgboost_ek1.html" target="_blank"><img class="derinlik"
+                                                                src="./assets/wine_data_head.JPG"
+                                                                alt="Resim"
+                                                                style="width: 100%"></a>
+
+                <br>
+                <p><b>Verilerin dağılımı grafik olarak da görebiliriz</b>
+                </p>
+                <p> Bunu için Wine veri kümesini Pandas Data Frame haline getirip Seaborn kütüphanesi desteği ile pie ve
+                    bar grafik olarak çizeceğiz.</p>
+
+                <pre>
+<code class="language-python" style="font-size: 0.8rem">import seaborn as sns
+import matplotlib.pyplot as plt
+import pandas as pd
+from sklearn.datasets import load_wine
+import pandas as pd
+
+wine = load_wine()
+
+# Wine veri kümesini pandas DataFrame'e dönüştür
+wine_df = pd.DataFrame(wine.data, columns=wine.feature_names)
+wine_df['target'] = wine.target
+
+# class_counts verilerini hazırlayın (örnek olarak):
+class_counts = wine_df['target'].value_counts().sort_index()
+
+# Grafikleri tek satırda 2 kolonda düzenle
+fig, axes = plt.subplots(nrows=1, ncols=2, figsize=(14, 6))
+
+# Seaborn paleti oluştur
+palette = sns.color_palette("magma", 3)
+
+# Pasta grafiği (pie chart) oluştur
+axes[0].pie(class_counts, autopct="%.1f%%", startangle=90, colors=palette)
+axes[0].set_title("Wine Target Distribution - Pie Chart")
+axes[0].set_ylabel("")
+axes[0].legend(class_counts.index)
+
+sns.countplot(x='target', data=wine_df, palette=palette, ax=axes[1])
+axes[1].set_title("Wine Target Distribution - Bar Chart")
+axes[1].set_xlabel("")
+axes[1].set_ylabel("Count")
+
+# Göster
+plt.show()
+</code></pre>
+                <br>
+                <div style="background: linear-gradient(to left, mediumpurple, mediumturquoise);height: 10px;"></div>
+                <br>
+                <img class="derinlik" src="./assets/wine_data_gorsel.JPG" alt="Resim" style="width: 100%">
+                <br><br>
+                <div style="background: linear-gradient(to right, mediumpurple, mediumturquoise);height: 10px;"></div>
+                <br>
+
+                <h2>XGBClassifier Kullanımı</h2>
+                <p style="text-indent: 2em">XGBClassifier, XGBoost'un sınıflandırma modelleri için kullanılan Python
+                    sınıfıdır. Bu sınıf, eğitim
+                    verilerindeki ilişkileri öğrenir ve test verilerindeki örnekleri sınıflandırmak için kullanır.</p>
+                <p>XGBoost'un XGBClassifier sınıfının hiperparametreleri ve varsayılan değerleri şunlardır:</p>
+                <ul>
+                    <li><b>learning_rate:</b> 0.3 (ağaçların ağırlıklarını küçültmek için kullanılır ve aşırı uydurma
+                        riskini azaltır)
+                    </li>
+                    <li><b>n_estimators:</b> 100 (ağaç sayısı)</li>
+                    <li><b>max_depth:</b> 6 (ağacın maksimum derinliği)</li>
+                    <li><b>min_child_weight:</b> 1 (çocuk düğümlerin minimum ağırlığı; ağaç büyümesini düzenler)</li>
+                    <li><b>gamma:</b> 0 (ağacın minimum kaybı düşürme gereksinimi)</li>
+                    <li><b>subsample:</b> 1 (eğitim veri kümesinin alt örneklem oranı)</li>
+                    <li><b>colsample_bytree:</b> 1 (ağaç başına özellik alt örneklem oranı)</li>
+                    <li><b>objective:</b> 'binary:logistic' (kayıp fonksiyonunun tipi; ikili sınıflandırma için
+                        varsayılan)
+                    </li>
+                    <li><b>num_class:</b> None (çok sınıflı sınıflandırma için sınıf sayısı; ikili sınıflandırma için
+                        varsayılan değer None'dur)
+                    </li>
+                    <li><b>scale_pos_weight:</b> 1 (dengesiz sınıf dağılımları için pozitif ve negatif örneklerin
+                        ağırlıklandırılması)
+                    </li>
+                    <li><b>missing:</b> None (eksik değerlerin temsil biçimi)</li>
+                    <li><b>random_state:</b> None (rastgele sayı üreticisinin tohum değeri)</li>
+                    <li><b>booster:</b> 'gbtree' (kullanılacak güçlendirici türü; 'gbtree', 'gblinear' veya 'dart'
+                        olabilir)
+                    </li>
+                    <li><b>verbosity:</b> 1 (yazdırma düzeyi; daha az çıktı için değeri azaltın)</li>
+                    <li><b>seed:</b> None (rastgele sayı üreticisinin tohum değeri; 'random_state' ile aynıdır)</li>
+                </ul>
+                <br>
+                <h3 style="margin-bottom: 2px">Model Oluşturma, Eğitim ve Değerlendirme </h3>
+                <p> Modelimizde Wine veri kümesini kulanacağız. Verinin %80'ını eğitim ve %20'sini test için
+                    kullanacağız.</p>
+
+                <pre>
+<code class="language-python" style="font-size: 0.8rem">%%time
+import xgboost as xgb
+from sklearn.datasets import load_wine
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+from sklearn.metrics import classification_report
+
+# Wine veri kümesini yükle
+wine = load_wine()
+X, y = wine.data, wine.target
+
+# Veri kümesini eğitim ve test setlerine ayır
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# XGBoost sınıflandırıcıyı başlat
+clf = xgb.XGBClassifier(
+    learning_rate=0.5,
+    n_estimators=100,
+    max_depth=5,
+    min_child_weight=1,
+    gamma=0,
+    subsample=0.8,
+    colsample_bytree=0.8,
+    objective='multi:softmax',
+    num_class=3,
+    seed=42
+)
+
+# Sınıflandırıcıyı eğit
+clf.fit(X_train, y_train)
+
+# Test seti üzerinde tahmin yap
+y_pred = clf.predict(X_test)
+
+# Doğruluk skorunu hesapla
+accuracy = accuracy_score(y_test, y_pred)
+print("Accuracy: %.2f%%" % (accuracy * 100.0))
+
+# Sınıflandırma raporu oluştur
+report = classification_report(y_test, y_pred)
+print("\nClassification Report:\n", report)
+</code></pre>
+                <br>
+                <pre class="kodcikti"><code class="language-">Accuracy: 100.00%
+
+Classification Report:
+               precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00        14
+           1       1.00      1.00      1.00        14
+           2       1.00      1.00      1.00         8
+
+    accuracy                           1.00        36
+   macro avg       1.00      1.00      1.00        36
+weighted avg       1.00      1.00      1.00        36
+
+CPU times: total: 641 ms
+Wall time: 76.8 ms</code></pre>
+                <br>
+
+                <p style="text-indent: 2em"> Modelimiz verilen data ve kullanılan hiperparametreler ile çok başarılı bir
+                    sonuca ulaşabildi. Peki
+                    verilen parametrelerle çok da istenilen bir seviyeye ulaşılamasaydık ne yapardık. Bu durumda
+                    hiperparametrelerle oynardık. Ancak çok fazla parametre var ve parametreler içinde de opsiyonlar
+                    var. Bunun içinde bir çözüm geliştirilmiş.</p>
+                <br>
+
+                <h2>Hiperparametre Optimizasyonu</h2>
+
+                <p style="text-indent: 2em">XGBClassifier modelinin en iyi performansını sağlayacak parametreleri bulmak
+                    için
+                    Grid Search ve
+                    Randomized Search gibi yöntemler uygulanabilir. Scikit-learn kütüphanesinin GridSearchCV ve
+                    RandomizedSearchCV fonksiyonlarını kullanarak bu yöntemleri uygulayabiliriz. </p>
+                <h3>4.1. GridSearchCV ile Hiperparametre Arama</h3>
+                <p style="text-indent: 2em"> Grid Search yöntemi, makine öğrenimi modellerinin hiperparametrelerini
+                    optimize etmek için kullanılan bir yöntemdir. Grid Search, belirtilen hiperparametrelerin tüm olası
+                    kombinasyonlarını değerlendirerek, en iyi model performansını elde etmek için en uygun
+                    hiperparametre değerlerini belirlemeye çalışır. Yani biz Grid Search yöntemine her bir parametre
+                    için seçenekler listesi vereceğiz. Grid Search yöntemi, belirttiğimiz hiperparametrelerin tüm
+                    olası
+                    değer kombinasyonlarını kullanarak modeller oluşturur ve bu modelleri eğitir. Ardından, her bir
+                    modelin performansını ölçer ve en iyi performansı veren hiperparametre kombinasyonunu seçer.
+                </p>
+                <p style="text-indent: 2em">Grid Search yönteminde, her bir kombinasyonda eğitim ve test için veri
+                    setinin bir bölümü kullanılır.
+                    Genellikle, K-Fold Cross Validation (Çapraz Doğrulama) yöntemi kullanılarak veri kümesi K eşit
+                    parçaya bölünür. Bu işlem her hiperparametre kombinasyonu için tekrarlanır.</p>
+                <p style="text-indent: 2em">Her bir hiperparametre kombinasyonu için, model K kez eğitilir ve
+                    değerlendirilir. <b>Örneğin;</b> eğer bir parametre için 2 ve diğer parametre için 3 aday olduğunda,
+                    toplamda 2x3 =
+                    6 farklı hiperparametre kombinasyonu oluşur. Eğer K-Fold değeri 10 olarak belirlenirse, her bir
+                    kombinasyon için 10 kez model eğitimi ve değerlendirmesi yapılır.
+                </p>
+                <p style="text-indent: 2em">
+                    Bu durumda, 6 farklı hiperparametre kombinasyonu için toplamda 6 * 10 = 60 kez model eğitilir ve
+                    değerlendirilir.Her bir kombinasyon için, K kez elde edilen performans ölçüleri (örneğin, doğruluk)
+                    ortalaması alınır. Grid Search, en iyi ortalama performansı sağlayan hiperparametre kombinasyonunu
+                    seçer.</p>
+
+                <pre>
+<code class="language-python" style="font-size: 0.8rem">%%time
+import numpy as np
+import xgboost as xgb
+from sklearn.datasets import load_wine
+from sklearn.model_selection import train_test_split, GridSearchCV
+
+# Wine veri kümesini yükle
+wine = load_wine()
+X, y = wine.data, wine.target
+
+# Veri kümesini eğitim ve test setlerine ayır
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# XGBoost sınıflandırıcıyı başlat
+clf = xgb.XGBClassifier(objective='multi:softmax', num_class=3)
+
+# Grid Search için parametre aralıklarını belirle
+param_grid = {
+  'learning_rate': [0.1, 0.3, 0.5,0.8],
+    'n_estimators': [50, 100, 150,200],
+    'max_depth': [3, 4, 5,6],
+    'min_child_weight': [1, 3, 5],
+    'gamma': [0, 0.1, 0.2],
+    'subsample': [0.8, 1],
+    'colsample_bytree': [0.8, 1],
+}
+
+# Grid Search'ü başlat
+k_fold = 3
+grid_search = GridSearchCV(estimator=clf, param_grid=param_grid, cv=k_fold, scoring='accuracy', verbose=1)
+grid_search.fit(X_train, y_train)
+
+# En iyi parametreleri ve skoru yazdır
+print("Best Parameters: ", grid_search.best_params_)
+print("Best Score: %.2f%%" % (grid_search.best_score_ * 100))
+</code></pre>
+                <br>
+                <pre class="kodcikti"><code class="language-">Fitting 3 folds for each of 2304 candidates, totalling 6912 fits
+Best Parameters:  {'colsample_bytree': 1, 'gamma': 0.1, 'learning_rate': 0.5,
+                    'max_depth': 3, 'min_child_weight': 3, 'n_estimators': 150,
+                    'subsample': 0.8}
+Best Score: 99.29%
+CPU times: total: 1h 34min 42s
+Wall time: 9min 39s</code></pre>
+                <p style="text-indent: 2em"> Grid Search için denenmesi istenen parametre aralıklarını "param_grid"
+                    içerisinde verilmiştir.
+                    Burada her bir parametre için verilen seçenek sayılarını sırasıyla yazıp çarparsak :</p>
+                <p style="text-indent: 2em"> 4 * 4 * 4 * 3 * 3 * 2 * 2 = 2304 farklı parametre kombinasyonu söz
+                    konusudur.</p>
+                <p style="text-indent: 2em"> K-Fold (cv = cross-validation) değeride 3 verildiği için toplamda 6912
+                    (3*2304) adet eğitim ve değerlendirme söz konusudur.
+                </p>
+                <p style="text-indent: 2em"> Böyle olunca alt tarafı 178 satırlık veri kümesi için bile bu yöntem uzun
+                    olabilmektedir. Benim çalıştırmamda bu işlem 9min 39s sürmüştür. </p>
+
+                <p style="text-indent: 2em">Grid Search yönteminin dezavantajı, tüm olası kombinasyonları
+                    değerlendirmesi nedeniyle zaman alıcı
+                    ve hesaplama açısından maliyetli olmasıdır. Bu nedenle, büyük veri kümeleri ve çok sayıda
+                    hiperparametre ile çalışırken, daha verimli yöntemler kullanmak, örneğin Randomized Search, daha
+                    uygun olabilir.
+                </p>
+                <p style="text-indent: 2em"> RandomizedSearchCV'ye geçmeden önce bir açıklama daha yerinde olacaktır.
+                    GridSearchCV çalışmasının sonucunda en iyi skor 99.29% gözüküyor. Oysa biz zaten %100 ü
+                    yakalayabiliyorduk. Peki neden bu şekilde gösteriyor?
+                </p>
+                <p style="text-indent: 2em"> Grid Search'teki k-fold çapraz doğrulama süreci, modelin performansını
+                    değerlendirmek için veri kümesini birden fazla parçaya böler ve her bir alt küme üzerinde modeli
+                    eğitir ve test eder. Dolayısıyla eğitim az bir data ile gerçekleştirilmekte ve ortalamalar
+                    alınmaktadır.
+                </p>
+                <p style="text-indent: 2em">
+                    Eğer Grid Search ile aynı sonuçları elde etmek istiyorsanız, doğrudan eğitim ve test verilerinizi
+                    train_test_split kullanarak aynı şekilde bölebilir ve ardından çapraz doğrulama sürecine benzer bir
+                    değerlendirme yapabilirsiniz.
+                </p>
+                <br>
+
+                <h3>4.2. RandomizedSearchCV ile Hiperparametre Arama</h3>
+                <p style="text-indent: 2em">
+                    Şarap veri kümesi için XGBClassifier'ın en iyi parametrelerini bulmak üzere Randomized Search
+                    yöntemini
+                    uygulayalım:
+                </p>
+
+                <pre>
+<code class="language-python" style="font-size: 0.8rem">%%time
+import numpy as np
+import xgboost as xgb
+from sklearn.datasets import load_wine
+from sklearn.model_selection import train_test_split, RandomizedSearchCV
+
+# Wine veri kümesini yükle
+wine = load_wine()
+X, y = wine.data, wine.target
+
+# Veri kümesini eğitim ve test setlerine ayır
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# XGBoost sınıflandırıcıyı başlat
+clf = xgb.XGBClassifier(objective='multi:softmax', num_class=3)
+
+# Randomized Search için parametre aralıklarını belirle
+param_dist = {
+  'learning_rate': [0.1, 0.3, 0.5,0.8],
+    'n_estimators': [50, 100, 150,200],
+    'max_depth': [3, 4, 5,6],
+    'min_child_weight': [1, 3, 5],
+    'gamma': [0, 0.1, 0.2],
+    'subsample': [0.8, 1],
+    'colsample_bytree': [0.8, 1],
+}
+
+# Randomized Search'ü başlat
+random_search = RandomizedSearchCV(
+    estimator=clf,
+    param_distributions=param_dist,
+    n_iter=100,  # Toplamda 100 farklı parametre kombinasyonu denenecek
+    cv=3,
+    scoring='accuracy',
+    verbose=1,
+    random_state=42
+)
+random_search.fit(X_train, y_train)
+
+# En iyi parametreleri ve skoru yazdır
+print("Best Parameters: ", random_search.best_params_)
+print("Best Score: %.2f%%" % (random_search.best_score_ * 100))
+</code></pre>
+                <br>
+                <pre class="kodcikti"><code class="language-">Fitting 3 folds for each of 100 candidates, totalling 300 fits
+Best Parameters:  {'subsample': 0.8, 'n_estimators': 50, 'min_child_weight': 3,
+                    'max_depth': 3, 'learning_rate': 0.3, 'gamma': 0.1,
+                    'colsample_bytree': 1}
+Best Score: 98.58%
+CPU times: total: 3min 57s
+Wall time: 33.3 s</code></pre>
+
+                <p style="text-indent: 2em"> Grid Search ile tamaman aynı hiperparametreleri aramamıza rağmen
+                    RandomizedSearchCV'de sonuca çok çok daha hızlı bir şekilde erişmiş olduk.
+                </p>
+
+                <p style="text-indent: 2em"> Yalnız iki yöntemin önerdiği hiperparametre rakamları arasında farklılık
+                    söz
+                    konusudur. Ben her iki yönteminde önerdiği hiperparametre kümesi ile de modelleri denedim ve
+                    ikisinde de
+                    %100 doğruluğa erişmiş oldum. Önerilen hiperparametre kümeleri arasında doğruluk açısıdan bir fark
+                    olmamasına rağmen "RandomizedSearchCV" ün çok daha hızlı olduğunu gördük.
+                    Ancak daha farklı ve büyük bir data ile de bu yöntemleri test
+                    etmekte fayda vardır.
+                </p>
+
+                <h2>Alternatif bir Model İle Performans Karşılaştırma</h2>
+                <p style="text-indent: 2em">
+                    XGBClassifier, yani Extreme Gradient Boosting Classifier, oldukça etkili bir sınıflandırma
+                    algoritmasıdır. Karşılaştırma yapmak için birçok faktör göz önünde bulundurulmalıdır, çünkü hangi
+                    modelin en uygun olduğu, veri setine, problem tipine ve performans hedeflerine bağlı olacaktır.
+                    Bununla birlikte, birkaç alternatif model önermek mümkündür:
+                <ul>
+                    <li><b>Random Forest Classifier:</b> Benzer şekilde, birçok karar ağacını bir araya getirerek bir
+                        ensemble
+                        modeli oluşturur. XGBClassifier'dan daha hızlı olabilir ve daha az hiperparametre ayarı
+                        gerektirebilir.
+                    </li>
+                    <li><b>Support Vector Machine (SVM):</b> SVM, XGBClassifier ile
+                        karşılaştırıldığında daha yavaş olabilir, ancak lineer veya non-lineer problemlerde yüksek
+                        performans sağlayabilir. SVM ayrıca özellikle veri kümesi boyutu küçük olduğunda iyi
+                        çalışabilir.
+                    </li>
+
+                    <li><b>Neural Network Classifier:</b> Derin öğrenme algoritmaları,
+                        özellikle büyük ve karmaşık veri kümelerinde XGBClassifier'dan daha iyi performans gösterebilir.
+                        Ancak, daha fazla veri ve işlem gücü gerektirirler.
+                    </li>
+
+                    <li><b>K-Nearest Neighbors (KNN) Classifier:</b> KNN, sınıflandırma
+                        işlemi sırasında benzer özelliklere sahip veri noktalarını bir araya getirerek sınıflandırma
+                        yapar. Küçük veri setleri için iyi bir seçenek olabilir.
+                    </li>
+                </ul>
+                <p style="text-indent: 2em">Bu modellerin her biri, farklı durumlarda farklı performans sonuçları
+                    verebilir, bu nedenle doğru
+                    model seçimi veri seti, problem ve hedeflere bağlıdır.</p>
+
+                <p style="text-indent: 2em">
+                    Veri setimiz küçük olduğu için karşılaştırma yapmak için ben KNN Classifier (KNeighborsClassifier)
+                    tercih ettim.
+                </p>
+                <h3>KNeighborsClassifier:</h3>
+                <p style="text-indent: 2em">
+                    KNeighborsClassifier, sklearn kütüphanesinde bulunan bir sınıflandırma algoritmasıdır. Temel olarak,
+                    verileri bir uzayda konumlandırır ve bir veri noktasının sınıfını, k- en yakın komşularının
+                    sınıflarına bakarak belirler.
+                </p>
+
+                <p style="text-indent: 2em">
+                    XGBClassifier, KNeighborsClassifier'a göre daha kompleks bir algoritmadır. Ancak, genellikle daha
+                    hızlıdır ve daha iyi performans sağlayabilir. XGBClassifier ayrıca daha yeni bir algoritmadır.
+                </p>
+
+                <p style="text-indent: 2em">
+                    KNeighborsClassifier, verilerin belirli bir şekilde konumlandırılması gerektiğinde veya veri
+                    noktalarının birbirine yakınlığının sınıfı belirlemede önemli olduğu durumlarda kullanılabilir.
+                    XGBClassifier ise, büyük veri kümeleri veya çok sayıda özellik içeren veri kümeleri gibi daha
+                    karmaşık veri setleri için daha uygundur.
+                </p>
+
+                <p style="text-indent: 2em">
+                    Temel farklılık, KNeighborsClassifier'ın veri noktalarının konumlandırmasına dayanması ve
+                    XGBClassifier'ın Gradient Boosting algoritmasını kullanmasıdır. KNeighborsClassifier, daha az
+                    karmaşık veri setleri için daha uygunken, XGBClassifier daha karmaşık veri setleri için daha uygun
+                    olabilir.
+                </p>
+
+                <p style="text-indent: 2em">
+                    KNeighborsClassifier, özellikleri (features) nedeniyle birbirine yakın olan veri noktaları
+                    arasındaki benzerlikleri dikkate alır. Bu nedenle, sınıflandırma yapmak için verilerin önceden
+                    belirli bir şekilde konumlandırılması gerekir. Örneğin, yüz tanıma uygulamaları, yüzlerin
+                    özellikleri arasındaki benzerlikleri dikkate alır ve sınıflandırma yapmak için yüzlerin belirli bir
+                    şekilde konumlandırılmasını gerektirir
+                </p>
+                <p style="text-indent: 2em">
+                    Öte yandan, XGBClassifier, büyük veri kümeleri veya çok sayıda özellik içeren veri kümeleri gibi
+                    daha karmaşık veri setlerinde daha iyi performans gösterir. Bu tür veri kümelerinde, veriler
+                    arasındaki ilişkiler ve özellikler arasındaki etkileşimler oldukça karmaşıktır. XGBClassifier,
+                    Gradient Boosting algoritmasını kullanarak, bu karmaşıklıkları daha iyi yönetebilir ve daha iyi
+                    performans sağlayabilir.
+                </p>
+                <p style="text-indent: 2em">
+                    Yinede KNeighborsClassifier'ın kullanımı hala birçok durumda geçerli ve uygun olabilir. Özellikle,
+                    verilerin birbirine yakınlığının sınıf belirlemede önemli olduğu durumlarda, KNeighborsClassifier
+                    oldukça etkili olabilir. Örneğin, sınıflandırılacak verilerin belirli bir şekilde
+                    konumlandırılabildiği durumlarda (örneğin, coğrafi konum verileri), KNeighborsClassifier tercih
+                    edilebilir.
+                </p>
+                <p style="text-indent: 2em">
+                    Bununla birlikte, KNeighborsClassifier'ın bazı dezavantajları da vardır. Özellikle, büyük veri
+                    kümeleri veya çok sayıda özellik içeren veri kümeleri gibi durumlarda performansı düşük olabilir.
+                    Ayrıca, <b>verilerin konumlandırması kritik olduğu için</b>b, verilerin konumlandırılmasıyla ilgili
+                    yanlışlıkların sınıflandırma doğruluğunu etkileyebilir.
+                </p>
+                <p><b>Verileri Konumlandırmak Ne Demek?</b></p>
+                <p style="text-indent: 2em">
+                    Verileri konumlandırmak, verileri bir uzayda belirli bir şekilde yerleştirmek anlamına gelir. Bu,
+                    verileri birer nokta olarak düşünerek, bu noktaların uzayda nasıl konumlandırıldığına bağlıdır.
+                </p>
+                <p style="text-indent: 2em">
+                    Örneğin, iki boyutlu bir uzayda, bir veri noktası (x, y) olarak temsil edilir ve bu noktanın
+                    konumlandırılması, x ve y koordinatlarına bağlıdır. Aynı şekilde, üç boyutlu bir uzayda, bir veri
+                    noktası (x, y, z) olarak temsil edilir ve bu noktanın konumlandırılması, x, y ve z koordinatlarına
+                    bağlıdır.</p>
+                <p style="text-indent: 2em">
+                    KNeighborsClassifier, verilerin konumlandırılmasına dayalı olarak çalışır. Verilerin bir uzayda
+                    belirli bir şekilde konumlandırılması, veriler arasındaki benzerlikleri ve uzaklıkları
+                    etkileyebilir. Bu nedenle, sınıflandırma yapmak için verilerin belirli bir şekilde konumlandırılması
+                    gerekebilir.
+                </p>
+
+                <div style="background: linear-gradient(to left, mediumpurple, mediumturquoise);height: 10px;"></div>
+                <br>
+                <img class="derinlik" src="./assets/img/K-Nearest_Neighbors_pic1.png" alt="Resim" style="width: 100%">
+                <br>
+                <span style="padding-top: 5px; font-size: 14px">
+                    <b>Kaynak:</b>
+                    <a
+                            href="https://serokell.io/blog/knn-algorithm-in-ml" target="_blank">
+                        https://serokell.io/blog/knn-algorithm-in-ml
+                    </a>
+                </span>
+                <div style="background: linear-gradient(to right, mediumpurple, mediumturquoise);height: 10px;"></div>
+                <br>
+
+                <p style="text-indent: 2em"> Aşağıdaki kod ile Şarap Veri Kümesini kullanarak bir KNeighborsClassifier
+                    modeli eğiteceğiz ve
+                    sonrasında doğruluk performansını göreceğiz. </p>
+
+                <pre>
+<code class="language-python" style="font-size: 0.8rem">%%time
+from sklearn.datasets import load_wine
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import accuracy_score
+from sklearn.metrics import classification_report
+
+# Wine veri kümesini yükle
+wine = load_wine()
+X, y = wine.data, wine.target
+
+# Veri kümesini eğitim ve test setlerine ayır
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# KNN sınıflandırıcıyı başlat (K=3 olarak seçildi)
+clf = KNeighborsClassifier(n_neighbors=3)
+
+# Sınıflandırıcıyı eğit
+clf.fit(X_train, y_train)
+
+# Test seti üzerinde tahmin yap
+y_pred = clf.predict(X_test)
+
+# Doğruluk skorunu hesapla
+accuracy = accuracy_score(y_test, y_pred)
+print("Accuracy: %.2f%%" % (accuracy * 100.0))
+</code></pre>
+
+                <pre class="kodcikti"><code class="language-">Accuracy: 80.56%
+CPU times: total: 15.6 ms
+Wall time: 8.98 ms</code></pre>
+
+                <p style="text-indent: 2em"> Sonuç iyi çıkmadı diyebiliriz. Ben farklı hiperparametrelerle bir kaç kez
+                    daha denedim. %83 değerini yakaladım.
+                </p>
+                <p style="text-indent: 2em">
+                    Aşağıdakine benzer bir grid_param oluşturup en iyi parametreleri bulmaya çalışılabiliriz ama bunu şu
+                    an için yapmayacağım.
+                </p>
+
+                <pre class="kodcikti"><code class="language-">grid_param = {
+'n_neighbors': [3, 5, 7, 9, 11],
+'weights': ['uniform', 'distance'],
+'algorithm': ['auto', 'ball_tree', 'kd_tree', 'brute'],
+'leaf_size': [10, 20, 30, 40],
+'p': [1, 2, 3]
+}</code></pre>
+
+                <p><b>KNeighborsClassifier hiperoarametreleri ve kısa tanımları şöyledir:</b></p>
+                <ul>
+                    <li><b>n_neighbors:</b> Yakın komşuların sayısı. Varsayılan değeri 5'tir.</li>
+                    <li><b>weights:</b> Komşuların ağırlıklarını hesaplamak için kullanılan fonksiyon. 'uniform' (tüm
+                        komşular eşit ağırlığa sahip) veya 'distance' (komşuların ağırlığı mesafeye göre belirlenir)
+                        olarak ayarlanabilir. Ayrıca, kullanıcı tanımlı bir ağırlık fonksiyonu da kullanılabilir.
+                    </li>
+                    <li><b>algorithm:</b> Komşuluk arama algoritması. 'auto' (varsayılan olarak seçilen), 'ball_tree',
+                        'kd_tree' veya 'brute' olarak ayarlanabilir. 'auto' modu, verilerin boyutuna veya diğer
+                        faktörlere bağlı olarak en uygun algoritmayı seçer.
+                    </li>
+                    <li><b>leaf_size:</b> Komşuluk arama algoritmasının yaprak boyutu. Özellikle 'ball_tree' veya
+                        'kd_tree' algoritmaları seçildiğinde etkilidir.
+                    </li>
+                    <li><b>p:</b> Minkowski metriği için güç parametresidir. 1,2,3 değerlerini alabilir. Sırasıyla L1,
+                        L2 ve L3 normlarına denk gelir.L1 manhattan_distance ve L2 öklid_distance anlamındadır. L3
+                        normu ise iki noktanın koordinatları arasındaki farkların küp köklerinin toplamı şeklinde
+                        hesaplanır.
+                    </li>
+
+                    <li><b>n_jobs:</b> Eşzamanlı çalışacak iş sayısı. Varsayılan değeri 1'dir. CPU'nun birden fazla
+                        çekirdeği varsa, işlem hızını artırmak için bu değer artırılabilir.
+                    </li>
+                </ul>
+
+                <div style="background: linear-gradient(to right, yellow, yellowgreen);height: 10px;"></div>
+
+
+                <p style="text-indent: 2em">Sonuç olarak XGBoost - XGBClassifier algoritmasıyla elde ettiğimiz doğruluk
+                    oranı, KNN algoritmasına
+                    göre daha
+                    yüksek çıkmaktadır. Bu örnek veri kümesinde XGBoost (XGBClassifier) , KNN'den daha iyi performans
+                    gösterdi.</p>
+                <p style="text-indent: 2em">Bu yazıda, Wine veri kümesi üzerinde XGBRFClassifier sınıfını kullanarak
+                    başarılı bir sınıflandırma
+                    modeli oluşturduk ve performansını KNN sınıflandırıcısıyla karşılaştırdık. XGBoost'un üstün
+                    performansı ve adaptasyon yeteneği, makine öğrenimi projelerinizde başarılı sonuçlar elde etmenize
+                    yardımcı olacaktır. Ancak unutmayın ki, her durumda en iyi sonuçları elde etmek için farklı
+                    algoritmaları denemek ve doğru hiperparametreleri seçmek önemlidir.</p>
+
+
+                <br>
+
+
+            </div>
+        </div>
+    </div>
+</article>
+<!-- Footer-->
+<footer class="border-top">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <ul class="list-inline text-center">
+
+                    <li class="list-inline-item">
+                        <a href="#!">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                    </span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="small text-center text-muted fst-italic">İlkay Özay - 21 February 2023</div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script src="js/scripts.js"></script>
+
+
+<script>
+
+    const copyButtonLabel = "Copy Code";
+
+    // use a class selector if available
+    let blocks = document.querySelectorAll("pre:not(.kodcikti)");
+
+    blocks.forEach((block) => {
+        // only add button if browser supports Clipboard API
+        if (navigator.clipboard) {
+            let button = document.createElement("button");
+
+            button.innerText = copyButtonLabel;
+            block.appendChild(button);
+
+            button.addEventListener("click", async () => {
+                await copyCode(block, button);
+            });
+        }
+    });
+
+    async function copyCode(block, button) {
+        let code = block.querySelector("code");
+        let text = code.innerText;
+
+        await navigator.clipboard.writeText(text);
+
+        // visual feedback that task is completed
+        button.innerText = "Code Copied";
+
+        setTimeout(() => {
+            button.innerText = copyButtonLabel;
+        }, 700);
+    }
+
+
+</script>
+
+</body>
+</html>

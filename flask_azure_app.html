@@ -516,7 +516,8 @@ Press CTRL+C to quit
                             demektir. Böylece herhangi bir istemci, uygulamaya erişmek için sunucunun IP
                             adresini
                             kullanabilir. </p>
-                        <p style="text-indent: 2em"> Son olarak "startup:app" ile startup.py dosyasındaki app in çağrılması
+                        <p style="text-indent: 2em"> Son olarak "startup:app" ile startup.py dosyasındaki app in
+                            çağrılması
                             gerektiğini belirtiyoruz.</p>
                         <pre>
 <code class="language-bash">gunicorn --bind=0.0.0.0 --timeout=700 startup:app</code></pre>
@@ -695,8 +696,11 @@ jobs:
                 <br>
                 <div style="background: linear-gradient(to left, white, greenyellow);height: 10px;"></div>
                 <br/>
-                <br/>
-                <br>
+
+                <p style="text-indent: 2em"> Bu aşamadan sonra Proje için Github'a yapılacak her yüklemede
+                    otomatik olarak Build ve Deploy iş akışları (workflow) devreye girecek ve uygulamamızda yapılan
+                    değişiklikler anında
+                    Production'da kendiliğinden devreye alınmış olacaklar. </p>
             </div>
         </div>
     </div>
