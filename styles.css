@@ -1,0 +1,220 @@
+:root {
+    --bg-primary: #1a1b26;
+    --bg-secondary: #24283b;
+    --text-primary: #a9b1d6;
+    --text-secondary: #7982a9;
+    --accent-purple: #bb9af7;
+    --accent-blue: #7aa2f7;
+    --accent-green: #9ece6a;
+    --accent-orange: #ff9e64;
+    --border-color: #292e42;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    margin: 0;
+    padding: 20px;
+}
+
+.markdown-container {
+    max-width: 1000px;
+    margin: 0 auto 2rem;
+    background: var(--bg-secondary);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--border-color);
+}
+
+.markdown-content {
+    font-size: 1.125rem;
+}
+
+/* Kod bloğu stilleri */
+.code-container {
+    position: relative;
+    margin: 1.5rem 0;
+    border-radius: 8px;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.code-container pre {
+    margin: 0;
+    padding: 3.5rem 1.5rem 1.5rem;
+    overflow-x: auto;
+    background: transparent !important;
+}
+
+.code-container code {
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+}
+
+/* Dil etiketi */
+.language-label {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+}
+
+/* Kopyalama butonu */
+.copy-button {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    color: var(--text-primary);
+    font-size: 0.875rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.copy-button:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: var(--accent-blue);
+    color: var(--accent-blue);
+}
+
+.copy-button svg {
+    width: 1rem;
+    height: 1rem;
+}
+
+/* Syntax highlighting renkleri */
+.token.comment {
+    color: var(--text-secondary);
+}
+
+.token.string {
+    color: var(--accent-green);
+}
+
+.token.number {
+    color: var(--accent-orange);
+}
+
+.token.keyword {
+    color: var(--accent-purple);
+}
+
+.token.function {
+    color: var(--accent-blue);
+}
+
+/* Responsive tasarım */
+@media (max-width: 768px) {
+    body {
+        padding: 12px;
+    }
+
+    .markdown-container {
+        padding: 1.5rem;
+    }
+
+    .code-container pre {
+        padding: 3rem 1rem 1rem;
+    }
+
+    .copy-button {
+        padding: 0.4rem 0.8rem;
+    }
+}
+
+/* Kaydırma çubuğu stilleri */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary);
+}
+
+
+
+p[align="center"] {
+    display: flex !important;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin: 20px 0;
+    width: 100%;
+}
+
+p[align="center"] img,
+p[align="center"] a {
+    flex: 1 1 calc(25% - 10px) !important;
+    min-width: calc(25% - 10px) !important;
+    max-width: calc(25% - 10px) !important;
+    margin: 0 !important;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+}
+
+p[align="center"] a {
+    display: block;
+    text-decoration: none;
+}
+
+p[align="center"] a img {
+    width: 100% !important;
+    height: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    border-radius: 8px;
+    transition: transform 0.2s ease;
+}
+
+p[align="center"] img:hover,
+p[align="center"] a img:hover {
+    transform: scale(1.02);
+}
+
+
+/* Responsive tasarım */
+@media (max-width: 768px) {
+
+    p[align="center"] img,
+    p[align="center"] a {
+        flex: 1 1 calc(50% - 10px) !important;
+        min-width: calc(50% - 10px) !important;
+        max-width: calc(50% - 10px) !important;
+    }
+}
+
+@media (max-width: 480px) {
+
+    p[align="center"] img,
+    p[align="center"] a {
+        flex: 1 1 100% !important;
+        min-width: 100% !important;
+        max-width: 100% !important;
+    }
+}
+

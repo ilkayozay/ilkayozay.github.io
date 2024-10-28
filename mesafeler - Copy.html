@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title>Short But Important Pyton Notes</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico"/>
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet"
+          type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+          rel="stylesheet" type="text/css"/>
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet"/>
+
+    <link rel="stylesheet" href="./dist/prismjs/prism.css">
+    <script src="./dist/prismjs/prism.js"></script>
+
+
+    <style>
+        ul {
+            padding-left: 1rem;
+        }
+
+        p {
+            text-align: justify
+        }
+    </style>
+
+
+    <style>
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: border-box;
+        }
+
+        pre[class*="language-bash"] {
+            position: relative;
+            overflow: auto;
+
+            /* make space  */
+            margin: 5px 0;
+            padding: 1.05rem 0 1.05rem 1rem;
+            border-radius: 10px;
+        }
+
+        pre[class*="language-python"] {
+            position: relative;
+            overflow: auto;
+
+            /* make space  */
+            margin: 5px 0;
+            padding: 1.05rem 0 1.05rem 1rem;
+            border-radius: 10px;
+        }
+
+        pre[class*="kodcikti"] {
+            position: relative;
+            overflow: auto;
+            /* make space  */
+            /* make space  */
+            margin: 5px 0;
+            padding: 1.05rem 0 1.05rem 1rem;
+            border-radius: 10px;
+            font-size: 1rem;
+        }
+
+        pre[class*="language-"] button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+
+            font-size: 0.9rem;
+            padding: 0.15rem;
+            background-color: #828282;
+
+            border: ridge 1px #7b7b7c;
+            border-radius: 5px;
+            text-shadow: #c4c4c4 0 0 2px;
+        }
+
+
+        pre[class*="language-"] button:hover {
+            cursor: pointer;
+            background-color: #bcbabb;
+        }
+
+        .onemli_uyari {
+            background-color: #ffc107;
+            background-image: linear-gradient(to right, #ffc107, #ff8b5f);
+            font-weight: bold;
+            /* make space  */
+            /* make space  */
+            margin: 5px 0;
+            margin-bottom: 20px;
+            padding: 1.05rem 1.05rem 1rem 1rem;
+            border-radius: 10px;
+            font-size: 1rem;
+        }
+
+
+    </style>
+
+</head>
+<body>
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+    <div class="container px-4 px-lg-5">
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html">Home</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Page Header-->
+<header class="masthead" style="background-image: url('assets/img/dharmendra-sahu-Ia2Kjtrx8y4-unsplash.jpg')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="post-heading">
+                    <h1 style="color: black">Veri Analizinde Kullanılan Mesafe Ölçüleri </h1>
+                    <h2 class="subheading" style="color: black"> Türleri, Özellikleri ve Hangi Durumda Hangi Mesafe
+                        Ölçüsünün Kullanılması Gerektiği </h2>
+                    <span class="meta">
+                                Posted on August 23, 2022
+                            </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Post Content-->
+<article class="mb-1">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-8">
+                <br>
+                <h3 style="color: red" >Bu yazı daha yazım aşamasındadır! </h3>
+                <p>
+                </p>
+
+                <ul>
+                    <li>
+                        <p>
+                            <b>Öklid Mesafesi:</b> En yaygın kullanılan mesafe ölçüsüdür. İki nokta arasındaki doğrudan
+                            mesafeyi ölçer. Öklid mesafesi, veri noktaları arasındaki farkların birbirine göre büyük
+                            ölçüde
+                            değiştiği durumlarda iyi çalışabilir.
+                        </p>
+                    </li>
+                    <li><p>Manhattan Mesafesi</p></li>
+                    <li>Minkowski Mesafesi</li>
+                    <li>Chebyshev Mesafesi</li>
+                    <li>
+                        <p>
+                            <b>Cosine Mesafesi:</b> İki vektör arasındaki açının kosinüsünü hesaplar. Cosine mesafesi,
+                            kelime gömme modelleri gibi yüksek boyutlu veri kümelerinde sıklıkla kullanılır.
+                        </p>
+                    </li>
+
+                    <li>
+                        <p>
+                            <b>Jaccard Mesafesi:</b> İki kümenin benzerlik derecesini ölçer. Jaccard mesafesi, özellikle
+                            kümeleme analizinde kullanılır.
+                        </p>
+                    </li>
+                    <li>Hamming Mesafesi</li>
+                    <li>Mahalanobis Mesafesi</li>
+                    <li>Bray Curtis Mesafesi</li>
+                    <li>Canberra Mesafesi</li>
+                    <li>Euclidean-Laplacian Mesafesi</li>
+                    <li>Chord Mesafesi</li>
+                    <li>Chi-Square Mesafesi</li>
+                    <li>Correlation Mesafesi</li>
+                    <li>Hellinger Mesafesi</li>
+                    <li>Jensen-Shannon Mesafesi</li>
+                    <li>Kullback-Leibler Mesafesi</li>
+                    <li>Mahalanobis-Minowski Mesafesi</li>
+                    <li>Mahalanobis-Cosine Mesafesi</li>
+                    <li>Mahalanobis-Jaccard Mesafesi</li>
+                </ul>
+
+
+            </div>
+        </div>
+    </div>
+</article>
+<!-- Footer-->
+<footer class="border-top">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <ul class="list-inline text-center">
+
+                    <li class="list-inline-item">
+                        <a href="#!">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                    </span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="small text-center text-muted fst-italic">İlkay Özay</div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script src="js/scripts.js"></script>
+
+
+<script>
+
+    const copyButtonLabel = "Copy Code";
+
+    // use a class selector if available
+    let blocks = document.querySelectorAll("pre:not(.kodcikti)");
+
+    blocks.forEach((block) => {
+        // only add button if browser supports Clipboard API
+        if (navigator.clipboard) {
+            let button = document.createElement("button");
+
+            button.innerText = copyButtonLabel;
+            block.appendChild(button);
+
+            button.addEventListener("click", async () => {
+                await copyCode(block, button);
+            });
+        }
+    });
+
+    async function copyCode(block, button) {
+        let code = block.querySelector("code");
+        let text = code.innerText;
+
+        await navigator.clipboard.writeText(text);
+
+        // visual feedback that task is completed
+        button.innerText = "Code Copied";
+
+        setTimeout(() => {
+            button.innerText = copyButtonLabel;
+        }, 700);
+    }
+
+
+</script>
+
+</body>
+</html>
