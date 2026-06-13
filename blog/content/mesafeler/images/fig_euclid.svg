@@ -1,0 +1,17 @@
+<svg viewBox="0 0 560 380" xmlns="http://www.w3.org/2000/svg" font-family='Georgia, "Times New Roman", serif'>
+<rect width="100%" height="100%" fill="#fcfbf7"/>
+<text x="280.0" y="26" text-anchor="middle" font-size="13" fill="#666" font-style="italic">Öklid: iki nokta arası düz çizgi — dik üçgenin hipotenüsü</text>
+<polygon points="130,300 265,300 265,120" fill="#2e6da411" stroke="none"/>
+<line x1="130" y1="300" x2="265" y2="300" stroke="#c0562e" stroke-width="3"/>
+<text x="197.5" y="328" text-anchor="middle" font-size="15" fill="#c0562e">yatay fark = 3</text>
+<line x1="265" y1="300" x2="265" y2="120" stroke="#4a8a5c" stroke-width="3"/>
+<text x="279" y="210.0" font-size="15" fill="#4a8a5c">dikey fark = 4</text>
+<line x1="130" y1="300" x2="265" y2="120" stroke="#2e6da4" stroke-width="3.5"/>
+<text x="107.5" y="202.0" font-size="16" fill="#2e6da4" font-weight="bold">Öklid = 5</text>
+<path d="M 251 300 L 251 286 L 265 286" fill="none" stroke="#bbb" stroke-width="1.5"/>
+<circle cx="130" cy="300" r="5" fill="#2b2b2b"/>
+<text x="118" y="306" text-anchor="end" font-size="16" fill="#2b2b2b">A</text>
+<circle cx="265" cy="120" r="5" fill="#2b2b2b"/>
+<text x="277" y="120" font-size="16" fill="#2b2b2b">B</text>
+<text x="280.0" y="350" text-anchor="middle" font-size="14" fill="#555">3² + 4² = 9 + 16 = 25  →  √25 = 5</text>
+</svg>

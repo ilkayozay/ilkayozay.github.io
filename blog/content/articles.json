@@ -175,7 +175,7 @@
       "ishtml": false,
       "featured": false,
       "tags": ["Machine Learning", "Python", "Data Science"],
-      "markdownFiles" : ["article.md"],
+      "markdownFiles" : ["giris.md","bolum-1-mesafe.md"],
       "linkname" : "",
       "heroName" : ""
     },
