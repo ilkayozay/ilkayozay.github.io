@@ -1,6 +1,5 @@
 {
   "articles": [
-
     {
       "id": "software3",
       "title": "Yazılımın Yeni Çağı",
@@ -9,12 +8,17 @@
       "author": "İlkay Özay",
       "ishtml": false,
       "featured": false,
-      "tags": ["Rise of Software 3.0", "Vibe Coding"],
-      "markdownFiles" : ["giris.md","article.md"],
-      "linkname" : "",
-      "heroName" : ""
+      "tags": [
+        "Rise of Software 3.0",
+        "Vibe Coding"
+      ],
+      "markdownFiles": [
+        "giris.md",
+        "article.md"
+      ],
+      "linkname": "",
+      "heroName": ""
     },
-
     {
       "id": "aiagent1",
       "title": "Yapay Zeka Ajanları (AI Agents)",
@@ -23,12 +27,18 @@
       "author": "İlkay Özay",
       "ishtml": false,
       "featured": false,
-      "tags": ["ReAct", "Workflow","AutoGen", "CrewAI"],
-      "markdownFiles" : ["article.md"],
-      "linkname" : "",
-      "heroName" : ""
+      "tags": [
+        "ReAct",
+        "Workflow",
+        "AutoGen",
+        "CrewAI"
+      ],
+      "markdownFiles": [
+        "article.md"
+      ],
+      "linkname": "",
+      "heroName": ""
     },
-
     {
       "id": "arininbildigi",
       "title": "Arının Bildiği",
@@ -37,12 +47,20 @@
       "author": "İlkay Özay",
       "ishtml": false,
       "featured": false,
-      "tags": ["Zekânın Maliyeti" , "Sıfırdan YapayZeka","Machine Learning"],
-      "markdownFiles" : ["00-onsoz.md","10-dunya-nasil-sayiya-doner.md","20-anlamin-koordinatlari-embedding.md","140-arka-kapak.md"],
-      "linkname" : "",
-      "heroName" : ""
+      "tags": [
+        "Zekânın Maliyeti",
+        "Sıfırdan YapayZeka",
+        "Machine Learning"
+      ],
+      "markdownFiles": [
+        "00-onsoz.md",
+        "10-dunya-nasil-sayiya-doner.md",
+        "20-anlamin-koordinatlari-embedding.md",
+        "140-arka-kapak.md"
+      ],
+      "linkname": "",
+      "heroName": ""
     },
-
     {
       "id": "llm-nedir",
       "title": "Large Language Models (LLM)",
@@ -51,12 +69,20 @@
       "author": "İlkay Özay",
       "ishtml": false,
       "featured": true,
-      "tags": ["AI", "NLP", "Machine Learning"],
-      "markdownFiles" : ["llm_Karpathy.md","llm-blog.md", "llm-nedir.md", "mson.md"],
-      "linkname" : "",
-      "heroName" : ""
+      "tags": [
+        "AI",
+        "NLP",
+        "Machine Learning"
+      ],
+      "markdownFiles": [
+        "llm_Karpathy.md",
+        "llm-blog.md",
+        "llm-nedir.md",
+        "mson.md"
+      ],
+      "linkname": "",
+      "heroName": ""
     },
-
     {
       "id": "vectordb",
       "title": "Vektör Veritabanlarına Bir Bakış",
@@ -65,10 +91,15 @@
       "author": "İlkay Özay",
       "ishtml": false,
       "featured": false,
-      "tags": ["Vector DB", "RAG"],
-      "markdownFiles" : ["vector_db.md"],
-      "linkname" : "",
-      "heroName" : ""
+      "tags": [
+        "Vector DB",
+        "RAG"
+      ],
+      "markdownFiles": [
+        "vector_db.md"
+      ],
+      "linkname": "",
+      "heroName": ""
     },
     {
       "id": "agi",
@@ -78,26 +109,36 @@
       "author": "İlkay Özay",
       "ishtml": false,
       "featured": false,
-      "tags": ["AGI", "Artificial General Intelligence"],
-      "markdownFiles" : ["article.md"],
-      "linkname" : "",
-      "heroName" : ""
+      "tags": [
+        "AGI",
+        "Artificial General Intelligence"
+      ],
+      "markdownFiles": [
+        "article.md"
+      ],
+      "linkname": "",
+      "heroName": ""
     },
-
     {
       "id": "robotics",
-      "title": "Robotik ve Otomasyon",
-      "excerpt": "Robot Üreten Firmaları ve Gelişmeler",
-      "date": "Kasım 2024",
+      "title": "Çelik ve Silikondan Uyanış: 2026'nın En Etkileyici Robotları",
+      "excerpt": "Yapay zeka ete kemiğe bürünüyor. Dünyanın önde gelen robot şirketlerinin geldiği son nokta.",
+      "date": "Haziran 2026",
       "author": "İlkay Özay",
       "ishtml": false,
-      "featured": false,
-      "tags": ["AutonomousRobots", "Humanoids"],
-      "markdownFiles" : ["article.md"],
-      "linkname" : "",
-      "heroName" : ""
+      "featured": true,
+      "tags": [
+        "Robotics",
+        "Humanoids",
+        "AI",
+        "Future"
+      ],
+      "markdownFiles": [
+        "article.md"
+      ],
+      "linkname": "",
+      "heroName": ""
     },
-
     {
       "id": "ai-word",
       "title": "Yapay Zekanın Güncesi: Gelişmeler, Öngörüler ve Stratejiler",
@@ -106,12 +147,15 @@
       "author": "İlkay Özay",
       "ishtml": false,
       "featured": true,
-      "tags": ["AI"],
-      "markdownFiles" : ["article.md"],
-      "linkname" : "",
-      "heroName" : ""
+      "tags": [
+        "AI"
+      ],
+      "markdownFiles": [
+        "article.md"
+      ],
+      "linkname": "",
+      "heroName": ""
     },
-
     {
       "id": "standardization_normalization",
       "title": "Veri Ön İşleme: Standardizasyon ve Normalizasyon",
@@ -120,12 +164,17 @@
       "author": "İlkay Özay",
       "ishtml": false,
       "featured": false,
-      "tags": ["Data Transformation", "Feature Scaling", "Data Preprocessing"],
-      "markdownFiles" : ["article.md"],
-      "linkname" : "",
-      "heroName" : ""
+      "tags": [
+        "Data Transformation",
+        "Feature Scaling",
+        "Data Preprocessing"
+      ],
+      "markdownFiles": [
+        "article.md"
+      ],
+      "linkname": "",
+      "heroName": ""
     },
-
     {
       "id": "xgboost-classification",
       "title": "XGBoost ile Sınıflandırma",
@@ -134,25 +183,17 @@
       "author": "İlkay Özay",
       "ishtml": false,
       "featured": false,
-      "tags": ["Machine Learning", "Python", "Data Science"],
-      "markdownFiles" : ["article.md"],
-      "linkname" : "",
-      "heroName" : "../assets/images/pawel-czerwinski-ki9IMshQZ4Q-unsplash.jpg"
+      "tags": [
+        "Machine Learning",
+        "Python",
+        "Data Science"
+      ],
+      "markdownFiles": [
+        "article.md"
+      ],
+      "linkname": "",
+      "heroName": "../assets/images/pawel-czerwinski-ki9IMshQZ4Q-unsplash.jpg"
     },
-    {
-      "id": "flask_azure_app",
-      "title": "Azure App Servis ile Flask Uygulaması",
-      "excerpt": "Flask Uygulamasının VS Code Üzerinden Github ve Azure'a Yüklenmesi",
-      "date": "16 March 2023",
-      "author": "İlkay Özay",
-      "ishtml": false,
-      "featured": false,
-      "tags": ["Machine Learning", "Python", "Data Science"],
-      "markdownFiles" : ["article.md"],
-      "linkname" : "",
-      "heroName" : "../assets/images/delbert-pagayona-46v8clmNjY8-unsplash.jpg"
-    },
-
     {
       "id": "lazypredict",
       "title": "Lazy Predict",
@@ -161,10 +202,16 @@
       "author": "İlkay Özay",
       "ishtml": false,
       "featured": false,
-      "tags": ["Machine Learning", "Python", "Data Science"],
-      "markdownFiles" : ["article.md"],
-      "linkname" : "",
-      "heroName" : "../assets/images/deepmind-unsplash.jpg"
+      "tags": [
+        "Machine Learning",
+        "Python",
+        "Data Science"
+      ],
+      "markdownFiles": [
+        "article.md"
+      ],
+      "linkname": "",
+      "heroName": "../assets/images/deepmind-unsplash.jpg"
     },
     {
       "id": "mesafeler",
@@ -174,10 +221,17 @@
       "author": "İlkay Özay",
       "ishtml": false,
       "featured": false,
-      "tags": ["Machine Learning", "Python", "Data Science"],
-      "markdownFiles" : ["giris.md","bolum-1-mesafe.md"],
-      "linkname" : "",
-      "heroName" : ""
+      "tags": [
+        "Machine Learning",
+        "Python",
+        "Data Science"
+      ],
+      "markdownFiles": [
+        "giris.md",
+        "bolum-1-mesafe.md"
+      ],
+      "linkname": "",
+      "heroName": ""
     },
     {
       "id": "jupyter_notlari",
@@ -187,10 +241,16 @@
       "author": "İlkay Özay",
       "ishtml": false,
       "featured": false,
-      "tags": ["Machine Learning", "Python", "Data Science"],
-      "markdownFiles" : ["article.md"],
-      "linkname" : "",
-      "heroName" : "../assets/images/post-bg.jpg"
+      "tags": [
+        "Machine Learning",
+        "Python",
+        "Data Science"
+      ],
+      "markdownFiles": [
+        "article.md"
+      ],
+      "linkname": "",
+      "heroName": "../assets/images/post-bg.jpg"
     },
     {
       "id": "git_notlari",
@@ -200,10 +260,16 @@
       "author": "İlkay Özay",
       "ishtml": false,
       "featured": false,
-      "tags": ["Machine Learning", "Python", "Data Science"],
-      "markdownFiles" : ["article.md"],
-      "linkname" : "",
-      "heroName" : "../assets/images/git1.jpg"
+      "tags": [
+        "Machine Learning",
+        "Python",
+        "Data Science"
+      ],
+      "markdownFiles": [
+        "article.md"
+      ],
+      "linkname": "",
+      "heroName": "../assets/images/git1.jpg"
     },
     {
       "id": "sqlalchemy_lock_for_update",
@@ -213,10 +279,15 @@
       "author": "İlkay Özay",
       "ishtml": false,
       "featured": false,
-      "tags": ["Python", "SQL"],
-      "markdownFiles" : ["article.md"],
-      "linkname" : "",
-      "heroName" : "../assets/images/rachael-ren-U94eGGi_1ZY-unsplash.jpg"
+      "tags": [
+        "Python",
+        "SQL"
+      ],
+      "markdownFiles": [
+        "article.md"
+      ],
+      "linkname": "",
+      "heroName": "../assets/images/rachael-ren-U94eGGi_1ZY-unsplash.jpg"
     }
   ]
 }
