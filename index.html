@@ -1,212 +1,104 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Ilkay's Work Notes</title>
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-    </head>
-    <body>
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
-            <div class="container px-4 px-lg-5">
-  
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
-                    <i class="fas fa-bars"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.html">About</a></li>
-                    </ul>
-                </div>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İlkay Özay -  Blog</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+        <link href="./assets/css/main.css" rel="stylesheet">
+</head>
+<body  data-theme="dark">
+
+<!-- Navigation -->
+<header class="absolute top-0 left-0 w-full z-50  " data-theme="dark">
+    <nav class="flex justify-between items-center max-w-7xl mx-auto px-6 py-4">
+        <a href="/" class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
+
+        </a>
+        <div class="flex gap-8">
+            <a href="about.html" class="hover:text-white transition-colors font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Hakkımda</a>
+            <!--
+            <a href="/contact" class="hover:text-white transition-colors font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">İletişim</a>
+            -->
+        </div>
+    </nav>
+</header>
+
+<!-- Theme selector buttons -->
+<div class="fixed right-4 top-1/2 -translate-y-1/2 z-50">
+    <div class="bg-gray-800 rounded-lg shadow-lg p-1 flex flex-col gap-1">
+        <!-- Light theme button -->
+        <button class="theme-btn p-2 rounded hover:bg-gray-700 transition-colors" data-theme="light">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-yellow-400">
+                <circle cx="12" cy="12" r="5"></circle>
+                <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+            </svg>
+        </button>
+
+        <!-- Dark theme button -->
+        <button class="theme-btn p-2 rounded hover:bg-gray-700 transition-colors" data-theme="dark">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-blue-400">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
+        </button>
+
+        <!-- Sepia theme button -->
+        <button class="theme-btn p-2 rounded hover:bg-gray-700 transition-colors" data-theme="sepia">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-amber-600">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                <path d="M3 9h18M9 21V9" />
+            </svg>
+        </button>
+
+        <!-- Ocean theme button -->
+        <button class="theme-btn p-2 rounded hover:bg-gray-700 transition-colors" data-theme="ocean">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-blue-500">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+            </svg>
+        </button>
+
+
+    </div>
+</div>
+
+
+
+
+<!-- Hero Section -->
+<div class="relative mt-1">
+    <div class="mx-auto max-w-7xl px-4 py-8">
+        <div class="relative h-32 sm:h-40 md:h-48 lg:h-56 rounded-2xl overflow-hidden">
+            <!-- Arkaplan resmi -->
+            <div class="absolute inset-0">
+                <img src="./assets/images/main-hero.jpg"
+                     alt="Hero background"
+                     class="w-full h-full object-cover object-center" />
+                <div class="absolute inset-0 bg-black/40"></div>
             </div>
-        </nav>
-        <!-- Page Header-->
-        <header class="masthead" style="background-image: url('assets/img/subtle-cinematics--unsplash.jpg')">
-            <div class="container position-relative px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-md-10 col-lg-8 col-xl-7 mb-4">
-                        <div class="site-heading">
-                            <h1>Ilkay Ozay Blog</h1>
-                            <!--
-                            <span class="subheading">A Blog About </span>
-                            -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-        <!-- Main Content-->
-        <div class="container px-4 px-lg-5">
-            <div class="row gx-4 gx-lg-5 justify-content-center">
-                <div class="col-md-10 col-lg-8 col-xl-7">
-                    <!-- Post preview-->
-
-                    <div class="post-preview">
-                        <a href="llm-nedir.html">
-                            <h2 class="post-title">Large Language Models (LLM)</h2>
-                            <h4 class="post-subtitle">LLM'ler Nasıl Çalışır? Günlük Hayattaki Uygulamaları Nelerdir? </h4>
-                        </a>
-                        <p class="post-meta">
-                            Posted on October 28, 2024
-                        </p>
-                    </div>
-
-                    <div class="post-preview">
-                        <a href="lazypredict.html">
-                            <h2 class="post-title">Lazy Predict</h2>
-                            <h4 class="post-subtitle">Sınıflandırma ve regresyon algoritması için en iyi sonucu veren algoritmayı hızlıca seçmek </h4>
-                        </a>
-                        <p class="post-meta">
-                            Posted on September 24, 2022
-                        </p>
-                    </div>
-                    <!-- Divider-->
-                    <hr class="my-4" />
-                    <!-- Post preview-->
-                    <div class="post-preview">
-                        <a href="xgboost.html">
-                            <h2 class="post-title">XGBoost ile Sınıflandırma</h2>
-                            <h4 class="post-subtitle">Wine Veri Kümesi ile XGBoost'un XGBClassifier sınıfının kullanımı </h4>
-                        </a>
-                        <p class="post-meta">
-                            Posted on March 26, 2023
-                        </p>
-                    </div>
-                    <!-- Divider-->
-                    <hr class="my-4" />
-                    <!-- Post preview-->
-                    <div class="post-preview">
-                        <a href="git_notlari.html">
-                            <h2 class="post-title">Git Temel Konular</h2>
-                            <h4 class="post-subtitle">Git ile ilgili bazı soruların cevapları.</h4>
-                        </a>
-                        <p class="post-meta">
-                            Posted on December 30, 2022
-                        </p>
-                    </div>
-                    <!-- Divider-->
-                    <hr class="my-4" />
-                    <!-- Post preview-->
-                    <div class="post-preview">
-                        <a href="flask_azure_app.html">
-                            <h2 class="post-title">Azure App Servis ile Flask Uygulaması </h2>
-                            <h4 class="post-subtitle">Flask Uygulamasının VS Code Üzerinden Github ve Azure'a Yüklenmesi.</h4>
-                        </a>
-                        <p class="post-meta">
-                            Posted on March 16, 2023
-                        </p>
-                    </div>
-                    <!-- Divider-->
-                    <hr class="my-4" />
-                    <!-- Post preview-->
-                    <div class="post-preview">
-                        <a href="jupyter_notlari.html">
-                            <h2 class="post-title">Jupyter Notlar</h2>
-                            <h3 class="post-subtitle">Kernel kurulumu gibi bazı temel bilgiler</h3>
-                        </a>
-                        <p class="post-meta">
-                            Posted on January 1, 2023
-                        </p>
-                    </div>
-                    <!-- Divider-->
-                    <hr class="my-4" />
-                    <!-- Post preview-->
-                    <div class="post-preview">
-                        <a href="small_python_notes.html">
-                            <h2 class="post-title">Kısa Python Notları</h2>
-                            <h4 class="post-subtitle"> Bir kenarda durmalı dediğim notlarım </h4>
-                        </a>
-                        <p class="post-meta">
-                            Posted on February 23, 2023
-                        </p>
-                    </div>
-
-                    <!-- Divider-->
-                    <hr class="my-4" />
-                    <!-- Post preview-->
-                    <div class="post-preview">
-                        <a href="sqlalchemy_lock_for_update.html">
-                            <h2 class="post-title">Python SQL Alchemy LOCK meselesi</h2>
-                            <h4 class="post-subtitle"> Bir kayıt üzerinde işlem yaparken başka bir kaydın onu
-                                değiştirememesi! </h4>
-                        </a>
-                        <p class="post-meta">
-                            Posted on December 29, 2022
-                        </p>
-                    </div>
-                    <!-- Divider-->
-                    <hr class="my-4" />
-                    <!-- Post preview-->
-                    <div class="post-preview">
-                        <a href="standardization_normalization.html">
-                            <h2 class="post-title">Veri Dönüşümü: Standardizasyon ve Normalizasyon</h2>
-                            <h4 class="post-subtitle"> <p>Özellik (feature) ölçeklendirme yöntemleri Nelerdir?</p>
-                                <p>Standartlaştırma ve normalleştirme arasındaki fark nedir?</p>
-                                <p>Hangi yaklaşımı ne zaman ve nasıl uygularız?</p></h4>
-                        </a>
-                        <p class="post-meta">
-                            Posted on September 24, 2022
-                        </p>
-                    </div>
-                    <!-- Divider-->
-                    <hr class="my-4" />
-                    <!-- Post preview-->
-                    <div class="post-preview">
-                        <a href="mesafeler.html">
-                            <h2 class="post-title">Veri Analizinde Kullanılan Mesafe Ölçüleri</h2>
-                            <h4 class="post-subtitle"> <p>Türleri, Özellikleri ve Hangi Durumda Hangi Mesafe
-                                Ölçüsünün Kullanılması Gerektiği </p>
-                                </h4>
-                        </a>
-                        <p class="post-meta">
-                            Posted on August 23, 2022
-                        </p>
-                    </div>
-                    <!--
-                    <hr class="my-4" />
-                    Divider-->
-                    <!--
-                    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
-                    Pager-->
+            <!-- İçerik -->
+            <div class="relative h-full flex items-center justify-center">
+                <div class="text-center space-y-2 sm:space-y-4 md:space-y-6 lg:space-y-8 px-4">
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white">
+                        Kendim İçin Notlar
+                    </h1>
+                    <p class="text-lg sm:text-xl md:text-2xl text-gray-100">
+                        Yazılım, Yapay Zeka ve Teknoloji Üzerine
+                    </p>
                 </div>
             </div>
         </div>
-        <!-- Footer-->
-        <footer class="border-top">
-            <div class="container px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-md-10 col-lg-8 col-xl-7">
-                        <ul class="list-inline text-center">
+    </div>
+</div>
 
-                            <li class="list-inline-item">
-                                <a href="#!">
-                                    <span class="fa-stack fa-lg">
-                                        <i class="fas fa-circle fa-stack-2x"></i>
-                                        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                                    </span>
-                                </a>
-                            </li>
-                        </ul>
-                        <div class="small text-center text-muted fst-italic">2022</div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-    </body>
+
+<!-- Blog Posts Grid -->
+<main class="max-w-7xl mx-auto px-4 py-1">
+    <div id="articleGrid" class="article-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Articles will be dynamically inserted here -->
+    </div>
+
+</main>
+
+<script src="./assets/js/main.js"></script>
+</body>
 </html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="İlkay Özay hakkında kısa bilgi, çalışma alanları ve blogun amacı.">
+    <title>Hakkımda - Kendim İçin Notlar</title>
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="./assets/css/main.css" rel="stylesheet">
+</head>
+<body data-theme="dark">
+
+<header class="absolute top-0 left-0 w-full z-50">
+    <nav class="flex justify-between items-center max-w-7xl mx-auto px-6 py-4">
+        <a href="index.html" class="text-sm uppercase tracking-[0.25em] text-gray-200 hover:text-white transition-colors">
+            Blog'a Dön
+        </a>
+        <div class="flex gap-8">
+            <a href="index.html" class="hover:text-white transition-colors font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Yazılar</a>
+        </div>
+    </nav>
+</header>
+
+<div class="fixed right-4 top-1/2 -translate-y-1/2 z-50">
+    <div class="bg-gray-800 rounded-lg shadow-lg p-1 flex flex-col gap-1">
+        <button class="theme-btn p-2 rounded hover:bg-gray-700 transition-colors" data-theme="light" aria-label="Açık tema">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-yellow-400">
+                <circle cx="12" cy="12" r="5"></circle>
+                <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+            </svg>
+        </button>
+        <button class="theme-btn p-2 rounded hover:bg-gray-700 transition-colors" data-theme="dark" aria-label="Koyu tema">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-blue-400">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
+        </button>
+        <button class="theme-btn p-2 rounded hover:bg-gray-700 transition-colors" data-theme="sepia" aria-label="Sepya tema">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-amber-600">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                <path d="M3 9h18M9 21V9" />
+            </svg>
+        </button>
+        <button class="theme-btn p-2 rounded hover:bg-gray-700 transition-colors" data-theme="ocean" aria-label="Okyanus tema">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-blue-500">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+            </svg>
+        </button>
+    </div>
+</div>
+
+<main class="max-w-7xl mx-auto px-4 py-8 sm:py-12">
+    <section class="about-hero rounded-3xl overflow-hidden relative mb-8 sm:mb-12">
+        <div class="about-hero__image">
+            <img src="./assets/images/about-bg.jpg" alt="Hakkımda arka plan" class="w-full h-full object-cover object-center">
+        </div>
+        <div class="about-hero__overlay"></div>
+        <div class="about-hero__content relative px-6 py-16 sm:px-10 sm:py-20 lg:px-16 lg:py-24">
+            <p class="about-kicker">Hakkımda</p>
+            <h1 class="about-title">Kod, veri ve yapay zeka etrafında düşünen bir çalışma günlüğü</h1>
+            <p class="about-lead">
+                Bu blog; öğrendiklerimi sistemleştirmek, teknik konuları sadeleştirmek ve zamanla tekrar dönüp bakabileceğim bir bilgi arşivi oluşturmak için var.
+            </p>
+        </div>
+    </section>
+
+    <section class="about-grid grid gap-6 lg:grid-cols-[1.2fr_0.8fr] items-start">
+        <article class="about-panel">
+            <h2>Ne üzerine yazıyorum?</h2>
+            <p>
+                Yazılarımın merkezinde yazılım mühendisliği, yapay zeka, makine öğrenmesi, veri işleme ve üretken sistemler var.
+                Bazen bir kavramı sadeleştiriyorum, bazen pratik bir örneği parçalıyorum, bazen de kendi çalışma notlarımı düzenli bir anlatıya çeviriyorum.
+            </p>
+            <p>
+                Hedefim akademik doğrulukla gündelik anlaşılırlık arasında iyi bir denge kurmak. Gereksiz gösterişten kaçıp, gerçekten işe yarayan anlatıları toplamaya çalışıyorum.
+            </p>
+        </article>
+
+        <aside class="about-panel about-panel--compact">
+            <h2>Odak alanları</h2>
+            <ul class="about-list">
+                <li>Yapay zeka sistemleri ve LLM ekosistemi</li>
+                <li>Makine öğrenmesi temelleri ve uygulamaları</li>
+                <li>Python tabanlı veri ve backend pratikleri</li>
+                <li>Teknik kavramları sade dille anlatma</li>
+            </ul>
+        </aside>
+
+        <article class="about-panel">
+            <h2>Bu sitenin amacı</h2>
+            <p>
+                Bu yapı artık tek bir Markdown hattı üzerinden ilerliyor. Bunun nedeni sadece teknik sadelik değil; içerik üretimini sürdürülebilir hale getirmek.
+                El ile tek tek HTML yazmak kısa vadede hızlı görünse de zamanla bakım maliyeti yaratıyor. Şimdi içerik ve sunum birbirinden daha net ayrılmış durumda.
+            </p>
+            <p>
+                Bu ayrım bana iki şey kazandırıyor: yeni yazıları daha hızlı eklemek ve eski yazıları daha güvenli şekilde güncellemek.
+            </p>
+        </article>
+
+        <article class="about-panel about-panel--compact">
+            <h2>İletişim</h2>
+            <p>
+                Profesyonel profil için LinkedIn üzerinden ulaşabilirsin.
+            </p>
+            <a class="about-link" href="https://www.linkedin.com/in/ilkay-o-6345907/" target="_blank" rel="noreferrer">
+                LinkedIn profiline git
+            </a>
+        </article>
+    </section>
+</main>
+
+<script src="./assets/js/main.js"></script>
+</body>
+</html>

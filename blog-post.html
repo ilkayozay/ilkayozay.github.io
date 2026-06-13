@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blog yazısı">
+    <title>Blog Post</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+
+    <link rel="stylesheet" href="./blog/css/blog-post.css">
+
+</head>
+<body >
+
+
+<nav class="top-nav">
+    <a href="index.html" class="home-button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+        <span>Ana Sayfa</span>
+    </a>
+
+    <!-- Theme Selector -->
+    <div class="theme-selector">
+        <button data-theme="light" class="theme-btn">Light</button>
+        <button data-theme="dark" class="theme-btn">Dark</button>
+        <button data-theme="sepia" class="theme-btn">Sepia</button>
+        <button data-theme="ocean" class="theme-btn">Ocean</button>
+    </div>
+</nav>
+
+
+<!-- Hero Image -->
+<div class="hero-image" id="heroImage"    ></div>
+
+
+<main class="article-container" style="margin-bottom: 0px;">
+    <div class="header-separator"></div>
+    <header class="article-header " >
+        <h1 class="article-title text-4xl sm:text-5xl md:text-6xl font-bold mb-4" id="articleTitle"></h1>
+        <div class="text-base sm:text-lg text-gray-500 dark:text-gray-400 mb-8" style="display: none" id="articleDate"></div>
+        <!-- Özet bölümü -->
+        <p class="" id="articleExcerpt"></p>
+    </header>
+    <div class="header-separator"></div>
+</main>
+
+<article id="articleContent" style="margin-bottom: 30px" >
+    <!-- Makale içeriği buraya gelecek -->
+</article>
+
+
+
+<!-- Scripts - Sıralama önemli -->
+
+<!-- Önce kütüphaneler -->
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markdown.min.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-java.min.js"></script>
+
+
+<!-- En son kendi script'iniz -->
+<script src="./blog/js/blog-post.js"></script>
+
+</body>
+</html>

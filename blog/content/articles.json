@@ -1,0 +1,222 @@
+{
+  "articles": [
+
+    {
+      "id": "software3",
+      "title": "Yazılımın Yeni Çağı",
+      "excerpt": "Tesla'nın eski Yapay Zeka Direktörü Andrej Karpathy \"Yazılım 3.0\" adını verdiği yeni bir devrimi masaya yatırıyor",
+      "date": "Haziran 2025",
+      "author": "İlkay Özay",
+      "ishtml": false,
+      "featured": false,
+      "tags": ["Rise of Software 3.0", "Vibe Coding"],
+      "markdownFiles" : ["giris.md","article.md"],
+      "linkname" : "",
+      "heroName" : ""
+    },
+
+    {
+      "id": "aiagent1",
+      "title": "Yapay Zeka Ajanları (AI Agents)",
+      "excerpt": "Bir AI Agent'ın değeri, ne kadar karmaşık göründüğüyle değil, ne kadar etkili bir şekilde problem çözdüğüyle ölçülür.",
+      "date": "Haziran 2025",
+      "author": "İlkay Özay",
+      "ishtml": false,
+      "featured": false,
+      "tags": ["ReAct", "Workflow","AutoGen", "CrewAI"],
+      "markdownFiles" : ["article.md"],
+      "linkname" : "",
+      "heroName" : ""
+    },
+
+    {
+      "id": "arininbildigi",
+      "title": "Arının Bildiği",
+      "excerpt": "Az Enerjiyle Çok İş, ve Yapay Zekânın Unuttuğu Soru",
+      "date": "Haziran 2026",
+      "author": "İlkay Özay",
+      "ishtml": false,
+      "featured": false,
+      "tags": ["Zekânın Maliyeti" , "Sıfırdan YapayZeka","Machine Learning"],
+      "markdownFiles" : ["00-onsoz.md","10-dunya-nasil-sayiya-doner.md","20-anlamin-koordinatlari-embedding.md","140-arka-kapak.md"],
+      "linkname" : "",
+      "heroName" : ""
+    },
+
+    {
+      "id": "llm-nedir",
+      "title": "Large Language Models (LLM)",
+      "excerpt": "LLM'ler Nasıl Çalışır? Günlük Hayattaki Uygulamaları Nelerdir?",
+      "date": "28 October 2024",
+      "author": "İlkay Özay",
+      "ishtml": false,
+      "featured": true,
+      "tags": ["AI", "NLP", "Machine Learning"],
+      "markdownFiles" : ["llm_Karpathy.md","llm-blog.md", "llm-nedir.md", "mson.md"],
+      "linkname" : "",
+      "heroName" : ""
+    },
+
+    {
+      "id": "vectordb",
+      "title": "Vektör Veritabanlarına Bir Bakış",
+      "excerpt": "Neden Vektör Veritabanı Kullanmalıyız?",
+      "date": "Ocak 2025",
+      "author": "İlkay Özay",
+      "ishtml": false,
+      "featured": false,
+      "tags": ["Vector DB", "RAG"],
+      "markdownFiles" : ["vector_db.md"],
+      "linkname" : "",
+      "heroName" : ""
+    },
+    {
+      "id": "agi",
+      "title": "Artificial General Intelligence (AGI)",
+      "excerpt": "Genel Yapay Zeka: Tanımı ve Kriterleri. İnsanlığa etkisi nasıl olacak ?",
+      "date": "Kasım 2024",
+      "author": "İlkay Özay",
+      "ishtml": false,
+      "featured": false,
+      "tags": ["AGI", "Artificial General Intelligence"],
+      "markdownFiles" : ["article.md"],
+      "linkname" : "",
+      "heroName" : ""
+    },
+
+    {
+      "id": "robotics",
+      "title": "Robotik ve Otomasyon",
+      "excerpt": "Robot Üreten Firmaları ve Gelişmeler",
+      "date": "Kasım 2024",
+      "author": "İlkay Özay",
+      "ishtml": false,
+      "featured": false,
+      "tags": ["AutonomousRobots", "Humanoids"],
+      "markdownFiles" : ["article.md"],
+      "linkname" : "",
+      "heroName" : ""
+    },
+
+    {
+      "id": "ai-word",
+      "title": "Yapay Zekanın Güncesi: Gelişmeler, Öngörüler ve Stratejiler",
+      "excerpt": "Gelecek kodlanıyor: Dünya Yapay Zeka ile şekilleniyor!",
+      "date": "Kasım 2024",
+      "author": "İlkay Özay",
+      "ishtml": false,
+      "featured": true,
+      "tags": ["AI"],
+      "markdownFiles" : ["article.md"],
+      "linkname" : "",
+      "heroName" : ""
+    },
+
+    {
+      "id": "standardization_normalization",
+      "title": "Veri Ön İşleme: Standardizasyon ve Normalizasyon",
+      "excerpt": "Standartlaştırma ve normalleştirme arasındaki fark nedir? Hangi yaklaşımı ne zaman ve nasıl uygularız?",
+      "date": "24 September 2022",
+      "author": "İlkay Özay",
+      "ishtml": false,
+      "featured": false,
+      "tags": ["Data Transformation", "Feature Scaling", "Data Preprocessing"],
+      "markdownFiles" : ["article.md"],
+      "linkname" : "",
+      "heroName" : ""
+    },
+
+    {
+      "id": "xgboost-classification",
+      "title": "XGBoost ile Sınıflandırma",
+      "excerpt": "Wine Veri Kümesi ile XGBoost'un XGBClassifier sınıfının kullanımı",
+      "date": "26 March 2023",
+      "author": "İlkay Özay",
+      "ishtml": false,
+      "featured": false,
+      "tags": ["Machine Learning", "Python", "Data Science"],
+      "markdownFiles" : ["article.md"],
+      "linkname" : "",
+      "heroName" : "../assets/images/pawel-czerwinski-ki9IMshQZ4Q-unsplash.jpg"
+    },
+    {
+      "id": "flask_azure_app",
+      "title": "Azure App Servis ile Flask Uygulaması",
+      "excerpt": "Flask Uygulamasının VS Code Üzerinden Github ve Azure'a Yüklenmesi",
+      "date": "16 March 2023",
+      "author": "İlkay Özay",
+      "ishtml": false,
+      "featured": false,
+      "tags": ["Machine Learning", "Python", "Data Science"],
+      "markdownFiles" : ["article.md"],
+      "linkname" : "",
+      "heroName" : "../assets/images/delbert-pagayona-46v8clmNjY8-unsplash.jpg"
+    },
+
+    {
+      "id": "lazypredict",
+      "title": "Lazy Predict",
+      "excerpt": "Sınıflandırma ve regresyon algoritması için en iyi sonucu veren algoritmayı hızlıca seçmek",
+      "date": "7 Şubat 2023",
+      "author": "İlkay Özay",
+      "ishtml": false,
+      "featured": false,
+      "tags": ["Machine Learning", "Python", "Data Science"],
+      "markdownFiles" : ["article.md"],
+      "linkname" : "",
+      "heroName" : "../assets/images/deepmind-unsplash.jpg"
+    },
+    {
+      "id": "mesafeler",
+      "title": "Veri Analizinde Kullanılan Mesafe Ölçüleri",
+      "excerpt": "Türleri, Özellikleri ve Hangi Durumda Hangi Mesafe Ölçüsünün Kullanılması Gerektiği",
+      "date": "7 Ekim 2024",
+      "author": "İlkay Özay",
+      "ishtml": false,
+      "featured": false,
+      "tags": ["Machine Learning", "Python", "Data Science"],
+      "markdownFiles" : ["article.md"],
+      "linkname" : "",
+      "heroName" : "../assets/images/anton-lammert-LPPOau2BJNA-unsplash.jpg"
+    },
+    {
+      "id": "jupyter_notlari",
+      "title": "Jupyter İçin Temel Bilgiler",
+      "excerpt": "Jupyter için sanal ortam kurulumu",
+      "date": "1 Ocak 2022",
+      "author": "İlkay Özay",
+      "ishtml": false,
+      "featured": false,
+      "tags": ["Machine Learning", "Python", "Data Science"],
+      "markdownFiles" : ["article.md"],
+      "linkname" : "",
+      "heroName" : "../assets/images/post-bg.jpg"
+    },
+    {
+      "id": "git_notlari",
+      "title": "Basit Seviyede Git Notları",
+      "excerpt": "Bir projenin Github ile entegrasyonu",
+      "date": "29 Şubat 2022",
+      "author": "İlkay Özay",
+      "ishtml": false,
+      "featured": false,
+      "tags": ["Machine Learning", "Python", "Data Science"],
+      "markdownFiles" : ["article.md"],
+      "linkname" : "",
+      "heroName" : "../assets/images/git1.jpg"
+    },
+    {
+      "id": "sqlalchemy_lock_for_update",
+      "title": "Python SQL Alchemy LOCK meselesi",
+      "excerpt": "Bir kayıt üzerinde işlem yaparken başka bir işlemin onu değiştirememesi!",
+      "date": "29 Aralık 2022",
+      "author": "İlkay Özay",
+      "ishtml": false,
+      "featured": false,
+      "tags": ["Python", "SQL"],
+      "markdownFiles" : ["article.md"],
+      "linkname" : "",
+      "heroName" : "../assets/images/rachael-ren-U94eGGi_1ZY-unsplash.jpg"
+    }
+  ]
+}
